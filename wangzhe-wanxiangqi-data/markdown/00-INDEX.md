@@ -29,7 +29,9 @@
 | `/wangzhe-wanxiangqi-data/json/talents.json` + csv | 天赋 269（官方 currentCount 255） |
 | `/wangzhe-wanxiangqi-data/json/chessplayers.json` + csv | 棋手 21 |
 | `/wangzhe-wanxiangqi-data/markdown/03-cards.md` | 卡牌摘录 |
-| `/wangzhe-wanxiangqi-data/json/image_index.json` | URL/文件名对应表 |
+| `/wangzhe-wanxiangqi-data/json/image_index.json` | URL/文件名对应表（1328 条目，144 已下 / 1184 待下） |
+| `/wangzhe-wanxiangqi-data/scripts/fetch_remaining_images.py` | 剩余图片断点续跑下载工具 |
+| `/wangzhe-wanxiangqi-data/markdown/07-continuation.md` | 2026-09-13 续查记录 |
 | `/wangzhe-wanxiangqi-data/json/ui_operations.json` | 操作 |
 | `/wangzhe-wanxiangqi-data/json/screenshot_index.json` | 截图对应表（57/57 与磁盘一致） |
 | `/wangzhe-wanxiangqi-data/markdown/05-operations.md` | 界面证据 |
@@ -67,6 +69,7 @@
 
 ## 核对
 
+- 2026-09-13 续查：`git pull` 已最新；线上 wiki 各机制页与 `mechanics.json` 逐项一致；`image_index.json` 已去重 24 条重复条目（`items` 1328 = `count`，ok 144 / url_only 1184），并新增剩余图片下载工具 `scripts/fetch_remaining_images.py`；详见 `markdown/07-continuation.md`。沙箱无法直连 `assets.wanxiangqiwiki.com`，剩余原图需在可访问该 CDN 的环境用该脚本补下。
 - `screenshot_index.json` 57 条与 `screenshots/` 57 文件一一对应。
 - `ui_operations.json` 完整落盘（大厅到开战、买/上/合成/升级/出售/拍卖/天赋）。
 - 2026-09-13 补下大河核心卡图：大司命、敖隐、东皇太一、干将莫邪。
