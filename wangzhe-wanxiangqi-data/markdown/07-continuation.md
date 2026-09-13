@@ -225,3 +225,27 @@ wiki 天赋目录 `talentStage` 分布含「第八轮拍卖 167 张」，与机�
 - 新增 `json/card_details.json`、`json/equipment_combat.csv`
 - 更新 `json/unknowns_conflicts.json`（+unknowns.talents、+conflicts.talents）
 - 更新 `markdown/03-cards.md`（效果/装备/天赋详情节）、`markdown/00-INDEX.md`
+
+---
+
+## 十二、续查 VI：卡牌→产出者 自动化查表（2026-09-13）
+
+任务 A：用 relatedCards 反向索引生成「卡牌→产出者」的自动化查表。
+
+做法：
+- 汇总 wiki 四目录 `relatedCards[relation=source]`（140 边）+ 效果 `originRelations`（5 边，仅古币）+ 天赋 `derivedCards`（153 边，衍生卡面），共 **298 边 / 246 张被产出卡 / 0 未解析**。
+- 产出者解析：按 entityType 走英雄/效果/装备/天赋四目录的 `rawId`→`id`→`name` 三级回退；`related` 类目先试装备目录。
+- 产出关系分类 `grant_kind`：直接获得 73（产出者文本写明「获得本卡」）／铸造 32（基础装备→高级装备）／关联强化 40（引用但不直接给）／衍生卡面 153。
+
+数据校正：
+- 「小鹿的庇护」的产出者在 wiki 里被误标为 talent（id 661106 巨型玩偶），但天赋目录无此卡；实为**棋手瑶妹的专属「巨型玩偶」**，已校正为 `player-yaomei（专属：巨型玩偶）`。
+- originRelations 与 relatedCards.source 部分重叠（盾山/程咬金等），按 relation 分列保留，不合并。
+
+交付：
+- `json/card_producers.json`：`index`（被产出卡→产出者）+ `produces`（反向：某卡产出什么）。
+- `json/card_producers.csv`：298 行扁平边表（9 列），便于 grep/自动化读。
+- `markdown/03-cards.md` 新增「卡牌→产出者反向索引」节（铸造链、效果/英雄/装备产出示例、三套阵容含直给天赋的情况）。
+
+对自动化有价值的结论：
+- 铸造链 8 组基础装备 → 高级装备已全表（力量腰带/破碎圣杯/速击之枪/守护者之铠/风暴巨剑/雷鸣刃/圣者法典/大棒）。
+- 三套自动化阵容中仅虞姬（←箭雨）、鬼谷子（←生命绽放）有天赋直接给牌；其余核心（苏烈/海月/瑶/马超/敖隐/东皇太一/张良/少司缘等）无天赋直给，需商店/免费刷新找牌——与 `lineups.json` 的运营节奏一致。

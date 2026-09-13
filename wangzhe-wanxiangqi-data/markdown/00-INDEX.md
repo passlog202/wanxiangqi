@@ -35,6 +35,7 @@
 | `/wangzhe-wanxiangqi-data/json/talents.json` + csv | 天赋 269（官方 currentCount 255） |
 | `/wangzhe-wanxiangqi-data/json/card_details.json` | 效果/装备/天赋详情：知识理解+关联卡牌反向索引+衍生卡面+战斗数值 |
 | `/wangzhe-wanxiangqi-data/json/equipment_combat.csv` | 装备战斗分类与数值（34 行） |
+| `/wangzhe-wanxiangqi-data/json/card_producers.json` + csv | 卡牌→产出者反向索引（298 边，双向查询） |
 | `/wangzhe-wanxiangqi-data/json/chessplayers.json` + csv | 棋手 21 |
 | `/wangzhe-wanxiangqi-data/markdown/03-cards.md` | 卡牌摘录 |
 | `/wangzhe-wanxiangqi-data/json/image_index.json` | URL/文件名对应表（1328 条目，144 已下 / 1184 待下） |
@@ -82,6 +83,7 @@
 - 2026-09-13 续查 III：官网首页 6 组推荐阵容（棋手配对）→ `official_recommended_lineups.json`。
 - 2026-09-13 续查 IV：从 `raw/wanxiangqiwiki.com_explorer-catalogs_hero.json` 补采英雄详情——成长模型 85/86（`hero_details.json` + `hero_growth.csv`）、知识理解/实战关联 12/86、关联卡牌 86/86；详见 `markdown/03-cards.md` 与 `07-continuation.md`。
 - 2026-09-13 续查 V：补采效果/装备/天赋详情——知识理解（效果 6 / 装备 20 / 天赋 6）、关联卡牌反向索引（效果 24 / 装备 55 / 天赋 91）、天赋衍生卡面 101、装备战斗数值 34（`card_details.json` + `equipment_combat.csv`）；天赋 talentStage 与拍卖回合冲突记入 `unknowns_conflicts.json`。
+- 2026-09-13 续查 VI：用 relatedCards 反向索引生成「卡牌→产出者」自动化查表——`card_producers.json`（index/produces 双向）+ `card_producers.csv`（298 行边表）。relation=source 140 / originRelations 5 / derivedCards 153；grant_kind：直接获得 73 / 铸造 32 / 关联强化 40 / 衍生卡面 153；0 未解析。小鹿的庇护产出者（瑶妹专属·巨型玩偶）原始误标 talent 已校正。
 - `screenshot_index.json` 57 条与 `screenshots/` 57 文件一一对应。
 - `ui_operations.json` 完整落盘（大厅到开战、买/上/合成/升级/出售/拍卖/天赋）。
 - 2026-09-13 补下大河核心卡图：大司命、敖隐、东皇太一、干将莫邪。
