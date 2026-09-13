@@ -188,3 +188,40 @@ wiki 作者理解（作者经验层级），每名含 formal/resource/trigger/re
 
 - 新增 `json/hero_details.json`、`json/hero_growth.csv`
 - 更新 `markdown/03-cards.md`（成长模型与知识理解节）、`markdown/00-INDEX.md`
+
+---
+
+## 十一、续查 V：效果牌 / 装备 / 天赋详情（2026-09-13）
+
+补采 `raw/wanxiangqiwiki.com_explorer-catalogs_{effect,equipment,talent}.json` 中 `effects.json` / `equipment.json` / `talents.json` 未收录的 wiki 详情字段 → `json/card_details.json` + `json/equipment_combat.csv`。
+
+### 11.1 知识理解 / 实战关联（wiki 作者理解，非官方规则）
+
+- 效果牌 6/101：吸纳人才、研读会、援护战术、古币、演练战术、招兵买马（含 formal/resource/trigger）。
+- 装备 20/95：含「当前资料未收录正式理解」占位条；实质理解有霸者重铠、护命灵珠、玄微之种、双剑·雄、贤者之书等。
+- 天赋 6/269：一个响指、一分钱一分货、一身是胆（赵云专属）、三三得三、三分增援、三人游。
+
+### 11.2 关联卡牌反向索引
+
+- 效果牌 24/101 有 `relation=source`（这张卡由谁产出）；装备 55/95、天赋 91/269 有 `relation=preview` 关联预览。
+- 例：古币 ← 李元芳、盾山、程咬金、狄仁杰、上官婉儿、李白、花木兰、武则天（英雄）+ 多彩古币、古币翻新、丝绸之路（天赋）。
+
+### 11.3 装备战斗数值
+
+- `combatCategory`：防御 8 / 攻击 14 / 功能 10（32 件）；另有 2 件仅 illustration/其他。
+- 仅 2 件有 wiki 数值修正：霸者重铠（生命>70% 减伤 40%）、护命灵珠（有护盾增伤 25%）。
+- `equipment_combat.csv` 34 行（id/名称/品阶/子类/装备类型/战斗分类/修正值/卡面）。
+
+### 11.4 天赋衍生卡面（derivedCards）
+
+101/269 天赋带衍生卡面（天赋「获得1张天赋牌XX」的 XX），含卡面图 URL。
+
+### 11.5 冲突：天赋出现阶段 vs 拍卖回合（未裁决）
+
+wiki 天赋目录 `talentStage` 分布含「第八轮拍卖 167 张」，与机制词典「拍卖 4/8/12 回合（3 次）」不一致。可能原因：按 8 次拍卖录入 / 含初始阵容拍卖 / 版本差异。已记入 `unknowns_conflicts.json` 的 `unknowns.talents` 与 `conflicts.talents`，规则正文维持 4/8/12。
+
+### 11.6 本轮改动清单（续）
+
+- 新增 `json/card_details.json`、`json/equipment_combat.csv`
+- 更新 `json/unknowns_conflicts.json`（+unknowns.talents、+conflicts.talents）
+- 更新 `markdown/03-cards.md`（效果/装备/天赋详情节）、`markdown/00-INDEX.md`

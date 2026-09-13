@@ -1,0 +1,4495 @@
+{
+  "schema": "wxq-card-details/v1",
+  "game": "王者万象棋",
+  "mode": "万象大赛",
+  "version": "官方 2026-08-28",
+  "collected_at": "2026-09-13",
+  "source_url": {
+    "effect": "https://wanxiangqiwiki.com/explore/effect-catalog",
+    "equipment": "https://wanxiangqiwiki.com/explore/equipment-catalog",
+    "talent": "https://wanxiangqiwiki.com/explore/talent-catalog"
+  },
+  "local_raw": [
+    "raw/wanxiangqiwiki.com_explorer-catalogs_effect.json",
+    "raw/wanxiangqiwiki.com_explorer-catalogs_equipment.json",
+    "raw/wanxiangqiwiki.com_explorer-catalogs_talent.json"
+  ],
+  "evidence_layer": {
+    "knowledge": "wiki 作者理解（页面「知识理解/实战关联」formal/resource/trigger），非官方规则。",
+    "related_cards": "wiki 关联卡牌（relation=source 为「该卡由谁产出」的反向索引；preview 为关联预览）。",
+    "combat": "wiki 数值研究口径的战斗分类与少量数值修正（仅 2 件有 combatModifiers 数值，32 件有 combatCategory 分类）。",
+    "derived_cards": "天赋「获得1张天赋牌XX」的衍生卡面（wiki derivedCards）。"
+  },
+  "notes": [
+    "本文件补全 effects.json / equipment.json / talents.json 未收录的 wiki 详情字段。",
+    "效果牌：知识理解 6/101，关联卡牌反向索引 24/101。",
+    "装备：知识理解 20/95，战斗分类 32/95（防御8/攻击14/功能10），combatModifiers 数值仅 2 件（霸者重铠减伤40%、护命灵珠增伤25%），关联卡牌 55/95。",
+    "天赋：知识理解 6/269，衍生卡面 101/269，关联卡牌 91/269。",
+    "天赋 talentStage（出现拍卖阶段）分布与机制词典「拍卖 4/8/12 回合」不一致，见 talent_stage_observation，未裁决。"
+  ],
+  "effects": {
+    "count_total": 101,
+    "knowledge_count": 6,
+    "related_cards_count": 24,
+    "knowledge": [
+      {
+        "id": "effect-absorb",
+        "name": "吸纳人才",
+        "quality": 1,
+        "faction": "通用",
+        "formal": "把效果牌事件转换成通用 4 选 1 找牌权。",
+        "resource": [
+          "英雄选择权",
+          "补件"
+        ],
+        "trigger": [
+          "打出效果牌"
+        ]
+      },
+      {
+        "id": "effect-study",
+        "name": "研读会",
+        "quality": 1,
+        "faction": "通用",
+        "formal": "把一张低费效果牌转换成棋手等级轴的提前。",
+        "resource": [
+          "棋手经验",
+          "等级节奏"
+        ],
+        "trigger": [
+          "打出效果牌"
+        ]
+      },
+      {
+        "id": "effect-protect",
+        "name": "援护战术",
+        "quality": 1,
+        "faction": "逐鹿",
+        "formal": "把战术牌次数结算成全队生存窗口。",
+        "resource": [
+          "战术牌次数",
+          "护盾"
+        ],
+        "trigger": [
+          "打出战术牌"
+        ]
+      },
+      {
+        "id": "effect-coin",
+        "name": "古币",
+        "quality": 1,
+        "faction": "河洛",
+        "formal": "把效果牌事件压缩成定向永久等级，是河洛成长链的标准结算单位。",
+        "resource": [
+          "古币",
+          "永久等级"
+        ],
+        "trigger": [
+          "使用古币"
+        ]
+      },
+      {
+        "id": "effect-drill",
+        "name": "演练战术",
+        "quality": 2,
+        "faction": "逐鹿",
+        "formal": "把战术牌事件转换成全队永久等级，抬高多承接位底盘。",
+        "resource": [
+          "战术牌",
+          "全队等级"
+        ],
+        "trigger": [
+          "打出战术牌"
+        ]
+      },
+      {
+        "id": "effect-recruit",
+        "name": "招兵买马",
+        "quality": 1,
+        "faction": "通用",
+        "formal": "把效果牌延迟转换成一次 3 阶英雄的可控搜索。",
+        "resource": [
+          "3 阶搜索",
+          "兑换券"
+        ],
+        "trigger": [
+          "打出效果牌"
+        ]
+      }
+    ],
+    "related_cards": {
+      "effect-protect": [
+        {
+          "relation": "source",
+          "id": "1051",
+          "name": "廉颇",
+          "entityType": "hero",
+          "descriptionPlain": "廉颇释放技能时，你的其他英雄获得 5点护盾值。每次使用战术牌会提升该护盾值。"
+        },
+        {
+          "relation": "source",
+          "id": "1201",
+          "name": "白起",
+          "entityType": "hero",
+          "descriptionPlain": "每回合首次使用效果牌时，获得1张援护战术。"
+        },
+        {
+          "relation": "source",
+          "id": "1101",
+          "name": "嬴政",
+          "entityType": "hero",
+          "descriptionPlain": "开团：法术攻击力+ 7。每次使用战术牌会提升该加成。"
+        },
+        {
+          "relation": "source",
+          "id": "1121",
+          "name": "鲁班七号",
+          "entityType": "hero",
+          "descriptionPlain": "你的英雄每合成3次，随机获得1张战术牌。"
+        }
+      ],
+      "effect-coin": [
+        {
+          "relation": "source",
+          "id": "1731",
+          "name": "李元芳",
+          "entityType": "hero",
+          "descriptionPlain": "整备：对距离最近的【河洛】英雄使用1张古币。"
+        },
+        {
+          "relation": "source",
+          "id": "5091",
+          "name": "盾山",
+          "entityType": "hero",
+          "descriptionPlain": "牺牲：获得1张古币。"
+        },
+        {
+          "relation": "source",
+          "id": "1441",
+          "name": "程咬金",
+          "entityType": "hero",
+          "descriptionPlain": "整备：获得1张古币，对自身使用1张古币。"
+        },
+        {
+          "relation": "source",
+          "id": "1331",
+          "name": "狄仁杰",
+          "entityType": "hero",
+          "descriptionPlain": "对狄仁杰使用古币时，其攻击速度永久+5%。"
+        },
+        {
+          "relation": "source",
+          "id": "5131",
+          "name": "上官婉儿",
+          "entityType": "hero",
+          "descriptionPlain": "整备：随机对3名不同【河洛】英雄使用1张古币。"
+        },
+        {
+          "relation": "source",
+          "id": "1311",
+          "name": "李白",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 古币牌会额外提供4临时等级。若目标为李白，该临时等级会额外+3。"
+        },
+        {
+          "relation": "source",
+          "id": "1541",
+          "name": "花木兰",
+          "entityType": "hero",
+          "descriptionPlain": "本回合每使用4张古币牌，获得1次复生（总复生次数： 1）。 牺牲：临时等级+10。"
+        },
+        {
+          "relation": "source",
+          "id": "1361",
+          "name": "武则天",
+          "entityType": "hero",
+          "descriptionPlain": "古币牌提升的等级+1。 登场：获得1张精致古币。"
+        },
+        {
+          "relation": "source",
+          "id": "636201",
+          "name": "多彩古币",
+          "entityType": "talent",
+          "descriptionPlain": "古币只能对非【河洛】英雄主动使用：随机变成其他同阶非【河洛】英雄，等级额外+7。"
+        },
+        {
+          "relation": "source",
+          "id": "636209",
+          "name": "古币翻新",
+          "entityType": "talent",
+          "descriptionPlain": "获得1张古币。古币牌会额外提供2级。"
+        },
+        {
+          "relation": "source",
+          "id": "636214",
+          "name": "丝绸之路",
+          "entityType": "talent",
+          "descriptionPlain": "每出售4名场上英雄获得1张古币，每出售1张古币获得1张【河洛】英雄牌。"
+        }
+      ],
+      "effect-307001": [
+        {
+          "relation": "source",
+          "id": "1761",
+          "name": "杨玉环",
+          "entityType": "hero",
+          "descriptionPlain": "杨玉环在场时，每过3个回合获得1张弦音。 退场：获得1张弦音。"
+        }
+      ],
+      "effect-drill": [
+        {
+          "relation": "source",
+          "id": "1051",
+          "name": "廉颇",
+          "entityType": "hero",
+          "descriptionPlain": "廉颇释放技能时，你的其他英雄获得 5点护盾值。每次使用战术牌会提升该护盾值。"
+        },
+        {
+          "relation": "source",
+          "id": "1101",
+          "name": "嬴政",
+          "entityType": "hero",
+          "descriptionPlain": "开团：法术攻击力+ 7。每次使用战术牌会提升该加成。"
+        },
+        {
+          "relation": "source",
+          "id": "1121",
+          "name": "鲁班七号",
+          "entityType": "hero",
+          "descriptionPlain": "你的英雄每合成3次，随机获得1张战术牌。"
+        }
+      ],
+      "effect-313011": [
+        {
+          "relation": "source",
+          "id": "1051",
+          "name": "廉颇",
+          "entityType": "hero",
+          "descriptionPlain": "廉颇释放技能时，你的其他英雄获得 5点护盾值。每次使用战术牌会提升该护盾值。"
+        },
+        {
+          "relation": "source",
+          "id": "5231",
+          "name": "西施",
+          "entityType": "hero",
+          "descriptionPlain": "整备：获得1张推演战术。"
+        },
+        {
+          "relation": "source",
+          "id": "1101",
+          "name": "嬴政",
+          "entityType": "hero",
+          "descriptionPlain": "开团：法术攻击力+ 7。每次使用战术牌会提升该加成。"
+        },
+        {
+          "relation": "source",
+          "id": "1121",
+          "name": "鲁班七号",
+          "entityType": "hero",
+          "descriptionPlain": "你的英雄每合成3次，随机获得1张战术牌。"
+        }
+      ],
+      "effect-313007": [
+        {
+          "relation": "source",
+          "id": "1051",
+          "name": "廉颇",
+          "entityType": "hero",
+          "descriptionPlain": "廉颇释放技能时，你的其他英雄获得 5点护盾值。每次使用战术牌会提升该护盾值。"
+        },
+        {
+          "relation": "source",
+          "id": "1101",
+          "name": "嬴政",
+          "entityType": "hero",
+          "descriptionPlain": "开团：法术攻击力+ 7。每次使用战术牌会提升该加成。"
+        },
+        {
+          "relation": "source",
+          "id": "5241",
+          "name": "蒙犽",
+          "entityType": "hero",
+          "descriptionPlain": "登场：获得1张特训战术。"
+        },
+        {
+          "relation": "source",
+          "id": "1121",
+          "name": "鲁班七号",
+          "entityType": "hero",
+          "descriptionPlain": "你的英雄每合成3次，随机获得1张战术牌。"
+        }
+      ],
+      "effect-313003": [
+        {
+          "relation": "source",
+          "id": "1051",
+          "name": "廉颇",
+          "entityType": "hero",
+          "descriptionPlain": "廉颇释放技能时，你的其他英雄获得 5点护盾值。每次使用战术牌会提升该护盾值。"
+        },
+        {
+          "relation": "source",
+          "id": "1391",
+          "name": "老夫子",
+          "entityType": "hero",
+          "descriptionPlain": "每回合首次合成时，获得1张招募战术。"
+        },
+        {
+          "relation": "source",
+          "id": "1101",
+          "name": "嬴政",
+          "entityType": "hero",
+          "descriptionPlain": "开团：法术攻击力+ 7。每次使用战术牌会提升该加成。"
+        },
+        {
+          "relation": "source",
+          "id": "1131",
+          "name": "庄周",
+          "entityType": "hero",
+          "descriptionPlain": "登场：自身等级+2并获得1张招募战术。"
+        },
+        {
+          "relation": "source",
+          "id": "1121",
+          "name": "鲁班七号",
+          "entityType": "hero",
+          "descriptionPlain": "你的英雄每合成3次，随机获得1张战术牌。"
+        }
+      ],
+      "effect-311003": [
+        {
+          "relation": "source",
+          "id": "1331",
+          "name": "狄仁杰",
+          "entityType": "hero",
+          "descriptionPlain": "对狄仁杰使用古币时，其攻击速度永久+5%。"
+        },
+        {
+          "relation": "source",
+          "id": "1311",
+          "name": "李白",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 古币牌会额外提供4临时等级。若目标为李白，该临时等级会额外+3。"
+        },
+        {
+          "relation": "source",
+          "id": "1541",
+          "name": "花木兰",
+          "entityType": "hero",
+          "descriptionPlain": "本回合每使用4张古币牌，获得1次复生（总复生次数： 1）。 牺牲：临时等级+10。"
+        },
+        {
+          "relation": "source",
+          "id": "1361",
+          "name": "武则天",
+          "entityType": "hero",
+          "descriptionPlain": "古币牌提升的等级+1。 登场：获得1张精致古币。"
+        },
+        {
+          "relation": "source",
+          "id": "636201",
+          "name": "多彩古币",
+          "entityType": "talent",
+          "descriptionPlain": "古币只能对非【河洛】英雄主动使用：随机变成其他同阶非【河洛】英雄，等级额外+7。"
+        },
+        {
+          "relation": "source",
+          "id": "636214",
+          "name": "丝绸之路",
+          "entityType": "talent",
+          "descriptionPlain": "每出售4名场上英雄获得1张古币，每出售1张古币获得1张【河洛】英雄牌。"
+        }
+      ],
+      "effect-7053": [
+        {
+          "relation": "source",
+          "id": "633002",
+          "name": "结伴",
+          "entityType": "talent",
+          "descriptionPlain": "获得2能量以及2张3阶英雄兑换券。"
+        }
+      ],
+      "effect-7054": [
+        {
+          "relation": "source",
+          "id": "671013",
+          "name": "群星璀璨",
+          "entityType": "talent",
+          "descriptionPlain": "获得2张4-5阶英雄兑换券。当你场上至少有5名4-5阶英雄时，所有4-5阶英雄获得20临时等级。"
+        }
+      ],
+      "effect-307002": [
+        {
+          "relation": "source",
+          "id": "7089",
+          "name": "武装分解",
+          "entityType": "effect",
+          "descriptionPlain": "指定1名英雄，摧毁其所有装备： 摧毁1件获得4能量；2件获得1张妙音；3件获得1张珍品宝箱。"
+        },
+        {
+          "relation": "source",
+          "id": "7123",
+          "name": "天籁琴音",
+          "entityType": "effect",
+          "descriptionPlain": "获得3张妙音（妙音：指定1名英雄，使其觉醒进度+1）。"
+        }
+      ],
+      "effect-7529": [
+        {
+          "relation": "preview",
+          "id": "41124",
+          "name": "星源装甲",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 物理和法术吸血+20%。唯一被动：释放技能后的2秒内免疫控制。"
+        },
+        {
+          "relation": "preview",
+          "id": "41125",
+          "name": "星源狩枪",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 物理和法术攻击力+20%。唯一被动：法力值上限-20，且技能会直接击败生命值10%以下的敌人。"
+        },
+        {
+          "relation": "preview",
+          "id": "41126",
+          "name": "星源星徽",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 唯一被动：该英雄不会被阿科米亚核心分配等级。"
+        },
+        {
+          "relation": "preview",
+          "id": "41127",
+          "name": "星源合金盾",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 物理和法术防御力+20。唯一被动：受到的伤害-20%。"
+        },
+        {
+          "relation": "preview",
+          "id": "41128",
+          "name": "月影之力",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 生命值上限+15%。唯一被动：露娜释放2次技能后，将释放1次【月下无限连】（仅露娜穿戴时生效，每场战斗限1次）。"
+        }
+      ],
+      "effect-313012": [
+        {
+          "relation": "source",
+          "id": "636413",
+          "name": "乘胜追击",
+          "entityType": "talent",
+          "descriptionPlain": "战斗胜利时，获得1张高阶推演战术。"
+        }
+      ],
+      "effect-7525": [
+        {
+          "relation": "preview",
+          "id": "641016",
+          "name": "贤者的庇护",
+          "entityType": "related",
+          "descriptionPlain": "可穿戴给【河洛】英雄，穿戴者会在首次被击败的2秒后复生，仅恢复30%生命值。"
+        }
+      ],
+      "effect-7089": [
+        {
+          "relation": "preview",
+          "id": "307002",
+          "name": "妙音",
+          "entityType": "effect",
+          "descriptionPlain": "指定1名英雄，使其觉醒进度+1。"
+        },
+        {
+          "relation": "preview",
+          "id": "7090",
+          "name": "珍品宝箱",
+          "entityType": "effect",
+          "descriptionPlain": "卡牌3选1（特殊装备或天赋装备）。"
+        }
+      ],
+      "effect-7531": [
+        {
+          "relation": "preview",
+          "id": "32301",
+          "name": "故障机器人",
+          "entityType": "hero",
+          "descriptionPlain": "404 Error，出厂设置故障，无法攻击敌人。"
+        },
+        {
+          "relation": "preview",
+          "id": "7542",
+          "name": "机关匣",
+          "entityType": "related",
+          "descriptionPlain": "唯一。可穿戴给【逐鹿】英雄，使其获得效果：战斗开始时，召唤2个拥有你等级最高英雄一半等级的“故障机器人”。"
+        }
+      ],
+      "effect-7090": [
+        {
+          "relation": "source",
+          "id": "7089",
+          "name": "武装分解",
+          "entityType": "effect",
+          "descriptionPlain": "指定1名英雄，摧毁其所有装备： 摧毁1件获得4能量；2件获得1张妙音；3件获得1张珍品宝箱。"
+        }
+      ],
+      "effect-7055": [
+        {
+          "relation": "source",
+          "id": "7108",
+          "name": "神兵天降",
+          "entityType": "effect",
+          "descriptionPlain": "获得4张5阶英雄兑换券。"
+        },
+        {
+          "relation": "source",
+          "id": "671013",
+          "name": "群星璀璨",
+          "entityType": "talent",
+          "descriptionPlain": "获得2张4-5阶英雄兑换券。当你场上至少有5名4-5阶英雄时，所有4-5阶英雄获得20临时等级。"
+        },
+        {
+          "relation": "source",
+          "id": "671008",
+          "name": "拾荒者",
+          "entityType": "talent",
+          "descriptionPlain": "恢复10棋手生命值。之后每有1位棋手被淘汰，获得2张5阶英雄兑换券。"
+        },
+        {
+          "relation": "source",
+          "id": "615002",
+          "name": "紧急救援",
+          "entityType": "talent",
+          "descriptionPlain": "获得15棋手生命值、1张装备箱、1张5阶兑换券。"
+        }
+      ],
+      "effect-7076": [
+        {
+          "relation": "source",
+          "id": "634030",
+          "name": "战略中枢",
+          "entityType": "talent",
+          "descriptionPlain": "可上阵人数+1，同时获得2张有福同享。"
+        }
+      ],
+      "effect-10403": [
+        {
+          "relation": "source",
+          "id": "7106",
+          "name": "狂飙三倍速",
+          "entityType": "effect",
+          "descriptionPlain": "获得3张开局狂飙（开局狂飙：指定英雄开局15秒内无限释放技能）。"
+        }
+      ],
+      "effect-7108": [
+        {
+          "relation": "preview",
+          "id": "7055",
+          "name": "5阶英雄兑换券",
+          "entityType": "effect",
+          "descriptionPlain": "卡牌3选1（5阶英雄牌）。"
+        }
+      ],
+      "effect-7123": [
+        {
+          "relation": "preview",
+          "id": "307002",
+          "name": "妙音",
+          "entityType": "effect",
+          "descriptionPlain": "指定1名英雄，使其觉醒进度+1。"
+        }
+      ],
+      "effect-7115": [
+        {
+          "relation": "preview",
+          "id": "643703",
+          "name": "名刀·司命",
+          "entityType": "related",
+          "descriptionPlain": "唯一。穿戴者首次受到致命伤害时会进入无敌和不可选中状态，持续1.5秒。"
+        }
+      ],
+      "effect-7106": [
+        {
+          "relation": "preview",
+          "id": "10403",
+          "name": "开局狂飙",
+          "entityType": "effect",
+          "descriptionPlain": "指定1名英雄，本回合开战后前15秒内，可以无限释放技能。"
+        }
+      ]
+    }
+  },
+  "equipment": {
+    "count_total": 95,
+    "knowledge_count": 20,
+    "combat_count": 34,
+    "related_cards_count": 55,
+    "knowledge": [
+      {
+        "id": "equip-belt",
+        "name": "力量腰带",
+        "quality": 1,
+        "subtype": "基础装备",
+        "equipmentType": "通用装备",
+        "formal": "把装备栏位转换成血量、续航、抗法或灼烧反打路线的选择权。",
+        "resource": [
+          "生命",
+          "装备路线"
+        ],
+        "trigger": [
+          "穿戴"
+        ]
+      },
+      {
+        "id": "equip-cup",
+        "name": "破碎圣杯",
+        "quality": 1,
+        "subtype": "基础装备",
+        "equipmentType": "法术装备",
+        "formal": "把装备栏位转换成回蓝、法伤环境与法系容错路线。",
+        "resource": [
+          "法力",
+          "装备",
+          "控制"
+        ],
+        "trigger": [
+          "穿戴"
+        ]
+      },
+      {
+        "id": "equip-spear",
+        "name": "速击之枪",
+        "quality": 1,
+        "subtype": "基础装备",
+        "equipmentType": "物理装备",
+        "formal": "把装备栏位转换成普攻频率、穿透、AOE 与暴击终端选择。",
+        "resource": [
+          "攻速",
+          "普攻事件"
+        ],
+        "trigger": [
+          "普通攻击"
+        ]
+      },
+      {
+        "id": "equip-643602",
+        "name": "极寒风暴",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-book",
+        "name": "贤者之书",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "formal": "同时压缩施法循环并让多次施法沉淀为法术面板。",
+        "resource": [
+          "法力上限",
+          "法术攻击"
+        ],
+        "trigger": [
+          "释放技能"
+        ]
+      },
+      {
+        "id": "equip-643103",
+        "name": "无尽巨剑",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643104",
+        "name": "制裁之剑",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643205",
+        "name": "寒霜侵袭",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643208",
+        "name": "自然法杖",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643207",
+        "name": "金色圣剑",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643301",
+        "name": "影牙",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643703",
+        "name": "名刀·司命",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643402",
+        "name": "法源之杯",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-overlord",
+        "name": "霸者重铠",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "formal": "把高生命值区间转换成明确的条件减伤窗口，跌破阈值后不再提供该项减伤。",
+        "resource": [
+          "伤害减免",
+          "生命阈值"
+        ],
+        "trigger": [
+          "生命值高于70%"
+        ]
+      },
+      {
+        "id": "equip-643502",
+        "name": "不死鸟之眼",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-643601",
+        "name": "不祥征兆",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      },
+      {
+        "id": "equip-life-orb",
+        "name": "护命灵珠",
+        "quality": 3,
+        "subtype": "天赋装备",
+        "equipmentType": "通用装备",
+        "formal": "把周期护盾转化为条件伤害窗口；护盾被击破后，伤害提升同步失效。",
+        "resource": [
+          "护盾",
+          "伤害提升"
+        ],
+        "trigger": [
+          "每4秒",
+          "拥有护盾"
+        ]
+      },
+      {
+        "id": "equip-seed",
+        "name": "玄微之种",
+        "quality": 1,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "formal": "把副承接位退场转换成对主承接位的一次定向续命。",
+        "resource": [
+          "退场",
+          "治疗",
+          "牺牲"
+        ],
+        "trigger": [
+          "退场"
+        ]
+      },
+      {
+        "id": "equip-sword",
+        "name": "双剑·雄",
+        "quality": 1,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "formal": "把普通攻击次数转换成更短法力循环，是特定英雄的专属放大器。",
+        "resource": [
+          "攻速",
+          "法力"
+        ],
+        "trigger": [
+          "普通攻击"
+        ]
+      },
+      {
+        "id": "equip-42103",
+        "name": "双剑·雌",
+        "quality": 1,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "formal": "当前资料未收录正式理解。",
+        "resource": null,
+        "trigger": null
+      }
+    ],
+    "combat": [
+      {
+        "id": "equipment-643503",
+        "name": "魔女斗篷",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "法术防御力+30。战斗开始时，获得等级x5点法术护盾。"
+      },
+      {
+        "id": "equip-643602",
+        "name": "极寒风暴",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。受到普攻时，降低目标20%攻击速度，持续2秒。被单一目标普攻5次后，远程目标将被冻结1秒，近战目标减半。"
+      },
+      {
+        "id": "equipment-643805",
+        "name": "御灵之纱",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。战斗开始时，获得等级×15点护盾。护盾被击破时对周围1格敌人造成1秒眩晕，击破者翻倍。"
+      },
+      {
+        "id": "equipment-643804",
+        "name": "生命魔典",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。受到伤害时会为自身和周围1格的己方单位恢复5%最大生命值，冷却2秒。"
+      },
+      {
+        "id": "equipment-643803",
+        "name": "炽热支配者",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。首次受到控制效果时，获得300点护盾并在接下来的15秒内免疫控制效果（压制除外）。"
+      },
+      {
+        "id": "equip-book",
+        "name": "贤者之书",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。法力值上限-10。释放技能后获得20%基础法术攻击力，最多叠加6层。"
+      },
+      {
+        "id": "equipment-643304",
+        "name": "铸梦·逐风",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。战斗开始及之后每过8秒，快速进行4次普通攻击。"
+      },
+      {
+        "id": "equip-643103",
+        "name": "无尽巨剑",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "暴击率+30%，暴击效果+60%。暴击效果不可叠加。"
+      },
+      {
+        "id": "equip-643104",
+        "name": "制裁之剑",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。造成伤害时降低目标30%生命恢复及护盾效果，持续10秒，不可叠加。若为普通攻击，效果提升至70%。"
+      },
+      {
+        "id": "equipment-643105",
+        "name": "纯净苍穹",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。每2秒获得10点法术攻击力，同时清除自身负面状态。"
+      },
+      {
+        "id": "equipment-643705",
+        "name": "魔律之刃",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。释放技能时，35%概率重复释放一次。每有7级，额外提升1%概率。"
+      },
+      {
+        "id": "equipment-643202",
+        "name": "虚无法杖",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。获得15点法术防御穿透。"
+      },
+      {
+        "id": "equip-643205",
+        "name": "寒霜侵袭",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。普通攻击减少目标15%移速，持续5秒，最多叠加5层。叠满后目标受到的伤害提高20%，持续5秒，冷却时间10秒。"
+      },
+      {
+        "id": "equip-643208",
+        "name": "自然法杖",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。法术攻击力+20%，远程穿戴者每消耗40点法力值（近战80点法力值）会将随机1名敌人变成小猪，持续2秒。"
+      },
+      {
+        "id": "equip-643207",
+        "name": "金色圣剑",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。获得30%（+15%法术攻击力）攻击速度。每次普通攻击附带20（+30%法术攻击力）点法术伤害。"
+      },
+      {
+        "id": "equipment-643704",
+        "name": "红魔",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。周围1格没有友军时，获得25%伤害加成。每承受3%最大生命值的伤害，获得1%伤害加成，上限100%。"
+      },
+      {
+        "id": "equip-643301",
+        "name": "影牙",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "攻击速度+50%。"
+      },
+      {
+        "id": "equipment-643302",
+        "name": "破晓",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "每次普通攻击降低目标3点物防，持续5秒。目标物防首次降为0时，附加1次目标15%最大生命值的物理伤害。"
+      },
+      {
+        "id": "equipment-641010",
+        "name": "凝渊",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。暴击率+20%。每次受击时提升1%暴击率，暴击率达到100%时提升100%移动速度。"
+      },
+      {
+        "id": "equipment-641015",
+        "name": "日渊",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一，限定远程英雄。普通攻击会释放飞箭，对生命值最低的2名敌人造成45%物理攻击力的物理伤害。"
+      },
+      {
+        "id": "equip-643703",
+        "name": "名刀·司命",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。穿戴者首次受到致命伤害时会进入无敌和不可选中状态，持续1.5秒。"
+      },
+      {
+        "id": "equipment-643401",
+        "name": "痛苦面具",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "法术装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。单次魔法伤害超过目标最大生命值的8%时会使目标点燃：每秒造成75%法术攻击力的真实伤害，持续3秒。"
+      },
+      {
+        "id": "equip-643402",
+        "name": "法源之杯",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。每秒回复5点法力值。"
+      },
+      {
+        "id": "equipment-643403",
+        "name": "破茧之衣",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。战斗开始时，法力值+15，同时眩晕敌方等级最高3名英雄中的随机1名，持续1秒。目标每有10级，眩晕时间增加0.5秒，上限5秒。"
+      },
+      {
+        "id": "equipment-643404",
+        "name": "聚灵水晶",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "通用装备",
+        "combatCategory": "功能",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。受击时额外获得10点法力值，最多100点。达到上限后恢复20%最大生命值。"
+      },
+      {
+        "id": "equipment-643702",
+        "name": "冥王",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "物理装备",
+        "combatCategory": "攻击",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。穿戴者周围1格每有1个敌方单位，获得10点物理防御和15%基础物理攻击力。"
+      },
+      {
+        "id": "equip-overlord",
+        "name": "霸者重铠",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": {
+          "damageReduction": 40,
+          "reductionNote": "生命值高于70%"
+        },
+        "illustration": null,
+        "original": "唯一。生命值高于70%时获得40%伤害减免。"
+      },
+      {
+        "id": "equip-643502",
+        "name": "不死鸟之眼",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。增加15%基础生命值，生命恢复和护盾效果提升30%。"
+      },
+      {
+        "id": "equipment-643604",
+        "name": "反伤重甲",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。将受到伤害的30%以真实伤害回敬给目标。"
+      },
+      {
+        "id": "equipment-643504",
+        "name": "红莲炎甲",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。每2秒对周围1格敌人造成20（+5%穿戴者最大生命值）点法术伤害，并降低目标50%生命恢复和吸血效果，持续3秒。"
+      },
+      {
+        "id": "equipment-643603",
+        "name": "近卫荣耀",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。战斗开始时，周围1格己方单位获得10点物理和法术防御，穿戴者获得双倍效果，不可叠加。"
+      },
+      {
+        "id": "equip-643601",
+        "name": "不祥征兆",
+        "quality": 2,
+        "subtype": "普通装备",
+        "equipmentType": "防御装备",
+        "combatCategory": "防御",
+        "combatModifiers": null,
+        "illustration": null,
+        "original": "唯一。战斗前15秒，格挡50%普通攻击伤害，若攻击者攻速高于1.5，则格挡70%普通攻击伤害。"
+      },
+      {
+        "id": "equip-life-orb",
+        "name": "护命灵珠",
+        "quality": 3,
+        "subtype": "天赋装备",
+        "equipmentType": "通用装备",
+        "combatCategory": null,
+        "combatModifiers": {
+          "damageIncrease": 25,
+          "increaseNote": "拥有护盾时"
+        },
+        "illustration": null,
+        "original": "唯一。每4秒获得基础生命值25%的护盾。拥有护盾时伤害提升25%，护盾被击破则移除。"
+      },
+      {
+        "id": "equipment-41128",
+        "name": "月影之力",
+        "quality": 3,
+        "subtype": "特殊装备",
+        "equipmentType": "通用装备",
+        "combatCategory": null,
+        "combatModifiers": null,
+        "illustration": "https://assets.wanxiangqiwiki.com/assets/webp/装备牌_月影之力_41128_立绘.webp",
+        "original": "【日落海】专属装备 生命值上限+15%。唯一被动：露娜释放2次技能后，将释放1次【月下无限连】（仅露娜穿戴时生效，每场战斗限1次）。"
+      }
+    ],
+    "related_cards": {
+      "equipment-643100": [
+        {
+          "relation": "preview",
+          "id": "643105",
+          "name": "纯净苍穹",
+          "entityType": "related",
+          "descriptionPlain": "唯一。每2秒获得10点法术攻击力，同时清除自身负面状态。"
+        },
+        {
+          "relation": "preview",
+          "id": "643304",
+          "name": "铸梦·逐风",
+          "entityType": "related",
+          "descriptionPlain": "唯一。战斗开始及之后每过8秒，快速进行4次普通攻击。"
+        },
+        {
+          "relation": "preview",
+          "id": "643103",
+          "name": "无尽巨剑",
+          "entityType": "related",
+          "descriptionPlain": "暴击率+30%，暴击效果+60%。暴击效果不可叠加。"
+        },
+        {
+          "relation": "preview",
+          "id": "643104",
+          "name": "制裁之剑",
+          "entityType": "related",
+          "descriptionPlain": "唯一。造成伤害时降低目标30%生命恢复及护盾效果，持续10秒，不可叠加。若为普通攻击，效果提升至70%。"
+        }
+      ],
+      "equipment-643800": [
+        {
+          "relation": "preview",
+          "id": "643802",
+          "name": "贤者之书",
+          "entityType": "related",
+          "descriptionPlain": "唯一。法力值上限-10。释放技能后获得20%基础法术攻击力，最多叠加6层。"
+        },
+        {
+          "relation": "preview",
+          "id": "643803",
+          "name": "炽热支配者",
+          "entityType": "related",
+          "descriptionPlain": "唯一。首次受到控制效果时，获得300点护盾并在接下来的15秒内免疫控制效果（压制除外）。"
+        },
+        {
+          "relation": "preview",
+          "id": "643804",
+          "name": "生命魔典",
+          "entityType": "related",
+          "descriptionPlain": "唯一。受到伤害时会为自身和周围1格的己方单位恢复5%最大生命值，冷却2秒。"
+        },
+        {
+          "relation": "preview",
+          "id": "643805",
+          "name": "御灵之纱",
+          "entityType": "related",
+          "descriptionPlain": "唯一。战斗开始时，获得等级×15点护盾。护盾被击破时对周围1格敌人造成1秒眩晕，击破者翻倍。"
+        }
+      ],
+      "equipment-643700": [
+        {
+          "relation": "preview",
+          "id": "643702",
+          "name": "冥王",
+          "entityType": "related",
+          "descriptionPlain": "唯一。穿戴者周围1格每有1个敌方单位，获得10点物理防御和15%基础物理攻击力。"
+        },
+        {
+          "relation": "preview",
+          "id": "643703",
+          "name": "名刀·司命",
+          "entityType": "related",
+          "descriptionPlain": "唯一。穿戴者首次受到致命伤害时会进入无敌和不可选中状态，持续1.5秒。"
+        },
+        {
+          "relation": "preview",
+          "id": "643704",
+          "name": "红魔",
+          "entityType": "related",
+          "descriptionPlain": "唯一。周围1格没有友军时，获得25%伤害加成。每承受3%最大生命值的伤害，获得1%伤害加成，上限100%。"
+        },
+        {
+          "relation": "preview",
+          "id": "643705",
+          "name": "魔律之刃",
+          "entityType": "related",
+          "descriptionPlain": "唯一。释放技能时，35%概率重复释放一次。每有7级，额外提升1%概率。"
+        }
+      ],
+      "equipment-643600": [
+        {
+          "relation": "preview",
+          "id": "643601",
+          "name": "不祥征兆",
+          "entityType": "related",
+          "descriptionPlain": "唯一。战斗前15秒，格挡50%普通攻击伤害，若攻击者攻速高于1.5，则格挡70%普通攻击伤害。"
+        },
+        {
+          "relation": "preview",
+          "id": "643602",
+          "name": "极寒风暴",
+          "entityType": "related",
+          "descriptionPlain": "唯一。受到普攻时，降低目标20%攻击速度，持续2秒。被单一目标普攻5次后，远程目标将被冻结1秒，近战目标减半。"
+        },
+        {
+          "relation": "preview",
+          "id": "643603",
+          "name": "近卫荣耀",
+          "entityType": "related",
+          "descriptionPlain": "唯一。战斗开始时，周围1格己方单位获得10点物理和法术防御，穿戴者获得双倍效果，不可叠加。"
+        },
+        {
+          "relation": "preview",
+          "id": "643604",
+          "name": "反伤重甲",
+          "entityType": "related",
+          "descriptionPlain": "唯一。将受到伤害的30%以真实伤害回敬给目标。"
+        }
+      ],
+      "equip-belt": [
+        {
+          "relation": "preview",
+          "id": "643501",
+          "name": "霸者重铠",
+          "entityType": "related",
+          "descriptionPlain": "唯一。生命值高于70%时获得40%伤害减免。"
+        },
+        {
+          "relation": "preview",
+          "id": "643502",
+          "name": "不死鸟之眼",
+          "entityType": "related",
+          "descriptionPlain": "唯一。增加15%基础生命值，生命恢复和护盾效果提升30%。"
+        },
+        {
+          "relation": "preview",
+          "id": "643503",
+          "name": "魔女斗篷",
+          "entityType": "related",
+          "descriptionPlain": "法术防御力+30。战斗开始时，获得等级x5点法术护盾。"
+        },
+        {
+          "relation": "preview",
+          "id": "643504",
+          "name": "红莲炎甲",
+          "entityType": "related",
+          "descriptionPlain": "唯一。每2秒对周围1格敌人造成20（+5%穿戴者最大生命值）点法术伤害，并降低目标50%生命恢复和吸血效果，持续3秒。"
+        }
+      ],
+      "equip-cup": [
+        {
+          "relation": "preview",
+          "id": "643401",
+          "name": "痛苦面具",
+          "entityType": "related",
+          "descriptionPlain": "唯一。单次魔法伤害超过目标最大生命值的8%时会使目标点燃：每秒造成75%法术攻击力的真实伤害，持续3秒。"
+        },
+        {
+          "relation": "preview",
+          "id": "643402",
+          "name": "法源之杯",
+          "entityType": "related",
+          "descriptionPlain": "唯一。每秒回复5点法力值。"
+        },
+        {
+          "relation": "preview",
+          "id": "643403",
+          "name": "破茧之衣",
+          "entityType": "related",
+          "descriptionPlain": "唯一。战斗开始时，法力值+15，同时眩晕敌方等级最高3名英雄中的随机1名，持续1秒。目标每有10级，眩晕时间增加0.5秒，上限5秒。"
+        },
+        {
+          "relation": "preview",
+          "id": "643404",
+          "name": "聚灵水晶",
+          "entityType": "related",
+          "descriptionPlain": "唯一。受击时额外获得10点法力值，最多100点。达到上限后恢复20%最大生命值。"
+        }
+      ],
+      "equip-spear": [
+        {
+          "relation": "preview",
+          "id": "641010",
+          "name": "凝渊",
+          "entityType": "related",
+          "descriptionPlain": "唯一。暴击率+20%。每次受击时提升1%暴击率，暴击率达到100%时提升100%移动速度。"
+        },
+        {
+          "relation": "preview",
+          "id": "643301",
+          "name": "影牙",
+          "entityType": "related",
+          "descriptionPlain": "攻击速度+50%。"
+        },
+        {
+          "relation": "preview",
+          "id": "643302",
+          "name": "破晓",
+          "entityType": "related",
+          "descriptionPlain": "每次普通攻击降低目标3点物防，持续5秒。目标物防首次降为0时，附加1次目标15%最大生命值的物理伤害。"
+        },
+        {
+          "relation": "preview",
+          "id": "641015",
+          "name": "日渊",
+          "entityType": "related",
+          "descriptionPlain": "唯一，限定远程英雄。普通攻击会释放飞箭，对生命值最低的2名敌人造成45%物理攻击力的物理伤害。"
+        }
+      ],
+      "equipment-643200": [
+        {
+          "relation": "preview",
+          "id": "643202",
+          "name": "虚无法杖",
+          "entityType": "related",
+          "descriptionPlain": "唯一。获得15点法术防御穿透。"
+        },
+        {
+          "relation": "preview",
+          "id": "643205",
+          "name": "寒霜侵袭",
+          "entityType": "related",
+          "descriptionPlain": "唯一。普通攻击减少目标15%移速，持续5秒，最多叠加5层。叠满后目标受到的伤害提高20%，持续5秒，冷却时间10秒。"
+        },
+        {
+          "relation": "preview",
+          "id": "643208",
+          "name": "自然法杖",
+          "entityType": "related",
+          "descriptionPlain": "唯一。法术攻击力+20%，远程穿戴者每消耗40点法力值（近战80点法力值）会将随机1名敌人变成小猪，持续2秒。"
+        },
+        {
+          "relation": "preview",
+          "id": "643207",
+          "name": "金色圣剑",
+          "entityType": "related",
+          "descriptionPlain": "唯一。获得30%（+15%法术攻击力）攻击速度。每次普通攻击附带20（+30%法术攻击力）点法术伤害。"
+        }
+      ],
+      "equipment-643503": [
+        {
+          "relation": "source",
+          "id": "643500",
+          "name": "力量腰带",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equip-643602": [
+        {
+          "relation": "source",
+          "id": "643600",
+          "name": "守护者之铠",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equipment-643805": [
+        {
+          "relation": "source",
+          "id": "643800",
+          "name": "圣者法典",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件法术型普通装备。"
+        }
+      ],
+      "equipment-643804": [
+        {
+          "relation": "source",
+          "id": "643800",
+          "name": "圣者法典",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件法术型普通装备。"
+        }
+      ],
+      "equipment-643803": [
+        {
+          "relation": "source",
+          "id": "643800",
+          "name": "圣者法典",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件法术型普通装备。"
+        }
+      ],
+      "equip-book": [
+        {
+          "relation": "source",
+          "id": "643800",
+          "name": "圣者法典",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件法术型普通装备。"
+        }
+      ],
+      "equipment-643304": [
+        {
+          "relation": "source",
+          "id": "643100",
+          "name": "风暴巨剑",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-643103": [
+        {
+          "relation": "source",
+          "id": "643100",
+          "name": "风暴巨剑",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-643104": [
+        {
+          "relation": "source",
+          "id": "643100",
+          "name": "风暴巨剑",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-643105": [
+        {
+          "relation": "source",
+          "id": "643100",
+          "name": "风暴巨剑",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-643705": [
+        {
+          "relation": "source",
+          "id": "643700",
+          "name": "雷鸣刃",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-643202": [
+        {
+          "relation": "source",
+          "id": "643200",
+          "name": "大棒",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-643205": [
+        {
+          "relation": "source",
+          "id": "643200",
+          "name": "大棒",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-643208": [
+        {
+          "relation": "source",
+          "id": "643200",
+          "name": "大棒",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-643207": [
+        {
+          "relation": "source",
+          "id": "643200",
+          "name": "大棒",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-643704": [
+        {
+          "relation": "source",
+          "id": "643700",
+          "name": "雷鸣刃",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-643301": [
+        {
+          "relation": "source",
+          "id": "643300",
+          "name": "速击之枪",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-643302": [
+        {
+          "relation": "source",
+          "id": "643300",
+          "name": "速击之枪",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-641010": [
+        {
+          "relation": "source",
+          "id": "643300",
+          "name": "速击之枪",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-641015": [
+        {
+          "relation": "source",
+          "id": "643300",
+          "name": "速击之枪",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-643703": [
+        {
+          "relation": "source",
+          "id": "7115",
+          "name": "一线生机",
+          "entityType": "effect",
+          "descriptionPlain": "获得2张名刀·司命。你的棋手生命值本局第一次降至0时，不会被淘汰，并保留1棋手生命值。"
+        },
+        {
+          "relation": "source",
+          "id": "643700",
+          "name": "雷鸣刃",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equipment-643401": [
+        {
+          "relation": "source",
+          "id": "643400",
+          "name": "破碎圣杯",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件功能型普通装备。"
+        }
+      ],
+      "equip-643402": [
+        {
+          "relation": "source",
+          "id": "643400",
+          "name": "破碎圣杯",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件功能型普通装备。"
+        }
+      ],
+      "equipment-643403": [
+        {
+          "relation": "source",
+          "id": "643400",
+          "name": "破碎圣杯",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件功能型普通装备。"
+        }
+      ],
+      "equipment-643404": [
+        {
+          "relation": "source",
+          "id": "643400",
+          "name": "破碎圣杯",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件功能型普通装备。"
+        }
+      ],
+      "equipment-643702": [
+        {
+          "relation": "source",
+          "id": "643700",
+          "name": "雷鸣刃",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件输出型普通装备。"
+        }
+      ],
+      "equip-overlord": [
+        {
+          "relation": "source",
+          "id": "643500",
+          "name": "力量腰带",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equip-643502": [
+        {
+          "relation": "source",
+          "id": "643500",
+          "name": "力量腰带",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equipment-643604": [
+        {
+          "relation": "source",
+          "id": "643600",
+          "name": "守护者之铠",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equipment-643504": [
+        {
+          "relation": "source",
+          "id": "643500",
+          "name": "力量腰带",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equipment-643603": [
+        {
+          "relation": "source",
+          "id": "643600",
+          "name": "守护者之铠",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equip-643601": [
+        {
+          "relation": "source",
+          "id": "643600",
+          "name": "守护者之铠",
+          "entityType": "related",
+          "descriptionPlain": "穿戴给英雄，可以铸造成1件防御型普通装备。"
+        }
+      ],
+      "equipment-644103": [
+        {
+          "relation": "source",
+          "id": "646003",
+          "name": "断念",
+          "entityType": "talent",
+          "descriptionPlain": "获得断念：造成伤害时降低敌方最大生命值。"
+        }
+      ],
+      "equipment-641006": [
+        {
+          "relation": "source",
+          "id": "646015",
+          "name": "鼓舞之戒",
+          "entityType": "talent",
+          "descriptionPlain": "获得鼓舞之戒：与穿戴者同阵营的英雄提升最大生命值。"
+        }
+      ],
+      "equipment-643206": [
+        {
+          "relation": "source",
+          "id": "646016",
+          "name": "梦魇之牙",
+          "entityType": "talent",
+          "descriptionPlain": "获得梦魇之牙：魔法伤害击败敌方造成范围伤害。"
+        }
+      ],
+      "equipment-644111": [
+        {
+          "relation": "source",
+          "id": "646011",
+          "name": "怒神项链",
+          "entityType": "talent",
+          "descriptionPlain": "获得怒神项链：增加暴击率以及法术伤害可以暴击。"
+        }
+      ],
+      "equipment-644110": [
+        {
+          "relation": "source",
+          "id": "646010",
+          "name": "魂灭灵冠",
+          "entityType": "talent",
+          "descriptionPlain": "获得魂灭灵冠：穿戴者阵亡时基于敌人最大生命值造成真实伤害。"
+        }
+      ],
+      "equipment-644109": [
+        {
+          "relation": "source",
+          "id": "646009",
+          "name": "灵泉项链",
+          "entityType": "talent",
+          "descriptionPlain": "获得灵泉项链：法力值上限-10，自身及周围1格友军每秒获得法力值。"
+        }
+      ],
+      "equipment-644107": [
+        {
+          "relation": "source",
+          "id": "646007",
+          "name": "魂祭绝刃",
+          "entityType": "talent",
+          "descriptionPlain": "获得魂祭绝刃：增加攻速与吸血，但每次战斗以50%生命值开始。"
+        }
+      ],
+      "equipment-644102": [
+        {
+          "relation": "source",
+          "id": "646002",
+          "name": "破阵战芒",
+          "entityType": "talent",
+          "descriptionPlain": "获得破阵战芒：增加攻速及伤害提升（1-3阶英雄限定）。"
+        }
+      ],
+      "equipment-644104": [
+        {
+          "relation": "source",
+          "id": "646004",
+          "name": "法潮灵杖",
+          "entityType": "talent",
+          "descriptionPlain": "获得法潮灵杖：获取左右1格英雄法术攻击力。"
+        }
+      ],
+      "equipment-643303": [
+        {
+          "relation": "source",
+          "id": "646017",
+          "name": "末世",
+          "entityType": "talent",
+          "descriptionPlain": "获得末世：普通攻击偷取敌方生命值。"
+        }
+      ],
+      "equipment-644106": [
+        {
+          "relation": "source",
+          "id": "646006",
+          "name": "光辉圣铠",
+          "entityType": "talent",
+          "descriptionPlain": "获得光辉圣铠：每秒获得生命恢复。"
+        }
+      ],
+      "equip-life-orb": [
+        {
+          "relation": "source",
+          "id": "646005",
+          "name": "护命灵珠",
+          "entityType": "talent",
+          "descriptionPlain": "获得护命灵珠：增加护盾，护盾存在期间造成伤害提升。"
+        }
+      ],
+      "equipment-644004": [
+        {
+          "relation": "source",
+          "id": "646013",
+          "name": "灵泉法杖",
+          "entityType": "talent",
+          "descriptionPlain": "获得灵泉法杖：获得闪现，闪现后重击敌人。"
+        }
+      ],
+      "equipment-644101": [
+        {
+          "relation": "source",
+          "id": "646001",
+          "name": "破妄之刃",
+          "entityType": "talent",
+          "descriptionPlain": "获得破妄之刃：获得真实伤害能力并提升移速且免疫减速效果。"
+        }
+      ],
+      "equipment-641008": [
+        {
+          "relation": "source",
+          "id": "661106",
+          "name": "巨型玩偶",
+          "entityType": "talent",
+          "descriptionPlain": "小鹿等级+30，并获得1件小鹿的庇护。"
+        }
+      ]
+    }
+  },
+  "talents": {
+    "count_total": 269,
+    "knowledge_count": 6,
+    "derived_cards_count": 101,
+    "related_cards_count": 91,
+    "knowledge": [
+      {
+        "id": "talent-snap",
+        "name": "一个响指",
+        "quality": 2,
+        "formal": "把低价值库存转换成一次资源重组，收益取决于被消除对象和当前缺口。",
+        "resource": [
+          "消除",
+          "资源重组"
+        ],
+        "trigger": [
+          "打出天赋牌"
+        ]
+      },
+      {
+        "id": "talent-value",
+        "name": "一分钱一分货",
+        "quality": 2,
+        "formal": "把当前能量库存转换成分档奖励，是明确的预算闸门。",
+        "resource": [
+          "能量",
+          "分档奖励"
+        ],
+        "trigger": [
+          "等价交换"
+        ]
+      },
+      {
+        "id": "talent-zhaoyun",
+        "name": "一身是胆",
+        "quality": 2,
+        "formal": "改写赵云施法拓扑和回蓝窗口，不能当作泛用伤害天赋。",
+        "resource": [
+          "额外施法",
+          "吸血",
+          "回蓝"
+        ],
+        "trigger": [
+          "释放技能",
+          "生命档位"
+        ]
+      },
+      {
+        "id": "talent-three",
+        "name": "三三得三",
+        "quality": 3,
+        "formal": "用严格人数闸门换取三分英雄的战斗内临时等级。",
+        "resource": [
+          "人数闸门",
+          "临时等级"
+        ],
+        "trigger": [
+          "战斗开始"
+        ]
+      },
+      {
+        "id": "talent-reinforce",
+        "name": "三分增援",
+        "quality": 3,
+        "formal": "把天赋选择转换成三分中高费补件包。",
+        "resource": [
+          "三分英雄牌",
+          "补件"
+        ],
+        "trigger": [
+          "获得天赋"
+        ]
+      },
+      {
+        "id": "talent-tour",
+        "name": "三人游",
+        "quality": 3,
+        "formal": "用高阶随机供给扩大后期候选，但不保证命中当前路线。",
+        "resource": [
+          "高阶英雄牌",
+          "随机供给"
+        ],
+        "trigger": [
+          "获得天赋"
+        ]
+      }
+    ],
+    "derived_cards": {
+      "talent-623002": [
+        {
+          "id": "derived-talent-623002-%E5%A4%8D%E5%8D%B0%E6%9C%BA%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "复印机",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1名1-3阶英雄，获得该英雄\n牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/623002/card-ZGVyaXZlZC10YWxlbnQtNjIzMDAyLSVFNSVBNCU4RCVFNSU4RCVCMCVFNiU5QyVCQSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-671010": [
+        {
+          "id": "derived-talent-671010-%E4%BA%8C%E8%B1%A1%E5%9D%8D%E7%BC%A9",
+          "name": "二象坍缩",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "二象缩\n指定1名英雄，获得3张同阶英雄\n牌，或2张同阵营的当前最高阶\n英雄牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671010/card-ZGVyaXZlZC10YWxlbnQtNjcxMDEwLSVFNCVCQSU4QyVFOCVCMSVBMSVFNSU5RCU4RCVFNyVCQyVBOQ.webp"
+        }
+      ],
+      "talent-671012": [
+        {
+          "id": "derived-talent-671012-%E8%83%9C%E5%88%A9%E9%A2%84%E8%A8%80",
+          "name": "胜利预言",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "预测下场战斗胜利，预测成功\n获得2张3阶英雄兑换券",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671012/card-ZGVyaXZlZC10YWxlbnQtNjcxMDEyLSVFOCU4MyU5QyVFNSU4OCVBOSVFOSVBMiU4NCVFOCVBOCU4MA.webp"
+        },
+        {
+          "id": "derived-talent-671012-%E5%A4%B1%E8%B4%A5%E9%A2%84%E8%A8%80",
+          "name": "失败预言",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "预测下场战斗失败，预测成功，\n获得4能量。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671012/card-ZGVyaXZlZC10YWxlbnQtNjcxMDEyLSVFNSVBNCVCMSVFOCVCNCVBNSVFOSVBMiU4NCVFOCVBOCU4MA.webp"
+        }
+      ],
+      "talent-681026": [
+        {
+          "id": "derived-talent-681026-%E4%BD%93%E9%9D%A2%E7%A6%BB%E5%9C%BA",
+          "name": "体面离场",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定移除一名英雄，获得能量。\n此英雄0/1/2/3觉醒进度时，获\n得3/5/7/9能量。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/681026/card-ZGVyaXZlZC10YWxlbnQtNjgxMDI2LSVFNCVCRCU5MyVFOSU5RCVBMiVFNyVBNiVCQiVFNSU5QyVCQQ.webp"
+        }
+      ],
+      "talent-681025": [
+        {
+          "id": "derived-talent-681025-%E5%A5%91%E7%BA%A6%E7%93%B6",
+          "name": "契约瓶",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "获胜时，累积3张随机英雄牌；\n失败时，损失一半。打出后获得\n累积的英雄牌（当前0张）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/681025/card-ZGVyaXZlZC10YWxlbnQtNjgxMDI1LSVFNSVBNSU5MSVFNyVCQSVBNiVFNyU5MyVCNg.webp"
+        }
+      ],
+      "talent-633003": [
+        {
+          "id": "derived-talent-633003-%E5%8A%A0%E9%80%9F%E6%88%90%E9%95%BF%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "加速成长",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "指定1名英雄等级+5。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/633003/card-ZGVyaXZlZC10YWxlbnQtNjMzMDAzLSVFNSU4QSVBMCVFOSU4MCU5RiVFNiU4OCU5MCVFOSU5NSVCRiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-681018": [
+        {
+          "id": "derived-talent-681018-2%E7%BA%A7%E7%94%B5%E7%A3%81%E5%BC%B9%E7%B0%A7",
+          "name": "2级电磁弹簧",
+          "kind": "unknown",
+          "cardFaceType": "player",
+          "original": "在指定位置构筑1个2级电磁弹\n簧。\n棋手",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/681018/card-ZGVyaXZlZC10YWxlbnQtNjgxMDE4LTIlRTclQkElQTclRTclOTQlQjUlRTclQTMlODElRTUlQkMlQjklRTclQjAlQTc.webp"
+        }
+      ],
+      "talent-632002": [
+        {
+          "id": "derived-talent-632002-%E4%BA%94%E7%A6%8F%E4%B8%B4%E9%97%A8%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "五福临门",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "随机获得5张英雄牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/632002/card-ZGVyaXZlZC10YWxlbnQtNjMyMDAyLSVFNCVCQSU5NCVFNyVBNiU4RiVFNCVCOCVCNCVFOSU5NyVBOCVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-snap": [
+        {
+          "id": "derived-talent-671017-%E5%90%AC%E5%A4%A9%E7%94%B1%E5%91%BD",
+          "name": "听天由命",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "消除场上4名等级最低的英雄\n每消除1名，获得3能量和1张同\n阶兑换券，1张简易协作。\nTMAENT",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671017/card-ZGVyaXZlZC10YWxlbnQtNjcxMDE3LSVFNSU5MCVBQyVFNSVBNCVBOSVFNyU5NCVCMSVFNSU5MSVCRA.webp"
+        }
+      ],
+      "talent-623008": [
+        {
+          "id": "derived-talent-623008-%E7%BB%88%E6%9E%81%E5%A4%8D%E5%8D%B0%E6%9C%BA%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "终极复印机",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1名英雄，获得该英雄牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/623008/card-ZGVyaXZlZC10YWxlbnQtNjIzMDA4LSVFNyVCQiU4OCVFNiU5RSU4MSVFNSVBNCU4RCVFNSU4RCVCMCVFNiU5QyVCQSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-632010": [
+        {
+          "id": "derived-talent-632010-%E5%8A%A0%E9%80%9F%E6%88%90%E9%95%BF",
+          "name": "加速成长",
+          "kind": "talent",
+          "cardFaceType": "unclassified",
+          "original": "指定1名英雄等级+5。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/632010/card-ZGVyaXZlZC10YWxlbnQtNjMyMDEwLSVFNSU4QSVBMCVFOSU4MCU5RiVFNiU4OCU5MCVFOSU5NSVCRg.webp"
+        }
+      ],
+      "talent-622002": [
+        {
+          "id": "derived-talent-622002-%E4%BA%BA%E6%89%8D%E6%90%9C%E5%AF%BB",
+          "name": "人才搜寻",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "卡牌3选1（商店可购的最高品阶\n英雄）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/622002/card-ZGVyaXZlZC10YWxlbnQtNjIyMDAyLSVFNCVCQSVCQSVFNiU4OSU4RCVFNiU5MCU5QyVFNSVBRiVCQg.webp"
+        }
+      ],
+      "talent-633002": [
+        {
+          "id": "derived-talent-633002-3%E9%98%B6%E8%8B%B1%E9%9B%84%E5%85%91%E6%8D%A2%E5%88%B8",
+          "name": "3阶英雄兑换券",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "3阶英雄兑换券\n卡牌3选1（3阶英雄牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/633002/card-ZGVyaXZlZC10YWxlbnQtNjMzMDAyLTMlRTklOTglQjYlRTglOEIlQjElRTklOUIlODQlRTUlODUlOTElRTYlOEQlQTIlRTUlODglQjg.webp"
+        }
+      ],
+      "talent-634012": [
+        {
+          "id": "derived-talent-634012-%E9%99%90%E5%88%B6%E6%80%A7%E8%BF%9B%E5%8C%96%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "限制性进化",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "指定移除1名1~2阶英雄，获得高\n2阶的随机英雄牌，且上阵时为\n原等级+10。\nBTECT",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/634012/card-ZGVyaXZlZC10YWxlbnQtNjM0MDEyLSVFOSU5OSU5MCVFNSU4OCVCNiVFNiU4MCVBNyVFOCVCRiU5QiVFNSU4QyU5NiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-634013": [
+        {
+          "id": "derived-talent-634013-%E6%8F%B4%E5%86%9B%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "援军",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1名英雄，随机获得4张同阵\n营的英雄牌。\nTMAENT",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/634013/card-ZGVyaXZlZC10YWxlbnQtNjM0MDEzLSVFNiU4RiVCNCVFNSU4NiU5QiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-634015": [
+        {
+          "id": "derived-talent-634015-%E8%87%AA%E9%80%82%E5%BA%94%E6%AD%A6%E8%A3%85%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "自适应武装",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1名英雄，随机获得2张与其\n适配的普通装备牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/634015/card-ZGVyaXZlZC10YWxlbnQtNjM0MDE1LSVFOCU4NyVBQSVFOSU4MCU4MiVFNSVCQSU5NCVFNiVBRCVBNiVFOCVBMyU4NSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-681002": [
+        {
+          "id": "derived-talent-681002-%E7%A5%9E%E7%A7%98%E8%8B%B1%E9%9B%84%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "神秘英雄",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "每次手动刷新时，随机变为不低于当\n前棋手等级相应品阶的英雄牌。每回\n合有15%概率自动销毁并获得3能\n量。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/681002/card-ZGVyaXZlZC10YWxlbnQtNjgxMDAyLSVFNyVBNSU5RSVFNyVBNyU5OCVFOCU4QiVCMSVFOSU5QiU4NCVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-636312": [
+        {
+          "id": "derived-talent-636312-%E7%8C%9B%E8%99%8E%E6%93%82%E5%8F%B0",
+          "name": "猛虎擂台",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "为【三分】英雄增加物理和法术\n攻击力。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636312/card-ZGVyaXZlZC10YWxlbnQtNjM2MzEyLSVFNyU4QyU5QiVFOCU5OSU4RSVFNiU5MyU4MiVFNSU4RiVCMA.webp"
+        }
+      ],
+      "talent-671016": [
+        {
+          "id": "derived-talent-671016-%E6%8B%8D%E5%8D%96%E9%87%8D%E7%8E%B0%EF%BC%9A%E4%BA%8C",
+          "name": "拍卖重现：二",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "展示第二轮拍卖中你未获得的卡\n牌（最多5张），从中挑选1张。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671016/card-ZGVyaXZlZC10YWxlbnQtNjcxMDE2LSVFNiU4QiU4RCVFNSU4RCU5NiVFOSU4NyU4RCVFNyU4RSVCMCVFRiVCQyU5QSVFNCVCQSU4Qw.webp"
+        },
+        {
+          "id": "derived-talent-671016-%E6%8B%8D%E5%8D%96%E9%87%8D%E7%8E%B0%EF%BC%9A%E4%B8%89",
+          "name": "拍卖重现：三",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "消耗4能量，展示第三轮拍卖中\n你未获得的卡牌（最多5张）\n从中挑选1张。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671016/card-ZGVyaXZlZC10YWxlbnQtNjcxMDE2LSVFNiU4QiU4RCVFNSU4RCU5NiVFOSU4NyU4RCVFNyU4RSVCMCVFRiVCQyU5QSVFNCVCOCU4OQ.webp"
+        },
+        {
+          "id": "derived-talent-671016-%E6%8B%8D%E5%8D%96%E9%87%8D%E7%8E%B0%EF%BC%9A%E4%B8%80",
+          "name": "拍卖重现：一",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "展示第一轮拍卖中你未获得的卡\n牌（最多5张），从中挑选1张。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671016/card-ZGVyaXZlZC10YWxlbnQtNjcxMDE2LSVFNiU4QiU4RCVFNSU4RCU5NiVFOSU4NyU4RCVFNyU4RSVCMCVFRiVCQyU5QSVFNCVCOCU4MA.webp"
+        }
+      ],
+      "talent-635002": [
+        {
+          "id": "derived-talent-635002-%E8%B6%85%E9%80%9F%E6%88%90%E9%95%BF%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "超速成长",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "指定1名英雄等级+15。\nBTECT",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635002/card-ZGVyaXZlZC10YWxlbnQtNjM1MDAyLSVFOCVCNiU4NSVFOSU4MCU5RiVFNiU4OCU5MCVFOSU5NSVCRiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-614004": [
+        {
+          "id": "derived-talent-614004-2%E9%98%B6%E6%95%88%E6%9E%9C%E9%94%A6%E5%9B%8A",
+          "name": "2阶效果锦囊",
+          "kind": "unknown",
+          "cardFaceType": "resource",
+          "original": "效果牌卡牌3选1",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/614004/card-ZGVyaXZlZC10YWxlbnQtNjE0MDA0LTIlRTklOTglQjYlRTYlOTUlODglRTYlOUUlOUMlRTklOTQlQTYlRTUlOUIlOEE.webp"
+        },
+        {
+          "id": "derived-talent-614004-3%E9%98%B6%E6%95%88%E6%9E%9C%E9%94%A6%E5%9B%8A",
+          "name": "3阶效果锦囊",
+          "kind": "unknown",
+          "cardFaceType": "resource",
+          "original": "效果牌卡牌3选1",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/614004/card-ZGVyaXZlZC10YWxlbnQtNjE0MDA0LTMlRTklOTglQjYlRTYlOTUlODglRTYlOUUlOUMlRTklOTQlQTYlRTUlOUIlOEE.webp"
+        }
+      ],
+      "talent-671011": [
+        {
+          "id": "derived-talent-671011-%E7%A2%B0%E7%A2%B0%E8%BF%90%E6%B0%94",
+          "name": "碰碰运气",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "消耗0能量，指定英雄使其随机\n提升5-20级。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671011/card-ZGVyaXZlZC10YWxlbnQtNjcxMDExLSVFNyVBMiVCMCVFNyVBMiVCMCVFOCVCRiU5MCVFNiVCMCU5NA.webp"
+        }
+      ],
+      "talent-635015": [
+        {
+          "id": "derived-talent-635015-%E6%9D%8E%E4%BF%A1",
+          "name": "李信",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每当你拥有牺牲效果的英雄阵\n亡时，李信临时等级+7。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635015/card-ZGVyaXZlZC10YWxlbnQtNjM1MDE1LSVFNiU5RCU4RSVFNCVCRiVBMQ.webp"
+        }
+      ],
+      "talent-614002": [
+        {
+          "id": "derived-talent-614002-%E8%A3%85%E5%A4%87%E7%AE%B1",
+          "name": "装备箱",
+          "kind": "unknown",
+          "cardFaceType": "resource",
+          "original": "卡牌4选1（基础装备牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/614002/card-ZGVyaXZlZC10YWxlbnQtNjE0MDAyLSVFOCVBMyU4NSVFNSVBNCU4NyVFNyVBRSVCMQ.webp"
+        }
+      ],
+      "talent-671009": [
+        {
+          "id": "derived-talent-671009-%E9%99%A9%E4%B8%AD%E6%B1%82%E5%AF%8C",
+          "name": "险中求富",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "获得基础装备牌（当前：0件）\n战斗失败销毁此牌并获得2能\n量。\nTALET",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671009/card-ZGVyaXZlZC10YWxlbnQtNjcxMDA5LSVFOSU5OSVBOSVFNCVCOCVBRCVFNiVCMSU4MiVFNSVBRiU4Qw.webp"
+        },
+        {
+          "id": "derived-talent-671009-%E4%B8%80%E5%88%80%E7%A9%B7%E4%B8%80%E5%88%80%E5%AF%8C",
+          "name": "一刀穷一刀富",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "获得1张基础装备牌及1张险中求\n富并开始记录胜场。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671009/card-ZGVyaXZlZC10YWxlbnQtNjcxMDA5LSVFNCVCOCU4MCVFNSU4OCU4MCVFNyVBOSVCNyVFNCVCOCU4MCVFNSU4OCU4MCVFNSVBRiU4Qw.webp"
+        }
+      ],
+      "talent-635021": [
+        {
+          "id": "derived-talent-635021-%E5%89%8D%E6%B5%AA%E7%9A%84%E8%8D%A3%E5%85%89%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "前浪的荣光",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1名英雄，获得1张高1-2阶\n的同阵营英雄牌",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635021/card-ZGVyaXZlZC10YWxlbnQtNjM1MDIxLSVFNSU4OSU4RCVFNiVCNSVBQSVFNyU5QSU4NCVFOCU4RCVBMyVFNSU4NSU4OSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-635024": [
+        {
+          "id": "derived-talent-635024-%E5%85%A8%E5%86%9B%E5%88%97%E9%98%B5%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "全军列阵",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1名英雄，召唤其同阵营英\n雄上场直到阵容人数上限（不超\n过商店可购品阶）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635024/card-ZGVyaXZlZC10YWxlbnQtNjM1MDI0LSVFNSU4NSVBOCVFNSU4NiU5QiVFNSU4OCU5NyVFOSU5OCVCNSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-635027": [
+        {
+          "id": "derived-talent-635027-%E8%92%99%E7%8A%BD",
+          "name": "蒙犽",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "登场：获得1张特训战术。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635027/card-ZGVyaXZlZC10YWxlbnQtNjM1MDI3LSVFOCU5MiU5OSVFNyU4QSVCRA.webp"
+        }
+      ],
+      "talent-635032": [
+        {
+          "id": "derived-talent-635032-%E5%88%98%E9%82%A6",
+          "name": "刘邦",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "V开团：摧毁你所有的图腾\n每摧毁1个，刘邦等级永久+5。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635032/card-ZGVyaXZlZC10YWxlbnQtNjM1MDMyLSVFNSU4OCU5OCVFOSU4MiVBNg.webp"
+        }
+      ],
+      "talent-613008": [
+        {
+          "id": "derived-talent-613008-%E8%A3%85%E5%A4%87%E7%AE%B1",
+          "name": "装备箱",
+          "kind": "unknown",
+          "cardFaceType": "resource",
+          "original": "卡牌4选1（基础装备牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/613008/card-ZGVyaXZlZC10YWxlbnQtNjEzMDA4LSVFOCVBMyU4NSVFNSVBNCU4NyVFNyVBRSVCMQ.webp"
+        }
+      ],
+      "talent-635037": [
+        {
+          "id": "derived-talent-635037-%E9%9B%85%E5%85%B8%E5%A8%9C",
+          "name": "雅典娜",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "V开团：随机触发2名【日落\n海】英雄的整备效果。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635037/card-ZGVyaXZlZC10YWxlbnQtNjM1MDM3LSVFOSU5QiU4NSVFNSU4NSVCOCVFNSVBOCU5Qw.webp"
+        }
+      ],
+      "talent-value": [
+        {
+          "id": "derived-talent-671001-%E7%AD%89%E4%BB%B7%E4%BA%A4%E6%8D%A2",
+          "name": "等价交换",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "扣除所有能量：<2，获得2张英雄\n牌；2-4，获得1张基础装备牌；≥\n5，获得1张5阶兑换券，2张效果锦\n囊牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671001/card-ZGVyaXZlZC10YWxlbnQtNjcxMDAxLSVFNyVBRCU4OSVFNCVCQiVCNyVFNCVCQSVBNCVFNiU4RCVBMg.webp"
+        }
+      ],
+      "talent-646011": [
+        {
+          "id": "derived-talent-646011-%E6%80%92%E7%A5%9E%E9%A1%B9%E9%93%BE%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "怒神项链",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "暴击率+50%，且法术伤\n害可以暴击。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646011/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDExLSVFNiU4MCU5MiVFNyVBNSU5RSVFOSVBMSVCOSVFOSU5MyVCRSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-613004": [
+        {
+          "id": "derived-talent-613004-%E4%BA%BA%E6%89%8D%E6%90%9C%E5%AF%BB",
+          "name": "人才搜寻",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "卡牌3选1（商店可购的最高品阶\n英雄）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/613004/card-ZGVyaXZlZC10YWxlbnQtNjEzMDA0LSVFNCVCQSVCQSVFNiU4OSU4RCVFNiU5MCU5QyVFNSVBRiVCQg.webp"
+        }
+      ],
+      "talent-635042": [
+        {
+          "id": "derived-talent-635042-%E5%B0%8F%E4%B9%94",
+          "name": "小乔",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每当你的英雄触发登场效果\n时，随机3名英雄等级+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635042/card-ZGVyaXZlZC10YWxlbnQtNjM1MDQyLSVFNSVCMCU4RiVFNCVCOSU5NA.webp"
+        }
+      ],
+      "talent-646004": [
+        {
+          "id": "derived-talent-646004-%E6%B3%95%E6%BD%AE%E7%81%B5%E6%9D%96%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "法潮灵杖",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。法术攻击力+25%。战斗\n开始，会获得左右1格的英雄的\n100%法术攻击力。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646004/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDA0LSVFNiVCMyU5NSVFNiVCRCVBRSVFNyU4MSVCNSVFNiU5RCU5NiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646003": [
+        {
+          "id": "derived-talent-646003-%E6%96%AD%E5%BF%B5%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "断念",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。造成伤害时，本场战斗降\n低敌方单位20%最大生命值上限\n（不可叠加）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646003/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDAzLSVFNiU5NiVBRCVFNSVCRiVCNSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646002": [
+        {
+          "id": "derived-talent-646002-%E7%A0%B4%E9%98%B5%E6%88%98%E8%8A%92%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "破阵战芒",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。仅1-3阶英雄可穿戴。战\n斗开始时，获得等级×1%的伤害\n加成和攻速，上限50%。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646002/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDAyLSVFNyVBMCVCNCVFOSU5OCVCNSVFNiU4OCU5OCVFOCU4QSU5MiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646001": [
+        {
+          "id": "derived-talent-646001-%E7%A0%B4%E5%A6%84%E4%B9%8B%E5%88%83%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "破妄之刃",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。移动速度提升60%，造成\n伤害的50%会转化为真实伤害。\n免疫减速效果。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646001/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDAxLSVFNyVBMCVCNCVFNSVBNiU4NCVFNCVCOSU4QiVFNSU4OCU4MyVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-636106": [
+        {
+          "id": "derived-talent-636106-%E6%98%9F%E6%BA%90%E5%90%88%E9%87%91%E7%9B%BE",
+          "name": "星源合金盾",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "【日落海】专属装备\n物理和法术防御力+20。唯一被\n动：受到的伤害-20%",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636106/card-ZGVyaXZlZC10YWxlbnQtNjM2MTA2LSVFNiU5OCU5RiVFNiVCQSU5MCVFNSU5MCU4OCVFOSU4NyU5MSVFNyU5QiVCRQ.webp"
+        },
+        {
+          "id": "derived-talent-636106-%E6%98%9F%E6%BA%90%E7%8B%A9%E6%9E%AA",
+          "name": "星源狩枪",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "【日落海】专属装备\n物理和法术攻击力+20%。唯一被\n动：法力值上限-20，且技能会直接\n击败生命值10%以下的敌人。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636106/card-ZGVyaXZlZC10YWxlbnQtNjM2MTA2LSVFNiU5OCU5RiVFNiVCQSU5MCVFNyU4QiVBOSVFNiU5RSVBQQ.webp"
+        },
+        {
+          "id": "derived-talent-636106-%E6%98%9F%E6%BA%90%E8%A3%85%E7%94%B2",
+          "name": "星源装甲",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "【日落海】专属装备\n物理和法术吸血+20%。唯一被动：\n释放技能后的2秒内免疫控制。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636106/card-ZGVyaXZlZC10YWxlbnQtNjM2MTA2LSVFNiU5OCU5RiVFNiVCQSU5MCVFOCVBMyU4NSVFNyU5NCVCMg.webp"
+        }
+      ],
+      "talent-638003": [
+        {
+          "id": "derived-talent-638003-%E8%83%9C%E4%B9%8B%E4%B8%8D%E6%AD%A6%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "胜之不武",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "下场战斗你的英雄+20×临时等\n级，但对敌方棋手造成的伤害一\n10。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/638003/card-ZGVyaXZlZC10YWxlbnQtNjM4MDAzLSVFOCU4MyU5QyVFNCVCOSU4QiVFNCVCOCU4RCVFNiVBRCVBNiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-63700801": [
+        {
+          "id": "derived-talent-63700801-%E7%99%BE%E9%87%8C%E5%AE%88%E7%BA%A6",
+          "name": "百里守约",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每当你拥有牺牲效果的英雄阵\n亡时，本回合百里守约的法力值\n上限-20。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/63700801/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA4MDEtJUU3JTk5JUJFJUU5JTg3JThDJUU1JUFFJTg4JUU3JUJBJUE2.webp"
+        },
+        {
+          "id": "derived-talent-63700801-%E9%A9%AC%E5%8F%AF%E6%B3%A2%E7%BD%97",
+          "name": "马可波罗",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "登场：\n自身及阿科米亚核心\n等级+2。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/63700801/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA4MDEtJUU5JUE5JUFDJUU1JThGJUFGJUU2JUIzJUEyJUU3JUJEJTk3.webp"
+        }
+      ],
+      "talent-636117": [
+        {
+          "id": "derived-talent-636117-%E6%98%9F%E6%BA%90%E5%90%88%E9%87%91%E7%9B%BE",
+          "name": "星源合金盾",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "【日落海】专属装备\n物理和法术防御力+20。唯一被\n动：受到的伤害-20%",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636117/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE3LSVFNiU5OCU5RiVFNiVCQSU5MCVFNSU5MCU4OCVFOSU4NyU5MSVFNyU5QiVCRQ.webp"
+        },
+        {
+          "id": "derived-talent-636117-%E6%98%9F%E6%BA%90%E7%8B%A9%E6%9E%AA",
+          "name": "星源狩枪",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "【日落海】专属装备\n物理和法术攻击力+20%。唯一被\n动：法力值上限-20，且技能会直接\n击败生命值10%以下的敌人。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636117/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE3LSVFNiU5OCU5RiVFNiVCQSU5MCVFNyU4QiVBOSVFNiU5RSVBQQ.webp"
+        },
+        {
+          "id": "derived-talent-636117-%E6%98%9F%E6%BA%90%E6%98%9F%E8%BE%89",
+          "name": "星源星辉",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "星源星徽\n【日落海】专属装备\n唯一被动：该英雄不会被\n阿科米亚核心分配等级。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636117/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE3LSVFNiU5OCU5RiVFNiVCQSU5MCVFNiU5OCU5RiVFOCVCRSU4OQ.webp"
+        },
+        {
+          "id": "derived-talent-636117-%E6%98%9F%E6%BA%90%E8%A3%85%E7%94%B2",
+          "name": "星源装甲",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "【日落海】专属装备\n物理和法术吸血+20%。唯一被动：\n释放技能后的2秒内免疫控制。\n+",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636117/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE3LSVFNiU5OCU5RiVFNiVCQSU5MCVFOCVBMyU4NSVFNyU5NCVCMg.webp"
+        },
+        {
+          "id": "derived-talent-636117-%E6%9C%88%E5%BD%B1%E4%B9%8B%E5%8A%9B",
+          "name": "月影之力",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "【日落海】专属装备\n生命值上限+15%。唯一被动：露娜释放2\n次技能后，将释放1次【月下无限连】（仅\n露娜穿戴时生效，每场战斗限1次）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636117/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE3LSVFNiU5QyU4OCVFNSVCRCVCMSVFNCVCOSU4QiVFNSU4QSU5Qg.webp"
+        }
+      ],
+      "talent-636201": [
+        {
+          "id": "derived-talent-636201-%E5%8F%A4%E5%B8%81",
+          "name": "古币",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "S转瞬\n指定1名【河洛】英雄等级+2。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636201/card-ZGVyaXZlZC10YWxlbnQtNjM2MjAxLSVFNSU4RiVBNCVFNSVCOCU4MQ.webp"
+        },
+        {
+          "id": "derived-talent-636201-%E7%B2%BE%E8%87%B4%E5%8F%A4%E5%B8%81",
+          "name": "精致古币",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "S转瞬\n指定1名【河洛】英雄等级+4。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636201/card-ZGVyaXZlZC10YWxlbnQtNjM2MjAxLSVFNyVCMiVCRSVFOCU4NyVCNCVFNSU4RiVBNCVFNSVCOCU4MQ.webp"
+        }
+      ],
+      "talent-636209": [
+        {
+          "id": "derived-talent-636209-%E5%8F%A4%E5%B8%81",
+          "name": "古币",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "S转瞬\n指定1名【河洛】英雄等级+2。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636209/card-ZGVyaXZlZC10YWxlbnQtNjM2MjA5LSVFNSU4RiVBNCVFNSVCOCU4MQ.webp"
+        }
+      ],
+      "talent-636506": [
+        {
+          "id": "derived-talent-636506-%E9%AC%BC%E8%B0%B7%E5%AD%90",
+          "name": "鬼谷子",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "在场时，召唤先知图腾。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636506/card-ZGVyaXZlZC10YWxlbnQtNjM2NTA2LSVFOSVBQyVCQyVFOCVCMCVCNyVFNSVBRCU5MA.webp"
+        },
+        {
+          "id": "derived-talent-636506-%E5%85%88%E7%9F%A5%E5%9B%BE%E8%85%BE",
+          "name": "先知图腾",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "V开团：距离最近的2名【大河\n流域】英雄获得装备玄微之种。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636506/card-ZGVyaXZlZC10YWxlbnQtNjM2NTA2LSVFNSU4NSU4OCVFNyU5RiVBNSVFNSU5QiVCRSVFOCU4NSVCRQ.webp"
+        }
+      ],
+      "talent-636213": [
+        {
+          "id": "derived-talent-636213-%E6%9D%8E%E4%BF%A1",
+          "name": "李信",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每当你拥有牺牲效果的英雄阵\n亡时，李信临时等级+7。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636213/card-ZGVyaXZlZC10YWxlbnQtNjM2MjEzLSVFNiU5RCU4RSVFNCVCRiVBMQ.webp"
+        }
+      ],
+      "talent-636215": [
+        {
+          "id": "derived-talent-636215-%E7%A0%B4%E6%8D%9F%E5%8F%A4%E5%B8%81",
+          "name": "破损古币",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "S转瞬\n指定1名【河洛】英雄使用，无\n法提供等级。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636215/card-ZGVyaXZlZC10YWxlbnQtNjM2MjE1LSVFNyVBMCVCNCVFNiU4RCU5RiVFNSU4RiVBNCVFNSVCOCU4MQ.webp"
+        }
+      ],
+      "talent-636413": [
+        {
+          "id": "derived-talent-636413-%E9%AB%98%E9%98%B6%E6%8E%A8%E6%BC%94%E6%88%98%E6%9C%AF",
+          "name": "高阶推演战术",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "S转屏\n指定1名【逐鹿】英雄，使其本回合\n法力值上限-10（每次使用此牌都会\n提升效果，上限40点）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636413/card-ZGVyaXZlZC10YWxlbnQtNjM2NDEzLSVFOSVBQiU5OCVFOSU5OCVCNiVFNiU4RSVBOCVFNiVCQyU5NCVFNiU4OCU5OCVFNiU5QyVBRg.webp"
+        }
+      ],
+      "talent-636412": [
+        {
+          "id": "derived-talent-636412-%E5%BA%84%E5%91%A8",
+          "name": "庄周",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "登场：\n自身等级+2并获得1张\n招募战术。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636412/card-ZGVyaXZlZC10YWxlbnQtNjM2NDEyLSVFNSVCQSU4NCVFNSU5MSVBOA.webp"
+        }
+      ],
+      "talent-636314": [
+        {
+          "id": "derived-talent-636314-%E9%94%A6%E5%9B%8A",
+          "name": "锦囊",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "使用后，本回合打出的登场英\n雄牌，会额外触发1次登场效\n果。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636314/card-ZGVyaXZlZC10YWxlbnQtNjM2MzE0LSVFOSU5NCVBNiVFNSU5QiU4QQ.webp"
+        }
+      ],
+      "talent-zhaoyun": [
+        {
+          "id": "derived-talent-636306-%E8%B5%B5%E4%BA%91",
+          "name": "赵云",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "登场：\n自身及随机2名其他英\n雄等级+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636306/card-ZGVyaXZlZC10YWxlbnQtNjM2MzA2LSVFOCVCNSVCNSVFNCVCQSU5MQ.webp"
+        }
+      ],
+      "talent-636307": [
+        {
+          "id": "derived-talent-636307-%E8%AF%B8%E8%91%9B%E4%BA%AE",
+          "name": "诸葛亮",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "你的其他英雄释放技能时，诸葛\n亮获得15点法力值以及\n4临时等级。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636307/card-ZGVyaXZlZC10YWxlbnQtNjM2MzA3LSVFOCVBRiVCOCVFOCU5MSU5QiVFNCVCQSVBRQ.webp"
+        }
+      ],
+      "talent-636318": [
+        {
+          "id": "derived-talent-636318-%E4%B8%89%E5%88%86%E6%97%97%E5%B8%9C",
+          "name": "三分旗帜",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "仅三分英雄穿戴。将造成伤害的\n30%转化为治疗量，平摊给所有\n三分英雄。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636318/card-ZGVyaXZlZC10YWxlbnQtNjM2MzE4LSVFNCVCOCU4OSVFNSU4OCU4NiVFNiU5NyU5NyVFNSVCOCU5Qw.webp"
+        }
+      ],
+      "talent-636216": [
+        {
+          "id": "derived-talent-636216-%E6%9D%8E%E7%99%BD",
+          "name": "李白",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现\n古币牌会额外提供4临时等级。若\n目标为李白，该临时等级会额外+\n3。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636216/card-ZGVyaXZlZC10YWxlbnQtNjM2MjE2LSVFNiU5RCU4RSVFNyU5OSVCRA.webp"
+        }
+      ],
+      "talent-636501": [
+        {
+          "id": "derived-talent-636501-%E6%9C%9B%E6%A2%85%E6%AD%A2%E6%B8%B4%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "望梅止渴",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1名英雄临时等级+3，战斗\n开始时，每穿1件装备额外+1级。\n若战斗胜利，将永久获得此等级。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636501/card-ZGVyaXZlZC10YWxlbnQtNjM2NTAxLSVFNiU5QyU5QiVFNiVBMiU4NSVFNiVBRCVBMiVFNiVCOCVCNCVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-636507": [
+        {
+          "id": "derived-talent-636507-%E5%A7%8B%E7%A5%96%E7%86%8A%E7%81%B5%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "始祖熊灵",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "每当你的单位触发V开团效果\n时，始祖熊灵获得20%攻击速\n度。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636507/card-ZGVyaXZlZC10YWxlbnQtNjM2NTA3LSVFNSVBNyU4QiVFNyVBNSU5NiVFNyU4NiU4QSVFNyU4MSVCNSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-636114": [
+        {
+          "id": "derived-talent-636114-%E7%9B%97%E7%81%AB",
+          "name": "盗火",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "S转瞬\n指定1名英雄，至多偷取阿科\n米亚核心20级。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636114/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE0LSVFNyU5QiU5NyVFNyU4MSVBQg.webp"
+        }
+      ],
+      "talent-636602": [
+        {
+          "id": "derived-talent-636602-%E5%A4%A7%E5%8F%B8%E5%91%BD",
+          "name": "大司命",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "在场时，召唤往生图腾。\n每当你触发牺牲效果时：\n￥往生图腾等级永久+2并获得50点\n法力值。\nFEFO0:38",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636602/card-ZGVyaXZlZC10YWxlbnQtNjM2NjAyLSVFNSVBNCVBNyVFNSU4RiVCOCVFNSU5MSVCRA.webp"
+        },
+        {
+          "id": "derived-talent-636602-%E8%92%99%E6%81%AC",
+          "name": "蒙恬",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "牺牲：召唤2名与自身等级相\n同的玄雍士兵。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636602/card-ZGVyaXZlZC10YWxlbnQtNjM2NjAyLSVFOCU5MiU5OSVFNiU4MSVBQw.webp"
+        },
+        {
+          "id": "derived-talent-636602-%E7%B1%B3%E8%8E%B1%E7%8B%84",
+          "name": "米莱狄",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "召唤单位获得3?临时等级。\n整备：该临时等级及\n阿科米亚核心等级额外+3。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636602/card-ZGVyaXZlZC10YWxlbnQtNjM2NjAyLSVFNyVCMSVCMyVFOCU4RSVCMSVFNyU4QiU4NA.webp"
+        }
+      ],
+      "talent-637001": [
+        {
+          "id": "derived-talent-637001-%E9%93%A0",
+          "name": "铠",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "复生\n牺牲：你的【河洛】英雄获得\n5临时等级",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637001/card-ZGVyaXZlZC10YWxlbnQtNjM3MDAxLSVFOSU5MyVBMA.webp"
+        },
+        {
+          "id": "derived-talent-637001-%E9%9C%B2%E5%A8%9C",
+          "name": "露娜",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现\n登场：阿科米亚核心等级+2，并\n且随机触发2名英雄的整备效果。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637001/card-ZGVyaXZlZC10YWxlbnQtNjM3MDAxLSVFOSU5QyVCMiVFNSVBOCU5Qw.webp"
+        }
+      ],
+      "talent-637003": [
+        {
+          "id": "derived-talent-637003-%E8%A3%B4%E6%93%92%E8%99%8E",
+          "name": "裴擒虎",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现\n整备：随机获得1名其他英雄等级\n数一半的临时等级，不可叠加。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637003/card-ZGVyaXZlZC10YWxlbnQtNjM3MDAzLSVFOCVBMyVCNCVFNiU5MyU5MiVFOCU5OSU4RQ.webp"
+        },
+        {
+          "id": "derived-talent-637003-%E4%BA%91%E4%B8%AD%E5%90%9B",
+          "name": "云中君",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现\nV开团：你的英雄每穿戴1件装\n备，该英雄等级永久+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637003/card-ZGVyaXZlZC10YWxlbnQtNjM3MDAzLSVFNCVCQSU5MSVFNCVCOCVBRCVFNSU5MCU5Qg.webp"
+        }
+      ],
+      "talent-637004": [
+        {
+          "id": "derived-talent-637004-%E8%92%99%E6%81%AC",
+          "name": "蒙恬",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "牺牲：召唤2名与自身等级相\n同的玄雍士兵。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637004/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA0LSVFOCU5MiU5OSVFNiU4MSVBQw.webp"
+        },
+        {
+          "id": "derived-talent-637004-%E7%B1%B3%E8%8E%B1%E7%8B%84",
+          "name": "米莱狄",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "召唤单位获得3?临时等级。\n整备：该临时等级及\n阿科米亚核心等级额外+3。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637004/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA0LSVFNyVCMSVCMyVFOCU4RSVCMSVFNyU4QiU4NA.webp"
+        },
+        {
+          "id": "derived-talent-637004-%E8%94%9A%E8%93%9D%E7%A5%9E%E5%85%BD",
+          "name": "蔚蓝神兽",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "战斗中我方单位入场时，蔚蓝神\n兽永久增加5点生命值。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637004/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA0LSVFOCU5NCU5QSVFOCU5MyU5RCVFNyVBNSU5RSVFNSU4NSVCRA.webp"
+        },
+        {
+          "id": "derived-talent-637004-%E7%8C%A9%E7%BA%A2%E7%A5%9E%E5%85%BD",
+          "name": "猩红神兽",
+          "kind": "unknown",
+          "cardFaceType": "unclassified",
+          "original": "战斗中，我方召唤物入场时使之\n获得猩红神兽之力。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637004/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA0LSVFNyU4QyVBOSVFNyVCQSVBMiVFNyVBNSU5RSVFNSU4NSVCRA.webp"
+        }
+      ],
+      "talent-63700601": [
+        {
+          "id": "derived-talent-63700601-%E8%B2%82%E8%9D%89",
+          "name": "貂蝉",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "登场：\n【三分】英雄等级+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/63700601/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA2MDEtJUU4JUIyJTgyJUU4JTlEJTg5.webp"
+        },
+        {
+          "id": "derived-talent-63700601-%E4%B8%8A%E5%AE%98%E5%A9%89%E5%84%BF",
+          "name": "上官婉儿",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "整备：随机对3名不同【河\n洛】英雄使用1张古币",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/63700601/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA2MDEtJUU0JUI4JThBJUU1JUFFJTk4JUU1JUE5JTg5JUU1JTg0JUJG.webp"
+        }
+      ],
+      "talent-637007": [
+        {
+          "id": "derived-talent-637007-%E5%85%AC%E5%AD%99%E7%A6%BB",
+          "name": "公孙离",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "夺取\nV开团：场上每有1名已觉醒英\n雄，攻击速度+15%。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637007/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA3LSVFNSU4NSVBQyVFNSVBRCU5OSVFNyVBNiVCQg.webp"
+        },
+        {
+          "id": "derived-talent-637007-%E8%99%9E%E5%A7%AC",
+          "name": "虞姬",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "V开团：场上每有1个￥图腾\n自身及随机2名不同【大河流\n域】英雄等级+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637007/card-ZGVyaXZlZC10YWxlbnQtNjM3MDA3LSVFOCU5OSU5RSVFNSVBNyVBQw.webp"
+        }
+      ],
+      "talent-637010": [
+        {
+          "id": "derived-talent-637010-%E6%89%81%E9%B9%8A",
+          "name": "扁鹊",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "友方单位护盾被击破时，对周围\n敌人造成该英雄最大生命值10%\n的法术伤害（冷却1秒）。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637010/card-ZGVyaXZlZC10YWxlbnQtNjM3MDEwLSVFNiU4OSU4MSVFOSVCOSU4QQ.webp"
+        },
+        {
+          "id": "derived-talent-637010-%E8%94%A1%E6%96%87%E5%A7%AC",
+          "name": "蔡文姬",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每当你使用【三分】英雄牌时\n等级最低的其他3名【三分】英\n雄等级+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637010/card-ZGVyaXZlZC10YWxlbnQtNjM3MDEwLSVFOCU5NCVBMSVFNiU5NiU4NyVFNSVBNyVBQw.webp"
+        }
+      ],
+      "talent-637011": [
+        {
+          "id": "derived-talent-637011-%E6%9D%8E%E7%99%BD",
+          "name": "李白",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现\n古币牌会额外提供4临时等级。若\n目标为李白，该临时等级会额外+\n3。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637011/card-ZGVyaXZlZC10YWxlbnQtNjM3MDExLSVFNiU5RCU4RSVFNyU5OSVCRA.webp"
+        },
+        {
+          "id": "derived-talent-637011-%E6%9B%9C",
+          "name": "曜",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "你的英雄合成提升的等级+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637011/card-ZGVyaXZlZC10YWxlbnQtNjM3MDExLSVFNiU5QiU5Qw.webp"
+        }
+      ],
+      "talent-637012": [
+        {
+          "id": "derived-talent-637012-%E9%9C%B2%E5%A8%9C",
+          "name": "露娜",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现\n登场：阿科米亚核心等级+2，并\n且随机触发2名英雄的整备效果。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637012/card-ZGVyaXZlZC10YWxlbnQtNjM3MDEyLSVFOSU5QyVCMiVFNSVBOCU5Qw.webp"
+        },
+        {
+          "id": "derived-talent-637012-%E5%AD%99%E6%82%9F%E7%A9%BA",
+          "name": "孙悟空",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现，夺取\n少整备：\n拥有闪现效果的英雄\n等级+2。\nERONO:81",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637012/card-ZGVyaXZlZC10YWxlbnQtNjM3MDEyLSVFNSVBRCU5OSVFNiU4MiU5RiVFNyVBOSVCQQ.webp"
+        }
+      ],
+      "talent-637016": [
+        {
+          "id": "derived-talent-637016-%E5%85%AC%E5%AD%99%E7%A6%BB",
+          "name": "公孙离",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "夺取\nV开团：场上每有1名已觉醒英\n雄，攻击速度+15%。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637016/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE2LSVFNSU4NSVBQyVFNSVBRCU5OSVFNyVBNiVCQg.webp"
+        },
+        {
+          "id": "derived-talent-637016-%E6%9D%8E%E5%85%83%E8%8A%B3",
+          "name": "李元芳",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "整备：\n对距离最近的【河洛】\n英雄使用1张古币",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637016/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE2LSVFNiU5RCU4RSVFNSU4NSU4MyVFOCU4QSVCMw.webp"
+        }
+      ],
+      "talent-638007": [
+        {
+          "id": "derived-talent-638007-%E5%85%AC%E5%AD%99%E7%A6%BB",
+          "name": "公孙离",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "夺取\nV开团：场上每有1名已觉醒英\n雄，攻击速度+15%。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/638007/card-ZGVyaXZlZC10YWxlbnQtNjM4MDA3LSVFNSU4NSVBQyVFNSVBRCU5OSVFNyVBNiVCQg.webp"
+        },
+        {
+          "id": "derived-talent-638007-%E5%AD%99%E6%82%9F%E7%A9%BA",
+          "name": "孙悟空",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "闪现，夺取\n少整备：\n拥有闪现效果的英雄\n等级+2。\nERONO:81",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/638007/card-ZGVyaXZlZC10YWxlbnQtNjM4MDA3LSVFNSVBRCU5OSVFNiU4MiU5RiVFNyVBOSVCQQ.webp"
+        },
+        {
+          "id": "derived-talent-638007-%E7%8C%AA%E5%85%AB%E6%88%92",
+          "name": "猪八戒",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "夺取\n每当3阶及以下英雄合成时，\n与其同阶的英雄等级+1。\nERONO:8O",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/638007/card-ZGVyaXZlZC10YWxlbnQtNjM4MDA3LSVFNyU4QyVBQSVFNSU4NSVBQiVFNiU4OCU5Mg.webp"
+        }
+      ],
+      "talent-635046": [
+        {
+          "id": "derived-talent-635046-%E7%82%B9%E5%85%B5%E7%82%B9%E5%B0%86%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "点兵点将",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "获得场上所有英雄牌各1张。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/635046/card-ZGVyaXZlZC10YWxlbnQtNjM1MDQ2LSVFNyU4MiVCOSVFNSU4NSVCNSVFNyU4MiVCOSVFNSVCMCU4NiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646005": [
+        {
+          "id": "derived-talent-646005-%E6%8A%A4%E5%91%BD%E7%81%B5%E7%8F%A0%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "护命灵珠",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。每4秒获得最大生命值\n25%的护盾。拥有护盾时伤害\n提升25%，护盾被击破则移除。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646005/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDA1LSVFNiU4QSVBNCVFNSU5MSVCRCVFNyU4MSVCNSVFNyU4RiVBMCVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646006": [
+        {
+          "id": "derived-talent-646006-%E5%85%89%E8%BE%89%E5%9C%A3%E9%93%A0%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "光辉圣铠",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。每秒恢复50+4%最大生\n命值。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646006/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDA2LSVFNSU4NSU4OSVFOCVCRSU4OSVFNSU5QyVBMyVFOSU5MyVBMCVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646007": [
+        {
+          "id": "derived-talent-646007-%E9%AD%82%E7%A5%AD%E7%BB%9D%E5%88%83%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "魂祭绝刃",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。攻击速度+50%，物理和\n法术吸血+30%。战斗开始时，\n扣除50%最大生命值。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646007/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDA3LSVFOSVBRCU4MiVFNyVBNSVBRCVFNyVCQiU5RCVFNSU4OCU4MyVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646008": [
+        {
+          "id": "derived-talent-646008-%E6%A0%B9%E6%BA%90%E4%B9%8B%E5%8A%9B%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "根源之力",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。每4秒对生命值最低的敌\n方单位造成600%法术攻击力的\n法术伤害。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646008/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDA4LSVFNiVBMCVCOSVFNiVCQSU5MCVFNCVCOSU4QiVFNSU4QSU5QiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646009": [
+        {
+          "id": "derived-talent-646009-%E7%81%B5%E6%B3%89%E9%A1%B9%E9%93%BE%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "灵泉项链",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。战斗开始时，周围1格的\n单位每秒回复4点法力值。穿戴\n者法力值上限-10。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646009/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDA5LSVFNyU4MSVCNSVFNiVCMyU4OSVFOSVBMSVCOSVFOSU5MyVCRSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646010": [
+        {
+          "id": "derived-talent-646010-%E9%AD%82%E7%81%AD%E7%81%B5%E5%86%A0%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "魂灭灵冠",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。阵亡时，对周围1格敌人\n造成目标35%最大生命值的真实\n伤害。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646010/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDEwLSVFOSVBRCU4MiVFNyU4MSVBRCVFNyU4MSVCNSVFNSU4NiVBMCVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646013": [
+        {
+          "id": "derived-talent-646013-%E7%81%B5%E6%B3%89%E6%B3%95%E6%9D%96%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "灵泉法杖",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。获得闪现，每次闪现后普攻\n附带一次重击：造成300%伤害并且\n眩晕敌方1秒，每次击败敌方单位再\n次触发闪现。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646013/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDEzLSVFNyU4MSVCNSVFNiVCMyU4OSVFNiVCMyU5NSVFNiU5RCU5NiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646015": [
+        {
+          "id": "derived-talent-646015-%E9%BC%93%E8%88%9E%E4%B9%8B%E6%88%92%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "鼓舞之戒",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。占\n战斗开始时，与穿戴者同\n阵营的英雄，提升30%最大生命\n值。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646015/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDE1LSVFOSVCQyU5MyVFOCU4OCU5RSVFNCVCOSU4QiVFNiU4OCU5MiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646016": [
+        {
+          "id": "derived-talent-646016-%E6%A2%A6%E9%AD%87%E4%B9%8B%E7%89%99%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "梦魇之牙",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "梦魔之牙\n。法术攻击力+35%。造成法术伤\n害时添加梦魔印记，持续5秒。带有印\n记的英雄阵亡时，对周围1格敌方单位\n造成穿戴者法术攻击力×2的法术伤害。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646016/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDE2LSVFNiVBMiVBNiVFOSVBRCU4NyVFNCVCOSU4QiVFNyU4OSU5OSVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-646017": [
+        {
+          "id": "derived-talent-646017-%E6%9C%AB%E4%B8%96%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "末世",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。普通攻击会额外偷取目标\n2%最大生命值。穿戴者为近战\n英雄时，效果翻倍。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/646017/card-ZGVyaXZlZC10YWxlbnQtNjQ2MDE3LSVFNiU5QyVBQiVFNCVCOCU5NiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-671008": [
+        {
+          "id": "derived-talent-671008-5%E9%98%B6%E8%8B%B1%E9%9B%84%E5%85%91%E6%8D%A2%E5%88%B8",
+          "name": "5阶英雄兑换券",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "招\n5阶英雄兑换券\n卡牌3选1（5阶英雄牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671008/card-ZGVyaXZlZC10YWxlbnQtNjcxMDA4LTUlRTklOTglQjYlRTglOEIlQjElRTklOUIlODQlRTUlODUlOTElRTYlOEQlQTIlRTUlODglQjg.webp"
+        }
+      ],
+      "talent-671013": [
+        {
+          "id": "derived-talent-671013-4%E9%98%B6%E8%8B%B1%E9%9B%84%E5%85%91%E6%8D%A2%E5%88%B8",
+          "name": "4阶英雄兑换券",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "卡牌3选1（4阶英雄牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671013/card-ZGVyaXZlZC10YWxlbnQtNjcxMDEzLTQlRTklOTglQjYlRTglOEIlQjElRTklOUIlODQlRTUlODUlOTElRTYlOEQlQTIlRTUlODglQjg.webp"
+        },
+        {
+          "id": "derived-talent-671013-5%E9%98%B6%E8%8B%B1%E9%9B%84%E5%85%91%E6%8D%A2%E5%88%B8",
+          "name": "5阶英雄兑换券",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "招\n5阶英雄兑换券\n卡牌3选1（5阶英雄牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671013/card-ZGVyaXZlZC10YWxlbnQtNjcxMDEzLTUlRTklOTglQjYlRTglOEIlQjElRTklOUIlODQlRTUlODUlOTElRTYlOEQlQTIlRTUlODglQjg.webp"
+        }
+      ],
+      "talent-671019": [
+        {
+          "id": "derived-talent-671019-%E7%95%99%E7%BA%A7%E8%AF%81%E6%98%8E",
+          "name": "留级证明",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "保持在棋手等级1时，每回合获\n得1能量。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671019/card-ZGVyaXZlZC10YWxlbnQtNjcxMDE5LSVFNyU5NSU5OSVFNyVCQSVBNyVFOCVBRiU4MSVFNiU5OCU4RQ.webp"
+        },
+        {
+          "id": "derived-talent-671019-%E5%BC%BA%E6%95%8C%E5%85%8B%E6%98%9F%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "强敌克星",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "唯一。造成伤害的15%转化为真\n实伤害。对目标每普通攻击4\n次，会眩晕目标1秒。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/671019/card-ZGVyaXZlZC10YWxlbnQtNjcxMDE5LSVFNSVCQyVCQSVFNiU5NSU4QyVFNSU4NSU4QiVFNiU5OCU5RiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-681001": [
+        {
+          "id": "derived-talent-681001-%E7%AB%99%E8%BF%99%E5%88%AB%E5%8A%A8",
+          "name": "站这别动",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定1个阵位，每过2回合，获得\n1张此格上的英雄牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/681001/card-ZGVyaXZlZC10YWxlbnQtNjgxMDAxLSVFNyVBQiU5OSVFOCVCRiU5OSVFNSU4OCVBQiVFNSU4QSVBOA.webp"
+        }
+      ],
+      "talent-634030": [
+        {
+          "id": "derived-talent-634030-%E6%9C%89%E7%A6%8F%E5%90%8C%E4%BA%AB",
+          "name": "有福同享",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "指定1名英雄，场上和其品阶相\n同的英雄等级+3。\nBTECT",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/634030/card-ZGVyaXZlZC10YWxlbnQtNjM0MDMwLSVFNiU5QyU4OSVFNyVBNiU4RiVFNSU5MCU4QyVFNCVCQSVBQg.webp"
+        }
+      ],
+      "talent-681016": [
+        {
+          "id": "derived-talent-681016-%E6%B7%B7%E6%B2%8C%E8%A3%82%E9%9A%99",
+          "name": "混沌裂隙",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定阵位召唤裂隙，开战前吞噬该格的英雄\n永久获得其双倍等级。开战时，召唤1名品阶\n≥商店等级的英雄（无卡牌效果），使之获得\n裂隙等级，并获得适配装备。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/681016/card-ZGVyaXZlZC10YWxlbnQtNjgxMDE2LSVFNiVCNyVCNyVFNiVCMiU4QyVFOCVBMyU4MiVFOSU5QSU5OQ.webp"
+        }
+      ],
+      "talent-622003": [
+        {
+          "id": "derived-talent-622003-%E5%8F%8C%E4%BA%BA%E5%90%8C%E8%A1%8C2%E9%98%B6",
+          "name": "双人同行2阶",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "双人同行·2阶\n随机获得2张相同的2阶英雄牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/622003/card-ZGVyaXZlZC10YWxlbnQtNjIyMDAzLSVFNSU4RiU4QyVFNCVCQSVCQSVFNSU5MCU4QyVFOCVBMSU4QzIlRTklOTglQjY.webp"
+        },
+        {
+          "id": "derived-talent-622003-%E5%8F%8C%E4%BA%BA%E5%90%8C%E8%A1%8C3%E9%98%B6",
+          "name": "双人同行3阶",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "双人同行·3阶\n随机获得2张相同的3阶英雄牌。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/622003/card-ZGVyaXZlZC10YWxlbnQtNjIyMDAzLSVFNSU4RiU4QyVFNCVCQSVCQSVFNSU5MCU4QyVFOCVBMSU4QzMlRTklOTglQjY.webp"
+        }
+      ],
+      "talent-615002": [
+        {
+          "id": "derived-talent-615002-5%E9%98%B6%E8%8B%B1%E9%9B%84%E5%85%91%E6%8D%A2%E5%88%B8",
+          "name": "5阶英雄兑换券",
+          "kind": "effect",
+          "cardFaceType": "unclassified",
+          "original": "招\n5阶英雄兑换券\n卡牌3选1（5阶英雄牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/615002/card-ZGVyaXZlZC10YWxlbnQtNjE1MDAyLTUlRTklOTglQjYlRTglOEIlQjElRTklOUIlODQlRTUlODUlOTElRTYlOEQlQTIlRTUlODglQjg.webp"
+        },
+        {
+          "id": "derived-talent-615002-%E8%A3%85%E5%A4%87%E7%AE%B1",
+          "name": "装备箱",
+          "kind": "unknown",
+          "cardFaceType": "resource",
+          "original": "卡牌4选1（基础装备牌）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/615002/card-ZGVyaXZlZC10YWxlbnQtNjE1MDAyLSVFOCVBMyU4NSVFNSVBNCU4NyVFNyVBRSVCMQ.webp"
+        }
+      ],
+      "talent-615001": [
+        {
+          "id": "derived-talent-615001-%E5%A4%A7%E6%98%8E%E6%98%9F%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "大明星",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "随机上阵1名不在场的等级为棋手\n等级x7的5阶英雄，其觉醒进度为\n1，此后每经过2回合则额外+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/615001/card-ZGVyaXZlZC10YWxlbnQtNjE1MDAxLSVFNSVBNCVBNyVFNiU5OCU4RSVFNiU5OCU5RiVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-614007": [
+        {
+          "id": "derived-talent-614007-4%E9%98%B6%E6%95%88%E6%9E%9C%E9%94%A6%E5%9B%8A",
+          "name": "4阶效果锦囊",
+          "kind": "unknown",
+          "cardFaceType": "resource",
+          "original": "效果牌卡牌3选1",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/614007/card-ZGVyaXZlZC10YWxlbnQtNjE0MDA3LTQlRTklOTglQjYlRTYlOTUlODglRTYlOUUlOUMlRTklOTQlQTYlRTUlOUIlOEE.webp"
+        },
+        {
+          "id": "derived-talent-614007-5%E9%98%B6%E6%95%88%E6%9E%9C%E9%94%A6%E5%9B%8A",
+          "name": "5阶效果锦囊",
+          "kind": "unknown",
+          "cardFaceType": "resource",
+          "original": "效果牌卡牌3选1",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/614007/card-ZGVyaXZlZC10YWxlbnQtNjE0MDA3LTUlRTklOTglQjYlRTYlOTUlODglRTYlOUUlOUMlRTklOTQlQTYlRTUlOUIlOEE.webp"
+        }
+      ],
+      "talent-614001": [
+        {
+          "id": "derived-talent-614001-%E8%B5%84%E6%B7%B1%E7%8C%8E%E5%A4%B4%EF%BC%88%E5%8D%A1%E7%89%8C%EF%BC%89",
+          "name": "资深猎头",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "4阶卡牌2选1，并将选中的卡牌\n一分为四。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/614001/card-ZGVyaXZlZC10YWxlbnQtNjE0MDAxLSVFOCVCNSU4NCVFNiVCNyVCMSVFNyU4QyU4RSVFNSVBNCVCNCVFRiVCQyU4OCVFNSU4RCVBMSVFNyU4OSU4QyVFRiVCQyU4OQ.webp"
+        }
+      ],
+      "talent-63611802": [
+        {
+          "id": "derived-talent-63611802-%E6%8A%80%E8%83%BD%E7%AA%81%E7%A0%B4%EF%BC%9A%E4%BA%9A%E7%91%9F",
+          "name": "技能突破：亚瑟",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "战斗开始时，亚瑟周围一格的友方英雄变身\n为圣殿骑士。亚瑟的普攻不再追击敌人，\n改\n成为血量最低的圣殿骑士回复10%最大生命\n值的血量；技能改为指挥全体圣殿骑士，朝\n最远处敌人进行冲锋。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/63611802/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE4MDItJUU2JThBJTgwJUU4JTgzJUJEJUU3JUFBJTgxJUU3JUEwJUI0JUVGJUJDJTlBJUU0JUJBJTlBJUU3JTkxJTlG.webp"
+        },
+        {
+          "id": "derived-talent-63611802-%E5%8D%A1%E7%89%8C%E7%AA%81%E7%A0%B4%EF%BC%9A%E4%BA%9A%E7%91%9F",
+          "name": "卡牌突破：亚瑟",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "亚瑟额外获得卡牌效果：当你\n使用整备英雄时，触发其整备",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/63611802/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE4MDItJUU1JThEJUExJUU3JTg5JThDJUU3JUFBJTgxJUU3JUEwJUI0JUVGJUJDJTlBJUU0JUJBJTlBJUU3JTkxJTlG.webp"
+        },
+        {
+          "id": "derived-talent-63611802-%E4%BA%9A%E7%91%9F",
+          "name": "亚瑟",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每当你使用【日落海】英雄牌\n时，阿科米亚核心等级+3。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/63611802/card-ZGVyaXZlZC10YWxlbnQtNjM2MTE4MDItJUU0JUJBJTlBJUU3JTkxJTlG.webp"
+        }
+      ],
+      "talent-681030": [
+        {
+          "id": "derived-talent-681030-%E7%A9%BA%E6%89%8B%E9%81%93",
+          "name": "空手道",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "指定一名英雄，取消装备槽位。\n战斗开始时，该英雄获得等同于\n其真实等级的临时等级。\nMET",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/681030/card-ZGVyaXZlZC10YWxlbnQtNjgxMDMwLSVFNyVBOSVCQSVFNiU4OSU4QiVFOSU4MSU5Mw.webp"
+        }
+      ],
+      "talent-636202": [
+        {
+          "id": "derived-talent-636202-%E4%B8%8D%E5%B1%88%E6%84%8F%E5%BF%97",
+          "name": "不屈意志",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "唯一。战斗开始及之后每3秒获得场\n上友军穿戴不屈意志数量x2的×临时\n等级。阵亡时，将自身等级的30%平\n均分配给穿戴不屈意志的友军。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636202/card-ZGVyaXZlZC10YWxlbnQtNjM2MjAyLSVFNCVCOCU4RCVFNSVCMSU4OCVFNiU4NCU4RiVFNSVCRiU5Nw.webp"
+        }
+      ],
+      "talent-636310": [
+        {
+          "id": "derived-talent-636310-%E9%A9%AC%E8%B6%85",
+          "name": "马超",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "已方施加控制效果时，马超获得\n15点法力值及5%暴击率",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636310/card-ZGVyaXZlZC10YWxlbnQtNjM2MzEwLSVFOSVBOSVBQyVFOCVCNiU4NQ.webp"
+        }
+      ],
+      "talent-637013": [
+        {
+          "id": "derived-talent-637013-%E8%8E%B1%E8%A5%BF%E5%A5%A5",
+          "name": "莱西奥",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每当你出售2名场上英雄后\n阿科米亚核心等级+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637013/card-ZGVyaXZlZC10YWxlbnQtNjM3MDEzLSVFOCU4RSVCMSVFOCVBNSVCRiVFNSVBNSVBNQ.webp"
+        },
+        {
+          "id": "derived-talent-637013-%E8%92%99%E7%8A%BD",
+          "name": "蒙犽",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "登场：获得1张特训战术。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637013/card-ZGVyaXZlZC10YWxlbnQtNjM3MDEzLSVFOCU5MiU5OSVFNyU4QSVCRA.webp"
+        }
+      ],
+      "talent-637015": [
+        {
+          "id": "derived-talent-637015-%E9%9C%B8%E7%8E%8B%E6%88%9F",
+          "name": "霸王戟",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "战斗中每秒获得10点物攻。首次受到\n致命伤害时，向前方挥出1刀，对范\n围内敌人造成200%物攻的伤害，并\n获得等量生命回复。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637015/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE1LSVFOSU5QyVCOCVFNyU4RSU4QiVFNiU4OCU5Rg.webp"
+        },
+        {
+          "id": "derived-talent-637015-%E6%96%B9%E5%A4%A9%E7%94%BB%E6%88%9F",
+          "name": "方天画戟",
+          "kind": "unknown",
+          "cardFaceType": "equipment",
+          "original": "战斗中每释放1次技能，法力值\n上限-10。技能伤害转化为真实\n伤害。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637015/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE1LSVFNiU5NiVCOSVFNSVBNCVBOSVFNyU5NCVCQiVFNiU4OCU5Rg.webp"
+        },
+        {
+          "id": "derived-talent-637015-%E5%90%95%E5%B8%83",
+          "name": "吕布",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "V开团：等级最高的3名【三\n分】英雄获得20%物理和法术吸\n血，若目标为吕布，效果翻倍。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637015/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE1LSVFNSU5MCU5NSVFNSVCOCU4Mw.webp"
+        },
+        {
+          "id": "derived-talent-637015-%E9%A1%B9%E7%BE%BD",
+          "name": "项羽",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "牺牲：所有图腾等级永久+3目\n本回合你的召唤物免疫控制。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637015/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE1LSVFOSVBMSVCOSVFNyVCRSVCRA.webp"
+        }
+      ],
+      "talent-637018": [
+        {
+          "id": "derived-talent-637018-%E5%A4%A7%E5%90%8C",
+          "name": "大同",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "全体英雄+5级，下场战斗开始\n时，所有友军等级临时均分。\n每次使用后+5级）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637018/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE4LSVFNSVBNCVBNyVFNSU5MCU4Qw.webp"
+        },
+        {
+          "id": "derived-talent-637018-%E7%8B%AC%E6%96%AD",
+          "name": "独断",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "立刻在赢政和武则天中随机一人，下\n场战斗开始时使其吸收其他友军的等\n级初始法力值。（使用后强化吸收能\n力）",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637018/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE4LSVFNyU4QiVBQyVFNiU5NiVBRA.webp"
+        },
+        {
+          "id": "derived-talent-637018-%E6%AD%A6%E5%88%99%E5%A4%A9",
+          "name": "武则天",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "古币牌提升的等级+1。\n登场：获得1张精致古币",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637018/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE4LSVFNiVBRCVBNiVFNSU4OCU5OSVFNSVBNCVBOQ.webp"
+        },
+        {
+          "id": "derived-talent-637018-%E5%AC%B4%E6%94%BF",
+          "name": "嬴政",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "赢政\nV开团：法术攻击力+8。每次使\n用战术牌会提升该加成。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637018/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE4LSVFNSVBQyVCNCVFNiU5NCVCRg.webp"
+        }
+      ],
+      "talent-637019": [
+        {
+          "id": "derived-talent-637019-%E5%A7%9C%E5%AD%90%E7%89%99",
+          "name": "姜子牙",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "你每次使用不在场的阵营以及无阵\n营的英雄牌时，姜子牙和随机3名\n其他不同阵营的英雄等级+1。\nHOVOROFRNIS",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637019/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE5LSVFNSVBNyU5QyVFNSVBRCU5MCVFNyU4OSU5OQ.webp"
+        },
+        {
+          "id": "derived-talent-637019-%E6%88%92%E5%BE%8B",
+          "name": "戒律",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "诫律\n永久获得3%攻速和0.5%最大生命值。单\n回合对同一英雄使用3张：本回合成为诫\n律者，周围1格敌人双抗降低15；受到控\n制时，敌方也会被控制相应时间。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637019/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE5LSVFNiU4OCU5MiVFNSVCRSU4Qg.webp"
+        },
+        {
+          "id": "derived-talent-637019-%E8%80%81%E5%A4%AB%E5%AD%90",
+          "name": "老夫子",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每回合首次合成时，获得1张\n招募战术。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637019/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE5LSVFOCU4MCU4MSVFNSVBNCVBQiVFNSVBRCU5MA.webp"
+        },
+        {
+          "id": "derived-talent-637019-%E7%A5%9E%E8%B0%95",
+          "name": "神谕",
+          "kind": "unknown",
+          "cardFaceType": "talent",
+          "original": "永久等级+1和法力值上限-1。单回合\n对同一英雄使用3张：本回合成为神\n谕者，法术伤害可以暴击且暴击率+\n50%",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/637019/card-ZGVyaXZlZC10YWxlbnQtNjM3MDE5LSVFNyVBNSU5RSVFOCVCMCU5NQ.webp"
+        }
+      ],
+      "talent-636517": [
+        {
+          "id": "derived-talent-636517-%E8%8B%8D%E7%A9%B9%E7%8E%8B%E6%9D%83",
+          "name": "苍穹王权",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "唯一。受到致命伤害时，免疫此次伤\n害，持续1秒。并对全部敌人造成100\n+其已损失30%生命值的法术伤害。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636517/card-ZGVyaXZlZC10YWxlbnQtNjM2NTE3LSVFOCU4QiU4RCVFNyVBOSVCOSVFNyU4RSU4QiVFNiU5RCU4Mw.webp"
+        },
+        {
+          "id": "derived-talent-636517-%E5%94%A4%E9%B9%B0%E9%AA%A8%E7%AC%9B",
+          "name": "唤鹰骨笛",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "战斗开始后每8秒，召唤一名等\n级为自身一半的云中君，迅速冲\n向最远处的敌人。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636517/card-ZGVyaXZlZC10YWxlbnQtNjM2NTE3LSVFNSU5NCVBNCVFOSVCOSVCMCVFOSVBQSVBOCVFNyVBQyU5Qg.webp"
+        },
+        {
+          "id": "derived-talent-636517-%E6%B5%81%E4%BA%91%E4%B9%8B%E5%88%BA",
+          "name": "流云之刺",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "唯一。攻击速度+30%。每对目标进\n行3次普通攻击，会召唤云中君灵体\n对其造成4%最大生命值的物理伤害\n并降低其5点护甲。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636517/card-ZGVyaXZlZC10YWxlbnQtNjM2NTE3LSVFNiVCNSU4MSVFNCVCQSU5MSVFNCVCOSU4QiVFNSU4OCVCQQ.webp"
+        },
+        {
+          "id": "derived-talent-636517-%E6%8E%A0%E9%AD%82%E7%88%AA",
+          "name": "掠魂爪",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "唯一。物理和法术吸血+50%。\n普通攻击额外造成目标8%当前\n生命值的物理伤害。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636517/card-ZGVyaXZlZC10YWxlbnQtNjM2NTE3LSVFNiU4RSVBMCVFOSVBRCU4MiVFNyU4OCVBQQ.webp"
+        },
+        {
+          "id": "derived-talent-636517-%E7%BF%BC%E8%8B%8D%E7%A9%B9%E7%9B%BE",
+          "name": "翼苍穹盾",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "唯一。物理和法术防御力+10。\n敌方每阵亡1个单位，再各提升\n10点，上限100点。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636517/card-ZGVyaXZlZC10YWxlbnQtNjM2NTE3LSVFNyVCRiVCQyVFOCU4QiU4RCVFNyVBOSVCOSVFNyU5QiVCRQ.webp"
+        },
+        {
+          "id": "derived-talent-636517-%E6%B0%B8%E5%86%BB%E9%9C%9C%E7%BE%BD",
+          "name": "永冻霜羽",
+          "kind": "equipment",
+          "cardFaceType": "equipment",
+          "original": "唯一。法术攻击力+100。对每\n个目标首次造成法术伤害时，将\n冻结目标2秒。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/636517/card-ZGVyaXZlZC10YWxlbnQtNjM2NTE3LSVFNiVCMCVCOCVFNSU4NiVCQiVFOSU5QyU5QyVFNyVCRSVCRA.webp"
+        }
+      ],
+      "talent-derived-pengpeng": [
+        {
+          "id": "derived-talent-derived-pengpeng-%E6%B2%88%E6%A2%A6%E6%BA%AA",
+          "name": "沈梦溪",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "每对沈梦溪使用1张效果牌，本\n回合法力值上限-15。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/derived-pengpeng/card-ZGVyaXZlZC10YWxlbnQtZGVyaXZlZC1wZW5ncGVuZy0lRTYlQjIlODglRTYlQTIlQTYlRTYlQkElQUE.webp"
+        },
+        {
+          "id": "derived-talent-derived-pengpeng-%E5%AD%99%E8%86%91",
+          "name": "孙膑",
+          "kind": "hero",
+          "cardFaceType": "unclassified",
+          "original": "你的英雄每释放3次技能，该英\n雄等级永久+1。",
+          "image": "https://assets.wanxiangqiwiki.com/assets/derived-cards/derived-pengpeng/card-ZGVyaXZlZC10YWxlbnQtZGVyaXZlZC1wZW5ncGVuZy0lRTUlQUQlOTklRTglODYlOTE.webp"
+        }
+      ]
+    },
+    "related_cards": {
+      "talent-623002": [
+        {
+          "relation": "preview",
+          "id": "651007",
+          "name": "复印机",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名1-3阶英雄，获得该英雄牌。"
+        }
+      ],
+      "talent-671010": [
+        {
+          "relation": "preview",
+          "id": "6710102",
+          "name": "二象坍缩",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄，获得3张同阶英雄牌，或2张同阵营的当前最高阶英雄牌。"
+        }
+      ],
+      "talent-671012": [
+        {
+          "relation": "preview",
+          "id": "6710122",
+          "name": "胜利预言",
+          "entityType": "talent",
+          "descriptionPlain": "预测下场战斗胜利，预测成功，获得2张3阶英雄兑换券。"
+        },
+        {
+          "relation": "preview",
+          "id": "6710123",
+          "name": "失败预言",
+          "entityType": "talent",
+          "descriptionPlain": "预测下场战斗失败，预测成功，获得4能量。"
+        }
+      ],
+      "talent-681026": [
+        {
+          "relation": "preview",
+          "id": "6810024",
+          "name": "体面离场",
+          "entityType": "talent",
+          "descriptionPlain": "指定移除一名英雄，获得能量。此英雄0/1/2/3觉醒进度时，获得3/5/7/9能量。"
+        }
+      ],
+      "talent-681025": [
+        {
+          "relation": "preview",
+          "id": "6810023",
+          "name": "契约瓶",
+          "entityType": "talent",
+          "descriptionPlain": "获胜时，累积3张随机英雄牌；失败时，损失一半。打出后获得累积的英雄牌（当前0张）。"
+        }
+      ],
+      "talent-633003": [
+        {
+          "relation": "preview",
+          "id": "652006",
+          "name": "加速成长",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄等级+5。"
+        }
+      ],
+      "talent-681018": [
+        {
+          "relation": "preview",
+          "id": "681019",
+          "name": "2级电磁弹簧",
+          "entityType": "talent",
+          "descriptionPlain": "在指定位置构筑1个2级电磁弹簧。"
+        }
+      ],
+      "talent-632002": [
+        {
+          "relation": "preview",
+          "id": "652001",
+          "name": "五福临门",
+          "entityType": "talent",
+          "descriptionPlain": "随机获得5张英雄牌。"
+        }
+      ],
+      "talent-snap": [
+        {
+          "relation": "preview",
+          "id": "6710172",
+          "name": "听天由命",
+          "entityType": "talent",
+          "descriptionPlain": "消除场上4名等级最低的英雄。每消除1名，获得3能量和1张同阶兑换券，1张简易协作。"
+        }
+      ],
+      "talent-623008": [
+        {
+          "relation": "preview",
+          "id": "651008",
+          "name": "终极复印机",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄，获得该英雄牌。"
+        }
+      ],
+      "talent-632010": [
+        {
+          "relation": "preview",
+          "id": "652006",
+          "name": "加速成长",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄等级+5。"
+        }
+      ],
+      "talent-622002": [
+        {
+          "relation": "preview",
+          "id": "651004",
+          "name": "人才搜寻",
+          "entityType": "talent",
+          "descriptionPlain": "卡牌3选1（商店可购的最高品阶英雄）。"
+        }
+      ],
+      "talent-633002": [
+        {
+          "relation": "preview",
+          "id": "7053",
+          "name": "3阶英雄兑换券",
+          "entityType": "effect",
+          "descriptionPlain": "卡牌3选1（3阶英雄牌）。"
+        }
+      ],
+      "talent-634012": [
+        {
+          "relation": "preview",
+          "id": "652002",
+          "name": "限制性进化",
+          "entityType": "talent",
+          "descriptionPlain": "指定移除1名1~2阶英雄，获得高2阶的随机英雄牌，且上阵时为原等级+10。"
+        }
+      ],
+      "talent-634013": [
+        {
+          "relation": "preview",
+          "id": "652003",
+          "name": "援军",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄，随机获得4张同阵营的英雄牌。"
+        }
+      ],
+      "talent-634015": [
+        {
+          "relation": "preview",
+          "id": "652005",
+          "name": "自适应武装",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄，随机获得2张与其适配的普通装备牌。"
+        }
+      ],
+      "talent-681002": [
+        {
+          "relation": "preview",
+          "id": "6810022",
+          "name": "神秘英雄",
+          "entityType": "effect",
+          "descriptionPlain": "每次手动刷新时，随机变为不低于当前棋手等级相应品阶的英雄牌。每回合有15%概率自动销毁并获得3能量。"
+        }
+      ],
+      "talent-636312": [
+        {
+          "relation": "preview",
+          "id": "33001",
+          "name": "猛虎擂台",
+          "entityType": "hero",
+          "descriptionPlain": "为【三分】英雄增加物理和法术攻击力。"
+        }
+      ],
+      "talent-671016": [
+        {
+          "relation": "preview",
+          "id": "6710162",
+          "name": "拍卖重现：一",
+          "entityType": "talent",
+          "descriptionPlain": "展示第一轮拍卖中你未获得的卡牌（最多5张），从中挑选1张。"
+        },
+        {
+          "relation": "preview",
+          "id": "6710163",
+          "name": "拍卖重现：二",
+          "entityType": "talent",
+          "descriptionPlain": "展示第二轮拍卖中你未获得的卡牌（最多5张），从中挑选1张。"
+        },
+        {
+          "relation": "preview",
+          "id": "6710164",
+          "name": "拍卖重现：三",
+          "entityType": "talent",
+          "descriptionPlain": "消耗4能量，展示第三轮拍卖中你未获得的卡牌（最多5张），从中挑选1张。"
+        }
+      ],
+      "talent-635002": [
+        {
+          "relation": "preview",
+          "id": "652008",
+          "name": "超速成长",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄等级+15。"
+        }
+      ],
+      "talent-671011": [
+        {
+          "relation": "preview",
+          "id": "6710112",
+          "name": "碰碰运气",
+          "entityType": "talent",
+          "descriptionPlain": "消耗0能量，指定英雄使其随机提升5-20级。"
+        }
+      ],
+      "talent-635015": [
+        {
+          "relation": "preview",
+          "id": "5071",
+          "name": "李信",
+          "entityType": "hero",
+          "descriptionPlain": "每当你拥有牺牲效果的英雄阵亡时，李信临时等级+7。"
+        }
+      ],
+      "talent-671009": [
+        {
+          "relation": "preview",
+          "id": "6710092",
+          "name": "一刀穷一刀富",
+          "entityType": "talent",
+          "descriptionPlain": "获得1张基础装备牌及1张险中求富并开始记录胜场。"
+        },
+        {
+          "relation": "preview",
+          "id": "6710093",
+          "name": "险中求富",
+          "entityType": "talent",
+          "descriptionPlain": "获得基础装备牌（当前:0件）。战斗失败销毁此牌并获得2能量。"
+        }
+      ],
+      "talent-635021": [
+        {
+          "relation": "preview",
+          "id": "635022",
+          "name": "前浪的荣光",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄，获得1张高1-2阶的同阵营英雄牌。"
+        }
+      ],
+      "talent-635024": [
+        {
+          "relation": "preview",
+          "id": "635025",
+          "name": "全军列阵",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄，召唤其同阵营英雄上场直到阵容人数上限（不超过商店可购品阶）。"
+        }
+      ],
+      "talent-635027": [
+        {
+          "relation": "preview",
+          "id": "5241",
+          "name": "蒙犽",
+          "entityType": "hero",
+          "descriptionPlain": "登场：获得1张特训战术。"
+        }
+      ],
+      "talent-635032": [
+        {
+          "relation": "preview",
+          "id": "1491",
+          "name": "刘邦",
+          "entityType": "hero",
+          "descriptionPlain": "开团：摧毁你所有的图腾，每摧毁1个，刘邦等级永久+5。"
+        }
+      ],
+      "talent-635037": [
+        {
+          "relation": "preview",
+          "id": "1831",
+          "name": "雅典娜",
+          "entityType": "hero",
+          "descriptionPlain": "开团：随机触发2名【日落海】英雄的整备效果。"
+        }
+      ],
+      "talent-value": [
+        {
+          "relation": "preview",
+          "id": "6710012",
+          "name": "等价交换",
+          "entityType": "talent",
+          "descriptionPlain": "扣除所有能量：＜2，获得2张英雄牌；2-4，获得1张基础装备牌；≥5，获得1张5阶兑换券，2张效果锦囊牌。"
+        }
+      ],
+      "talent-646011": [
+        {
+          "relation": "preview",
+          "id": "644111",
+          "name": "怒神项链",
+          "entityType": "related",
+          "descriptionPlain": "唯一。暴击率+50%，法术伤害可以暴击。"
+        }
+      ],
+      "talent-613004": [
+        {
+          "relation": "preview",
+          "id": "651004",
+          "name": "人才搜寻",
+          "entityType": "talent",
+          "descriptionPlain": "卡牌3选1（商店可购的最高品阶英雄）。"
+        }
+      ],
+      "talent-635042": [
+        {
+          "relation": "preview",
+          "id": "1061",
+          "name": "小乔",
+          "entityType": "hero",
+          "descriptionPlain": "每当你的英雄触发登场效果时，随机3名英雄等级+1。"
+        }
+      ],
+      "talent-646004": [
+        {
+          "relation": "preview",
+          "id": "644104",
+          "name": "法潮灵杖",
+          "entityType": "related",
+          "descriptionPlain": "唯一。法术攻击力+25%。战斗开始，会获得左右1格的英雄的100%法术攻击力。"
+        }
+      ],
+      "talent-646003": [
+        {
+          "relation": "preview",
+          "id": "644103",
+          "name": "断念",
+          "entityType": "related",
+          "descriptionPlain": "唯一。造成伤害时，本场战斗降低敌方单位20%最大生命值上限（不可叠加）。"
+        }
+      ],
+      "talent-646002": [
+        {
+          "relation": "preview",
+          "id": "644102",
+          "name": "破阵战芒",
+          "entityType": "related",
+          "descriptionPlain": "唯一。仅1-3阶英雄可穿戴。战斗开始时，获得等级×1%的伤害加成和攻速，上限50%。"
+        }
+      ],
+      "talent-646001": [
+        {
+          "relation": "preview",
+          "id": "644101",
+          "name": "破妄之刃",
+          "entityType": "related",
+          "descriptionPlain": "唯一。移动速度提升60%，造成伤害的50%会转化为真实伤害。免疫减速效果。"
+        }
+      ],
+      "talent-636106": [
+        {
+          "relation": "preview",
+          "id": "41124",
+          "name": "星源装甲",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 物理和法术吸血+20%。唯一被动：释放技能后的2秒内免疫控制。"
+        },
+        {
+          "relation": "preview",
+          "id": "41125",
+          "name": "星源狩枪",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 物理和法术攻击力+20%。唯一被动：法力值上限-20，且技能会直接击败生命值10%以下的敌人。"
+        },
+        {
+          "relation": "preview",
+          "id": "41127",
+          "name": "星源合金盾",
+          "entityType": "related",
+          "descriptionPlain": "【日落海】专属装备 物理和法术防御力+20。唯一被动：受到的伤害-20%。"
+        }
+      ],
+      "talent-638003": [
+        {
+          "relation": "preview",
+          "id": "6380032",
+          "name": "胜之不武",
+          "entityType": "talent",
+          "descriptionPlain": "下场战斗你的英雄+20临时等级，但对敌方棋手造成的伤害-10。"
+        }
+      ],
+      "talent-63700801": [
+        {
+          "relation": "preview",
+          "id": "1961",
+          "name": "百里守约",
+          "entityType": "hero",
+          "descriptionPlain": "每当你拥有牺牲效果的英雄阵亡时，本回合百里守约的法力值上限-20。"
+        },
+        {
+          "relation": "preview",
+          "id": "1321",
+          "name": "马可波罗",
+          "entityType": "hero",
+          "descriptionPlain": "登场：自身及阿科米亚核心等级+2。"
+        }
+      ],
+      "talent-636201": [
+        {
+          "relation": "preview",
+          "id": "311002",
+          "name": "古币",
+          "entityType": "effect",
+          "descriptionPlain": "转瞬 指定1名【河洛】英雄等级+2。"
+        },
+        {
+          "relation": "preview",
+          "id": "311003",
+          "name": "精致古币",
+          "entityType": "effect",
+          "descriptionPlain": "转瞬 指定1名【河洛】英雄等级+4。"
+        }
+      ],
+      "talent-636209": [
+        {
+          "relation": "preview",
+          "id": "311002",
+          "name": "古币",
+          "entityType": "effect",
+          "descriptionPlain": "转瞬 指定1名【河洛】英雄等级+2。"
+        }
+      ],
+      "talent-636506": [
+        {
+          "relation": "preview",
+          "id": "1891",
+          "name": "鬼谷子",
+          "entityType": "hero",
+          "descriptionPlain": "在场时，召唤先知图腾。"
+        },
+        {
+          "relation": "preview",
+          "id": "31080",
+          "name": "先知图腾",
+          "entityType": "hero",
+          "descriptionPlain": "开团：距离最近的2名【大河流域】英雄获得装备玄微之种。"
+        }
+      ],
+      "talent-636213": [
+        {
+          "relation": "preview",
+          "id": "5071",
+          "name": "李信",
+          "entityType": "hero",
+          "descriptionPlain": "每当你拥有牺牲效果的英雄阵亡时，李信临时等级+7。"
+        }
+      ],
+      "talent-636215": [
+        {
+          "relation": "preview",
+          "id": "3110023",
+          "name": "破损古币",
+          "entityType": "effect",
+          "descriptionPlain": "转瞬 指定1名【河洛】英雄使用，无法提供等级。"
+        }
+      ],
+      "talent-636413": [
+        {
+          "relation": "preview",
+          "id": "313012",
+          "name": "高阶推演战术",
+          "entityType": "effect",
+          "descriptionPlain": "转瞬 指定1名【逐鹿】英雄，使其本回合法力值上限{推演高级战术:-10}（每次使用此牌都会提升效果，上限40点）。"
+        }
+      ],
+      "talent-636412": [
+        {
+          "relation": "preview",
+          "id": "1131",
+          "name": "庄周",
+          "entityType": "hero",
+          "descriptionPlain": "登场：自身等级+2并获得1张招募战术。"
+        }
+      ],
+      "talent-636224": [
+        {
+          "relation": "preview",
+          "id": "1381",
+          "name": "王维",
+          "entityType": "hero",
+          "descriptionPlain": "开团：获得空山人语和水穷云起各1张。"
+        }
+      ],
+      "talent-636314": [
+        {
+          "relation": "preview",
+          "id": "6363141",
+          "name": "锦囊",
+          "entityType": "talent",
+          "descriptionPlain": "使用后，本回合打出的登场英雄牌，会额外触发1次登场效果。"
+        }
+      ],
+      "talent-zhaoyun": [
+        {
+          "relation": "preview",
+          "id": "1071",
+          "name": "赵云",
+          "entityType": "hero",
+          "descriptionPlain": "登场：自身及随机2名其他英雄等级+1。"
+        },
+        {
+          "relation": "preview",
+          "id": "6363061",
+          "name": "惊雷之龙",
+          "entityType": "talent",
+          "descriptionPlain": "赵云向敌人冲锋，造成150%物攻的物理伤害，并获得50%物理吸血，持续2秒。"
+        }
+      ],
+      "talent-636307": [
+        {
+          "relation": "preview",
+          "id": "1901",
+          "name": "诸葛亮",
+          "entityType": "hero",
+          "descriptionPlain": "你的其他英雄释放技能时，诸葛亮获得15点法力值以及4临时等级。"
+        }
+      ],
+      "talent-636216": [
+        {
+          "relation": "preview",
+          "id": "1311",
+          "name": "李白",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 古币牌会额外提供4临时等级。若目标为李白，该临时等级会额外+3。"
+        }
+      ],
+      "talent-636214": [
+        {
+          "relation": "preview",
+          "id": "311002",
+          "name": "古币",
+          "entityType": "effect",
+          "descriptionPlain": "转瞬 指定1名【河洛】英雄等级+2。"
+        },
+        {
+          "relation": "preview",
+          "id": "311003",
+          "name": "精致古币",
+          "entityType": "effect",
+          "descriptionPlain": "转瞬 指定1名【河洛】英雄等级+4。"
+        }
+      ],
+      "talent-636501": [
+        {
+          "relation": "preview",
+          "id": "636502",
+          "name": "望梅止渴",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄临时等级+3，战斗开始时，每穿1件装备额外+1级。若战斗胜利，将永久获得此等级。"
+        }
+      ],
+      "talent-636507": [
+        {
+          "relation": "preview",
+          "id": "31191",
+          "name": "始祖熊灵",
+          "entityType": "hero",
+          "descriptionPlain": "每当你的单位触发开团效果时，始祖熊灵获得20%攻击速度。"
+        }
+      ],
+      "talent-636114": [
+        {
+          "relation": "preview",
+          "id": "636116",
+          "name": "盗火",
+          "entityType": "talent",
+          "descriptionPlain": "转瞬 指定1名英雄，至多偷取阿科米亚核心20级。"
+        }
+      ],
+      "talent-636602": [
+        {
+          "relation": "preview",
+          "id": "5271",
+          "name": "蒙恬",
+          "entityType": "hero",
+          "descriptionPlain": "牺牲：召唤2名与自身等级相同的玄雍士兵。"
+        },
+        {
+          "relation": "preview",
+          "id": "5041",
+          "name": "米莱狄",
+          "entityType": "hero",
+          "descriptionPlain": "召唤单位获得 3临时等级。 整备：该临时等级及阿科米亚核心等级额外+3。"
+        },
+        {
+          "relation": "preview",
+          "id": "5171",
+          "name": "大司命",
+          "entityType": "hero",
+          "descriptionPlain": "在场时，召唤往生图腾。 每当你触发牺牲效果时：往生图腾等级永久+2并获得50点法力值。"
+        }
+      ],
+      "talent-636604": [
+        {
+          "relation": "preview",
+          "id": "1671",
+          "name": "孙悟空",
+          "entityType": "hero",
+          "descriptionPlain": "闪现，夺取 整备：拥有闪现效果的英雄等级+2。"
+        }
+      ],
+      "talent-637001": [
+        {
+          "relation": "preview",
+          "id": "1931",
+          "name": "铠",
+          "entityType": "hero",
+          "descriptionPlain": "复生 牺牲：你的【河洛】英雄获得5临时等级。"
+        },
+        {
+          "relation": "preview",
+          "id": "1461",
+          "name": "露娜",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 登场：阿科米亚核心等级+2，并且随机触发2名英雄的整备效果。"
+        }
+      ],
+      "talent-637003": [
+        {
+          "relation": "preview",
+          "id": "5021",
+          "name": "裴擒虎",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 整备：随机获得1名其他英雄等级数一半的临时等级，不可叠加。"
+        },
+        {
+          "relation": "preview",
+          "id": "5061",
+          "name": "云中君",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 开团：你的英雄每穿戴1件装备，该英雄等级永久+1。"
+        }
+      ],
+      "talent-637004": [
+        {
+          "relation": "preview",
+          "id": "5271",
+          "name": "蒙恬",
+          "entityType": "hero",
+          "descriptionPlain": "牺牲：召唤2名与自身等级相同的玄雍士兵。"
+        },
+        {
+          "relation": "preview",
+          "id": "5041",
+          "name": "米莱狄",
+          "entityType": "hero",
+          "descriptionPlain": "召唤单位获得 3临时等级。 整备：该临时等级及阿科米亚核心等级额外+3。"
+        },
+        {
+          "relation": "preview",
+          "id": "60110",
+          "name": "猩红神兽",
+          "entityType": "hero",
+          "descriptionPlain": "战斗中，我方召唤物入场时使之获得猩红神兽之力。"
+        },
+        {
+          "relation": "preview",
+          "id": "60100",
+          "name": "蔚蓝神兽",
+          "entityType": "hero",
+          "descriptionPlain": "战斗中我方单位入场时，蔚蓝神兽永久增加5点生命值。"
+        }
+      ],
+      "talent-63700601": [
+        {
+          "relation": "preview",
+          "id": "1411",
+          "name": "貂蝉",
+          "entityType": "hero",
+          "descriptionPlain": "登场：【三分】英雄等级+1。"
+        },
+        {
+          "relation": "preview",
+          "id": "5131",
+          "name": "上官婉儿",
+          "entityType": "hero",
+          "descriptionPlain": "整备：随机对3名不同【河洛】英雄使用1张古币。"
+        }
+      ],
+      "talent-637007": [
+        {
+          "relation": "preview",
+          "id": "1991",
+          "name": "公孙离",
+          "entityType": "hero",
+          "descriptionPlain": "夺取 开团：场上每有1名已觉醒英雄，攻击速度+15%。"
+        },
+        {
+          "relation": "preview",
+          "id": "1741",
+          "name": "虞姬",
+          "entityType": "hero",
+          "descriptionPlain": "开团：场上每有1个图腾，自身及随机2名不同【大河流域】英雄等级+1。"
+        }
+      ],
+      "talent-637010": [
+        {
+          "relation": "preview",
+          "id": "1841",
+          "name": "蔡文姬",
+          "entityType": "hero",
+          "descriptionPlain": "每当你使用【三分】英雄牌时，等级最低的其他3名【三分】英雄等级+1。"
+        },
+        {
+          "relation": "preview",
+          "id": "1191",
+          "name": "扁鹊",
+          "entityType": "hero",
+          "descriptionPlain": "友方单位护盾被击破时，对周围敌人造成该英雄最大生命值10%的法术伤害（冷却1秒）。"
+        }
+      ],
+      "talent-637011": [
+        {
+          "relation": "preview",
+          "id": "5221",
+          "name": "曜",
+          "entityType": "hero",
+          "descriptionPlain": "你的英雄合成提升的等级+1。"
+        },
+        {
+          "relation": "preview",
+          "id": "1311",
+          "name": "李白",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 古币牌会额外提供4临时等级。若目标为李白，该临时等级会额外+3。"
+        }
+      ],
+      "talent-637012": [
+        {
+          "relation": "preview",
+          "id": "1671",
+          "name": "孙悟空",
+          "entityType": "hero",
+          "descriptionPlain": "闪现，夺取 整备：拥有闪现效果的英雄等级+2。"
+        },
+        {
+          "relation": "preview",
+          "id": "1461",
+          "name": "露娜",
+          "entityType": "hero",
+          "descriptionPlain": "闪现 登场：阿科米亚核心等级+2，并且随机触发2名英雄的整备效果。"
+        }
+      ],
+      "talent-637016": [
+        {
+          "relation": "preview",
+          "id": "1731",
+          "name": "李元芳",
+          "entityType": "hero",
+          "descriptionPlain": "整备：对距离最近的【河洛】英雄使用1张古币。"
+        },
+        {
+          "relation": "preview",
+          "id": "1991",
+          "name": "公孙离",
+          "entityType": "hero",
+          "descriptionPlain": "夺取 开团：场上每有1名已觉醒英雄，攻击速度+15%。"
+        }
+      ],
+      "talent-638006": [
+        {
+          "relation": "preview",
+          "id": "1991",
+          "name": "公孙离",
+          "entityType": "hero",
+          "descriptionPlain": "夺取 开团：场上每有1名已觉醒英雄，攻击速度+15%。"
+        },
+        {
+          "relation": "preview",
+          "id": "5111",
+          "name": "猪八戒",
+          "entityType": "hero",
+          "descriptionPlain": "夺取 每当3阶及以下英雄合成时，与其同阶的英雄等级+1。"
+        },
+        {
+          "relation": "preview",
+          "id": "1671",
+          "name": "孙悟空",
+          "entityType": "hero",
+          "descriptionPlain": "闪现，夺取 整备：拥有闪现效果的英雄等级+2。"
+        }
+      ],
+      "talent-638007": [
+        {
+          "relation": "preview",
+          "id": "1991",
+          "name": "公孙离",
+          "entityType": "hero",
+          "descriptionPlain": "夺取 开团：场上每有1名已觉醒英雄，攻击速度+15%。"
+        },
+        {
+          "relation": "preview",
+          "id": "5111",
+          "name": "猪八戒",
+          "entityType": "hero",
+          "descriptionPlain": "夺取 每当3阶及以下英雄合成时，与其同阶的英雄等级+1。"
+        },
+        {
+          "relation": "preview",
+          "id": "1671",
+          "name": "孙悟空",
+          "entityType": "hero",
+          "descriptionPlain": "闪现，夺取 整备：拥有闪现效果的英雄等级+2。"
+        }
+      ],
+      "talent-635046": [
+        {
+          "relation": "preview",
+          "id": "635023",
+          "name": "点兵点将",
+          "entityType": "talent",
+          "descriptionPlain": "获得场上所有英雄牌各1张。"
+        }
+      ],
+      "talent-646005": [
+        {
+          "relation": "preview",
+          "id": "644105",
+          "name": "护命灵珠",
+          "entityType": "related",
+          "descriptionPlain": "唯一。每4秒获得基础生命值25%的护盾。拥有护盾时伤害提升25%，护盾被击破则移除。"
+        }
+      ],
+      "talent-646006": [
+        {
+          "relation": "preview",
+          "id": "644106",
+          "name": "光辉圣铠",
+          "entityType": "related",
+          "descriptionPlain": "唯一。每秒恢复50+4%最大生命值。"
+        }
+      ],
+      "talent-646007": [
+        {
+          "relation": "preview",
+          "id": "644107",
+          "name": "魂祭绝刃",
+          "entityType": "related",
+          "descriptionPlain": "唯一。攻击速度+50%，物理和法术吸血+30%。战斗开始时，扣除50%最大生命值。"
+        }
+      ],
+      "talent-646008": [
+        {
+          "relation": "preview",
+          "id": "644108",
+          "name": "根源之力",
+          "entityType": "related",
+          "descriptionPlain": "唯一。每4秒对生命值最低的敌方单位造成600%法术攻击力的法术伤害。"
+        }
+      ],
+      "talent-646009": [
+        {
+          "relation": "preview",
+          "id": "644109",
+          "name": "灵泉项链",
+          "entityType": "related",
+          "descriptionPlain": "唯一。战斗开始时，周围1格的单位每秒回复4点法力值。穿戴者法力值上限-10。"
+        }
+      ],
+      "talent-646010": [
+        {
+          "relation": "preview",
+          "id": "644110",
+          "name": "魂灭灵冠",
+          "entityType": "related",
+          "descriptionPlain": "唯一。阵亡时，对周围1格敌人造成目标35%最大生命值的真实伤害。"
+        }
+      ],
+      "talent-646012": [
+        {
+          "relation": "preview",
+          "id": "644112",
+          "name": "强敌克星",
+          "entityType": "related",
+          "descriptionPlain": "唯一。造成伤害的15%转化为真实伤害。对目标每普通攻击4次，会眩晕目标1秒。"
+        }
+      ],
+      "talent-646013": [
+        {
+          "relation": "preview",
+          "id": "644004",
+          "name": "灵泉法杖",
+          "entityType": "related",
+          "descriptionPlain": "唯一。获得闪现，每次闪现后普攻附带一次重击：造成300%伤害并且眩晕敌方1秒，每次击败敌方单位再次触发闪现。"
+        }
+      ],
+      "talent-646015": [
+        {
+          "relation": "preview",
+          "id": "641006",
+          "name": "鼓舞之戒",
+          "entityType": "related",
+          "descriptionPlain": "唯一。战斗开始时，与穿戴者同阵营的英雄，提升30%最大生命值。"
+        }
+      ],
+      "talent-646016": [
+        {
+          "relation": "preview",
+          "id": "643206",
+          "name": "梦魇之牙",
+          "entityType": "related",
+          "descriptionPlain": "唯一。法术攻击力+35%。造成法术伤害时添加梦魇印记，持续5秒。带有印记的单位阵亡时，对周围1格敌方单位造成穿戴者法术攻击力×2的法术伤害。"
+        }
+      ],
+      "talent-646017": [
+        {
+          "relation": "preview",
+          "id": "643303",
+          "name": "末世",
+          "entityType": "related",
+          "descriptionPlain": "唯一。普通攻击会减少目标2%最大生命值并恢复等量生命值。穿戴者为近战英雄时，效果翻倍。"
+        }
+      ],
+      "talent-671008": [
+        {
+          "relation": "preview",
+          "id": "7055",
+          "name": "5阶英雄兑换券",
+          "entityType": "effect",
+          "descriptionPlain": "卡牌3选1（5阶英雄牌）。"
+        }
+      ],
+      "talent-671013": [
+        {
+          "relation": "preview",
+          "id": "7054",
+          "name": "4阶英雄兑换券",
+          "entityType": "effect",
+          "descriptionPlain": "卡牌3选1（4阶英雄牌）。"
+        },
+        {
+          "relation": "preview",
+          "id": "7055",
+          "name": "5阶英雄兑换券",
+          "entityType": "effect",
+          "descriptionPlain": "卡牌3选1（5阶英雄牌）。"
+        }
+      ],
+      "talent-671019": [
+        {
+          "relation": "preview",
+          "id": "6810025",
+          "name": "留级证明",
+          "entityType": "talent",
+          "descriptionPlain": "保持在棋手等级1时，每回合获得1能量。"
+        }
+      ],
+      "talent-681001": [
+        {
+          "relation": "preview",
+          "id": "6810012",
+          "name": "站这别动",
+          "entityType": "talent",
+          "descriptionPlain": "指定1个阵位，每过2回合，获得1张此格上的英雄牌。"
+        }
+      ],
+      "talent-634030": [
+        {
+          "relation": "preview",
+          "id": "7076",
+          "name": "有福同享",
+          "entityType": "effect",
+          "descriptionPlain": "指定1名英雄，场上和其品阶相同的英雄等级+3。"
+        }
+      ],
+      "talent-634014": [
+        {
+          "relation": "preview",
+          "id": "652004",
+          "name": "延迟满足",
+          "entityType": "talent",
+          "descriptionPlain": "指定1名英雄等级+10。3回合后，再+25。"
+        }
+      ],
+      "talent-681016": [
+        {
+          "relation": "preview",
+          "id": "681017",
+          "name": "混沌裂隙",
+          "entityType": "talent",
+          "descriptionPlain": "指定阵位召唤裂隙，开战前吞噬该格的英雄，永久获得其双倍等级。开战时，召唤1名品阶≥商店等级的英雄（无卡牌效果），使之获得裂隙等级，并获得适配装备。"
+        }
+      ],
+      "talent-622003": [
+        {
+          "relation": "preview",
+          "id": "8205",
+          "name": "双人同行·2阶",
+          "entityType": "talent",
+          "descriptionPlain": "随机获得2张相同的2阶英雄牌。"
+        },
+        {
+          "relation": "preview",
+          "id": "8206",
+          "name": "双人同行·3阶",
+          "entityType": "talent",
+          "descriptionPlain": "随机获得2张相同的3阶英雄牌。"
+        }
+      ],
+      "talent-615002": [
+        {
+          "relation": "preview",
+          "id": "7055",
+          "name": "5阶英雄兑换券",
+          "entityType": "effect",
+          "descriptionPlain": "卡牌3选1（5阶英雄牌）。"
+        }
+      ],
+      "talent-615001": [
+        {
+          "relation": "preview",
+          "id": "651003",
+          "name": "大明星",
+          "entityType": "talent",
+          "descriptionPlain": "随机上阵1名不在场的等级为棋手等级x7的5阶英雄，其觉醒进度为1，此后每经过2回合则额外+1。"
+        }
+      ],
+      "talent-614001": [
+        {
+          "relation": "preview",
+          "id": "651002",
+          "name": "资深猎头",
+          "entityType": "talent",
+          "descriptionPlain": "4阶卡牌2选1，并将选中的卡牌一分为四。"
+        }
+      ]
+    }
+  },
+  "talent_stage_observation": {
+    "note": "talents.json 的 talentStage 字段标明天赋出现在哪一轮拍卖；分布与机制词典「拍卖第 4/8/12 回合（共 3 次）」不一致（出现至「第八轮拍卖」）。可能原因：wiki 按 8 次拍卖录入、或含初始阵容拍卖、或版本差异。未裁决，仅记录。",
+    "stage_distribution": {
+      "第一轮拍卖": 17,
+      "初始阵容": 18,
+      "第七轮拍卖": 13,
+      "第八轮拍卖": 167,
+      "第六轮拍卖": 8,
+      "第五轮拍卖": 9,
+      "第三轮拍卖": 11,
+      "第二轮拍卖": 14,
+      "第四轮拍卖": 9,
+      "": 3
+    },
+    "talent_group_distribution": {
+      "初始天赋": 158,
+      "天赋包三": 42,
+      "天赋包二": 35,
+      "天赋包一": 31,
+      "": 2,
+      "素材补录": 1
+    },
+    "evidence_level": "wiki 天赋目录数据（user_calibrated）"
+  }
+}
