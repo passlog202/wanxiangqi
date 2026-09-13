@@ -92,3 +92,40 @@ python3 wangzhe-wanxiangqi-data/scripts/fetch_remaining_images.py --dry-run  # �
 - 新增 `scripts/fetch_remaining_images.py`：可断点续跑的剩余图片下载工具。
 - 新增 `markdown/07-continuation.md`：本续查记录。
 - 未改动 `rules.json` / `mechanics.json` / `lineups.json` / 各 csv（复核后内容无变化）。
+
+---
+
+## 八、续查 II：官方新手指引补采（2026-09-13）
+
+复核 `raw/official-guide-a202609xszy.html`（官方新手指引全量文本）后发现 4 处未结构化的官方内容，已全部补采落地：
+
+### 8.1 官方关键词词典（13 条）→ `json/keywords.json` + `keywords.csv`
+
+官方新手指引「关键词词典」共 13 条，含 4 条 wiki 机制词典未单列的官方词条与数值：
+
+- **复生**：英雄阵亡后复活并恢复 50% 生命值，**每名英雄单回合最多复活 10 次**（官方明确数值）；
+- **夺取**：夺取周围 1 格随机 1 名己方英雄等级，**最多 10 级、不含临时等级**；
+- **闪现**：战斗开始时英雄跳跃至敌方战场镜像位置；
+- **败阵**：上阵期间战斗失败触发。
+
+其余 9 条（登场 / 开团 / 整备 / 牺牲 / 合成 / 临时等级 / 转瞬 / 凯旋 / 退场）与 `mechanics.json` 交叉对照（见 `keywords.json` 的 `mechanics_id`）。已写入 `markdown/06-mechanics.md`。
+
+### 8.2 官方入门阵容（5 套）→ `json/official_newbie_lineups.json`
+
+三分登场流（吕布）、日落海整备流（安琪拉）、大河图腾流（敖隐）、河洛古币流（百里玄策）、逐鹿战术牌流（蒙犽）。其中日落海整备流 = 自动化第 1、大河图腾流 = 自动化第 3；三分登场流 / 河洛古币流 / 逐鹿战术牌流未纳入自动化。已写入 `markdown/02-lineups.md`。
+
+### 8.3 大神教学（12 篇）→ `json/pro_guides.json` + `pro_guides.csv`
+
+官方页「大神教学」收录 12 篇标题（作者 / 标题 / 推荐棋手），证据层级标为**作者经验**（非官方规则）。其中白歌三分倒转、玉环日落海倒转、香香开团射与简报“未选”一致；与 wiki 25 套预设同名/近似的已标注 `related_wiki_preset`。页面仅提供阵容码复制与导入三步，未提供逐阵容码文本。已写入 `markdown/02-lineups.md`。
+
+### 8.4 棋手推荐语（5 名）→ 写回 `chessplayers.json` / `chessplayers.csv`
+
+官方「棋手推荐」5 名棋手的推荐语（香香 / 瑶妹 / 白歌 / 常小娥 / 闹闹）补入 `recommendation_tagline` 字段（其余棋手为空串）；csv 同步新增该列（保持原 BOM 与 `|` 连接的 lineups 格式）。
+
+### 8.5 本轮改动清单（续）
+
+- 新增 `json/keywords.json` + `json/keywords.csv`
+- 新增 `json/official_newbie_lineups.json`
+- 新增 `json/pro_guides.json` + `json/pro_guides.csv`
+- 更新 `json/chessplayers.json`（+`recommendation_tagline`）、重写 `json/chessplayers.csv`（+新列）
+- 更新 `markdown/02-lineups.md`、`markdown/06-mechanics.md`、`markdown/00-INDEX.md`

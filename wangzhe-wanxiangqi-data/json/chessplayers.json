@@ -70,7 +70,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "作者经验",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-angel",
@@ -116,7 +117,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "作者经验",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-qiaoxi",
@@ -167,7 +169,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-wufeng",
@@ -223,7 +226,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-jiangdao",
@@ -274,7 +278,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-yinglv",
@@ -330,7 +335,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-sunxiaobin",
@@ -386,7 +392,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-xiaodaji",
@@ -437,7 +444,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-changxiaoe",
@@ -500,7 +508,8 @@
         "常小娥四人队",
         "日落海整备流",
         "大河图腾流"
-      ]
+      ],
+      "recommendation_tagline": "提供等级成长，越用越强，养成4个精英英雄"
     },
     {
       "id": "player-zhuangxiaoyu",
@@ -556,7 +565,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-yixing",
@@ -607,7 +617,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-mingxiansheng",
@@ -668,7 +679,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-zhaojun",
@@ -734,7 +746,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-yuhuan",
@@ -800,7 +813,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-banshu",
@@ -881,7 +895,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-yaomei",
@@ -961,7 +976,8 @@
       "evidence_layer": "官方规则",
       "automation_lineups": [
         "大河图腾流"
-      ]
+      ],
+      "recommendation_tagline": "召唤小鹿提供前排承伤，通过胜利来不断强化小鹿"
     },
     {
       "id": "player-baige",
@@ -1022,7 +1038,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": "以合成催生复制，以秘技斩击核心牌"
     },
     {
       "id": "player-jing",
@@ -1078,7 +1095,8 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     },
     {
       "id": "player-naonao",
@@ -1138,7 +1156,8 @@
       "evidence_layer": "官方规则",
       "automation_lineups": [
         "日落海整备流"
-      ]
+      ],
+      "recommendation_tagline": "专精单一阵营，还可额外获取阵营天赋"
     },
     {
       "id": "player-xiangxiang",
@@ -1195,7 +1214,8 @@
       "automation_lineups": [
         "日落海整备流",
         "大河图腾流"
-      ]
+      ],
+      "recommendation_tagline": "自带武器下场输出，改造武器为不同形态"
     },
     {
       "id": "player-make",
@@ -1256,10 +1276,12 @@
       "source": "wanxiangqiwiki.com chessplayerFacts",
       "source_url": "https://wanxiangqiwiki.com",
       "evidence_layer": "官方规则",
-      "automation_lineups": []
+      "automation_lineups": [],
+      "recommendation_tagline": ""
     }
   ],
   "notes": [
-    "2026-09-13：lineups 写入三套自动化阵容推荐棋手（官方图文）。"
+    "2026-09-13：lineups 写入三套自动化阵容推荐棋手（官方图文）。",
+    "2026-09-13 补入官方新手指引「棋手推荐」5 名棋手的推荐语（recommendation_tagline，来源 https://wxq.qq.com/cp/a202609xszy/index.html）。"
   ]
 }

@@ -22,6 +22,9 @@
 | `/wangzhe-wanxiangqi-data/json/lineups.csv` | 3 套阵容摘要 |
 | `/wangzhe-wanxiangqi-data/markdown/04-decisions.md` | 决策说明 |
 | `/wangzhe-wanxiangqi-data/json/mechanics.json` + csv | wiki 机制词典 26 条（已修编码） |
+| `/wangzhe-wanxiangqi-data/json/keywords.json` + csv | 官方关键词词典 13 条（新手指引） |
+| `/wangzhe-wanxiangqi-data/json/official_newbie_lineups.json` | 官方入门阵容 5 套 |
+| `/wangzhe-wanxiangqi-data/json/pro_guides.json` + csv | 大神教学 12 篇（作者经验） |
 | `/wangzhe-wanxiangqi-data/json/unknowns_conflicts.json` | 未知与冲突汇总 |
 | `/wangzhe-wanxiangqi-data/json/heroes.json` + csv | 英雄 86 |
 | `/wangzhe-wanxiangqi-data/json/effects.json` + csv | 效果牌 101（官方 currentCount 98） |
@@ -70,6 +73,7 @@
 ## 核对
 
 - 2026-09-13 续查：`git pull` 已最新；线上 wiki 各机制页与 `mechanics.json` 逐项一致；`image_index.json` 已去重 24 条重复条目（`items` 1328 = `count`，ok 144 / url_only 1184），并新增剩余图片下载工具 `scripts/fetch_remaining_images.py`；详见 `markdown/07-continuation.md`。沙箱无法直连 `assets.wanxiangqiwiki.com`，剩余原图需在可访问该 CDN 的环境用该脚本补下。
+- 2026-09-13 续查 II：从官方新手指引 `raw/official-guide-a202609xszy.html` 补采并结构化——关键词词典 13 条（`keywords.json`）、官方入门阵容 5 套（`official_newbie_lineups.json`）、大神教学 12 篇（`pro_guides.json`）；5 名棋手推荐语写回 `chessplayers.json`/csv（`recommendation_tagline`）。
 - `screenshot_index.json` 57 条与 `screenshots/` 57 文件一一对应。
 - `ui_operations.json` 完整落盘（大厅到开战、买/上/合成/升级/出售/拍卖/天赋）。
 - 2026-09-13 补下大河核心卡图：大司命、敖隐、东皇太一、干将莫邪。
