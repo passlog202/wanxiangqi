@@ -1,0 +1,494 @@
+{
+  "game": "王者万象棋",
+  "collected_at": "2026-09-12",
+  "collection_method": "official_web_download",
+  "live_client": false,
+  "gap_note": "全部截图来自官方教学页/官网 CDN，未从实机登录采集。",
+  "sources": {
+    "official_guide": "https://wxq.qq.com/cp/a202609xszy/index.html",
+    "official_site_home": "https://wxq.qq.com/index.html",
+    "official_site_gw": "https://wxq.qq.com/cp/a20260707sfgw/index.html",
+    "cdn": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/",
+    "homepage_cdn": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/",
+    "wiki": "https://wanxiangqiwiki.com/"
+  },
+  "files": [
+    {
+      "filename": "swiper1_1.png",
+      "local_path": "screenshots/swiper1_1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper1_1.png",
+      "page": "棋手选择/开场展示",
+      "caption_on_page": "选择合适棋手，6人同台竞技",
+      "buttons_or_labels": ["选择合适棋手，6人同台竞技"],
+      "section": "基础规则 / 万象大赛 01"
+    },
+    {
+      "filename": "swiper1_2.png",
+      "local_path": "screenshots/swiper1_2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper1_2.png",
+      "page": "对局准备阶段棋盘",
+      "caption_on_page": "上阵英雄，对战其他玩家",
+      "buttons_or_labels": ["第3回合 | 12", "开战", "铸造", "备选", "加速成长", "手牌 8/5", "光棱塔", "2/5 上阵人数"],
+      "section": "基础规则 / 万象大赛 02"
+    },
+    {
+      "filename": "swiper1_3.png",
+      "local_path": "screenshots/swiper1_3.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper1_3.png",
+      "page": "卡牌联动示意（教学合成图）",
+      "caption_on_page": "触发卡牌联动提升战力",
+      "buttons_or_labels": ["登场", "三分之地", "联动 KEYWORD"],
+      "section": "基础规则 / 万象大赛 03"
+    },
+    {
+      "filename": "swiper1_4.png",
+      "local_path": "screenshots/swiper1_4.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper1_4.png",
+      "page": "胜利结算",
+      "caption_on_page": "战胜其他玩家，获得最终胜利",
+      "buttons_or_labels": ["第1名", "Victory"],
+      "section": "基础规则 / 万象大赛 04"
+    },
+    {
+      "filename": "swiper2_1.png",
+      "local_path": "screenshots/swiper2_1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper2_1.png",
+      "page": "准备阶段 / 棋手技能详情",
+      "caption_on_page": "每位棋手都有专属技能，点击技能按钮可查看技能详情。",
+      "buttons_or_labels": ["点击这里查看棋手技能", "被动", "梦境游戏", "被动技能", "TIPS"],
+      "section": "基础规则 / 棋手 01"
+    },
+    {
+      "filename": "swiper2_2.png",
+      "local_path": "screenshots/swiper2_2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper2_2.png",
+      "page": "准备阶段 / 棋手秘技",
+      "caption_on_page": "每位棋手都有其秘技任务，完成后可获得秘技牌奖励。",
+      "buttons_or_labels": ["点击这里查看棋手秘技", "任务进度", "完成任务可获得秘技卡", "2/5"],
+      "section": "基础规则 / 棋手 02"
+    },
+    {
+      "filename": "swiper2_3.png",
+      "local_path": "screenshots/swiper2_3.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper2_3.png",
+      "page": "准备阶段 / 棋手专属天赋领取",
+      "caption_on_page": "棋手升至6级后，可领取专属天赋，获得强力效果。",
+      "buttons_or_labels": ["点击领取", "棋手专属天赋", "TALENT SELECTION", "升级"],
+      "section": "基础规则 / 棋手 03"
+    },
+    {
+      "filename": "swiper2_4.png",
+      "local_path": "screenshots/swiper2_4.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper2_4.png",
+      "page": "准备阶段 / 商店刷新概率与棋手等级",
+      "caption_on_page": "棋手可花费能量提升等级……获得高阶英雄牌的概率也将随之提升。",
+      "buttons_or_labels": ["当前棋手等级", "当前概率", "当前等级下，不同品质卡牌的刷新概率", "英雄牌描述"],
+      "section": "基础规则 / 棋手 04"
+    },
+    {
+      "filename": "swiper2_5.png",
+      "local_path": "screenshots/swiper2_5.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper2_5.png",
+      "page": "大厅棋手列表 / 限免标记",
+      "caption_on_page": "铂金段位之前……每周进行刷新。",
+      "buttons_or_labels": ["棋手", "瑶妹"],
+      "section": "基础规则 / 棋手 05"
+    },
+    {
+      "filename": "swiper3_1.png",
+      "local_path": "screenshots/swiper3_1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper3_1.png",
+      "page": "上阵合成示意",
+      "caption_on_page": "拖动卡牌至战场可在对应位置生成英雄。打出已在场上的英雄牌会与其合成，同时提升等级。",
+      "buttons_or_labels": ["英雄合成后等级+3"],
+      "section": "基础规则 / 英雄 01"
+    },
+    {
+      "filename": "swiper3_2.png",
+      "local_path": "screenshots/swiper3_2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper3_2.png",
+      "page": "战场英雄等级条",
+      "caption_on_page": "英雄上阵时，初始等级为1级，最高等级为999级。",
+      "buttons_or_labels": ["英雄初始等级为1级", "英雄等级上限为999级", "TIPS"],
+      "section": "基础规则 / 英雄 02"
+    },
+    {
+      "filename": "swiper3_3.png",
+      "local_path": "screenshots/swiper3_3.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper3_3.png",
+      "page": "准备阶段 / 英雄详情面板",
+      "caption_on_page": "点击英雄可以查看英雄的详细信息，包括英雄的属性值、英雄技能等。",
+      "buttons_or_labels": ["英雄详情", "+1 出售", "剩余：19/20", "辅助"],
+      "section": "基础规则 / 英雄 03"
+    },
+    {
+      "filename": "swiper3_4.png",
+      "local_path": "screenshots/swiper3_4.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper3_4.png",
+      "page": "卡牌说明 / 效果详情",
+      "caption_on_page": "英雄牌的卡牌效果各不相同……",
+      "buttons_or_labels": ["效果详情", "说明", "前排·坦克", "临时等级", "关注", "英雄效果"],
+      "section": "基础规则 / 英雄 04"
+    },
+    {
+      "filename": "swiper3_5.png",
+      "local_path": "screenshots/swiper3_5.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper3_5.png",
+      "page": "卡牌说明 / 阵营",
+      "caption_on_page": "每个英雄都有其专属阵营……",
+      "buttons_or_labels": ["英雄阵营", "三分之地", "说明", "关注"],
+      "section": "基础规则 / 英雄 05"
+    },
+    {
+      "filename": "swiper3_6.png",
+      "local_path": "screenshots/swiper3_6.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper3_6.png",
+      "page": "卡牌说明 / 站位定位",
+      "caption_on_page": "在卡牌右侧可以查看英雄的定位和适合的站位。",
+      "buttons_or_labels": ["这里是英雄的站位及定位", "前排·坦克", "说明", "关注"],
+      "section": "基础规则 / 英雄 06"
+    },
+    {
+      "filename": "swiper4_1.png",
+      "local_path": "screenshots/swiper4_1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper4_1.png",
+      "page": "准备阶段 / 天赋三选一",
+      "caption_on_page": "每次提升棋手等级，都可从3个天赋中免费选择1个……",
+      "buttons_or_labels": ["天赋", "TALENT SELECTION", "刷新", "全局1次", "升级"],
+      "section": "基础规则 / 天赋 01"
+    },
+    {
+      "filename": "swiper5_1.png",
+      "local_path": "screenshots/swiper5_1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper5_1.png",
+      "page": "准备阶段 / 能量球 UI",
+      "caption_on_page": "每个回合固定获得能量，未使用的能量可累积到下一回合……",
+      "buttons_or_labels": ["每回合获得能量", "当前总能量", "+8", "22"],
+      "section": "基础规则 / 能量 01"
+    },
+    {
+      "filename": "swiper5_2.png",
+      "local_path": "screenshots/swiper5_2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper5_2.png",
+      "page": "商店购买与棋手升级按钮",
+      "caption_on_page": "购买卡牌会消耗能量……升级按钮处即为当前升级所需能量。",
+      "buttons_or_labels": ["升级", "购买英雄牌固定消耗3能量", "购买效果牌消耗能量数", "升级消耗的能量"],
+      "section": "基础规则 / 能量 02"
+    },
+    {
+      "filename": "swiper6_1.png",
+      "local_path": "screenshots/swiper6_1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper6_1.png",
+      "page": "竞拍选拍品",
+      "caption_on_page": "点击选择想要的拍品，点击出价按钮进行出价。",
+      "buttons_or_labels": ["出价", "点击选择拍品", "点击按钮出价", "TIPS"],
+      "section": "基础规则 / 竞拍 01"
+    },
+    {
+      "filename": "swiper6_2.png",
+      "local_path": "screenshots/swiper6_2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper6_2.png",
+      "page": "竞拍分红结算条",
+      "caption_on_page": "竞拍时每位玩家的有效出价会进入分红池……",
+      "buttons_or_labels": ["生命值越低，分红越多"],
+      "section": "基础规则 / 竞拍 02"
+    },
+    {
+      "filename": "swiper6_3.png",
+      "local_path": "screenshots/swiper6_3.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/swiper6_3.png",
+      "page": "竞拍等待 / 掉落",
+      "caption_on_page": "在等待竞拍时，每隔几秒地面上会掉落随机数量的道具……",
+      "buttons_or_labels": ["预览", "等待", "互动道具", "英雄牌", "能量", "展示称号"],
+      "section": "基础规则 / 竞拍 03"
+    },
+    {
+      "filename": "step1.png",
+      "local_path": "screenshots/step1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/step1.png",
+      "page": "大厅",
+      "caption_on_page": "第一步：点击【复制阵容码】后，登录游戏，点击大厅右下角的【阵容】按钮",
+      "buttons_or_labels": ["活动", "商城", "成长之路", "战令", "排行", "福利", "棋手", "卡牌", "阵容", "开始游戏", "T1万象启程", "【招募】"],
+      "section": "入门阵容 / 导入阵容步骤1"
+    },
+    {
+      "filename": "step2.png",
+      "local_path": "screenshots/step2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/step2.png",
+      "page": "阵容 / 收藏阵容",
+      "caption_on_page": "第二步：选择【收藏阵容】，点击右下角的【导入阵容】按钮",
+      "buttons_or_labels": ["阵容", "百科", "官方推荐", "玩家推荐", "收藏阵容", "编辑", "解锁", "导入阵容", "新建阵容", "未添加阵容", "高级战令专属栏位"],
+      "section": "入门阵容 / 导入阵容步骤2"
+    },
+    {
+      "filename": "step3.png",
+      "local_path": "screenshots/step3.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/step3.png",
+      "page": "替换阵容弹窗",
+      "caption_on_page": "第三步：当收藏阵容已达到数量上限时……点击阵容旁的【替换】按钮完成阵容导入",
+      "buttons_or_labels": ["替换阵容", "替换"],
+      "section": "入门阵容 / 导入阵容步骤3"
+    },
+    {
+      "filename": "guide_1_2.jpg",
+      "local_path": "screenshots/guide_1_2.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_1_2.jpg",
+      "page": "入门阵容一图速览 / 三分登场流",
+      "buttons_or_labels": ["阵容逻辑图", "阵容站位图/装备推荐", "棋手/天赋推荐", "实战技巧"],
+      "section": "入门阵容 / 吕布"
+    },
+    {
+      "filename": "guide_1_3.jpg",
+      "local_path": "screenshots/guide_1_3.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_1_3.jpg",
+      "page": "入门阵容图文详解 / 三分登场流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 吕布"
+    },
+    {
+      "filename": "guide_2_2.jpg",
+      "local_path": "screenshots/guide_2_2.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_2_2.jpg",
+      "page": "入门阵容一图速览 / 日落海整备流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 安琪拉"
+    },
+    {
+      "filename": "guide_2_3.jpg",
+      "local_path": "screenshots/guide_2_3.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_2_3.jpg",
+      "page": "入门阵容图文详解 / 日落海整备流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 安琪拉"
+    },
+    {
+      "filename": "guide_3_2.jpg",
+      "local_path": "screenshots/guide_3_2.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_3_2.jpg",
+      "page": "入门阵容一图速览 / 大河图腾流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 敖隐"
+    },
+    {
+      "filename": "guide_3_3.jpg",
+      "local_path": "screenshots/guide_3_3.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_3_3.jpg",
+      "page": "入门阵容图文详解 / 大河图腾流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 敖隐"
+    },
+    {
+      "filename": "guide_4_2.jpg",
+      "local_path": "screenshots/guide_4_2.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_4_2.jpg",
+      "page": "入门阵容一图速览 / 河洛古币流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 百里玄策"
+    },
+    {
+      "filename": "guide_4_3.jpg",
+      "local_path": "screenshots/guide_4_3.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_4_3.jpg",
+      "page": "入门阵容图文详解 / 河洛古币流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 百里玄策"
+    },
+    {
+      "filename": "guide_5_2.jpg",
+      "local_path": "screenshots/guide_5_2.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_5_2.jpg",
+      "page": "入门阵容一图速览 / 逐鹿战术牌流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 蒙犽"
+    },
+    {
+      "filename": "guide_5_3.jpg",
+      "local_path": "screenshots/guide_5_3.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/guide_5_3.jpg",
+      "page": "入门阵容图文详解 / 逐鹿战术牌流",
+      "buttons_or_labels": [],
+      "section": "入门阵容 / 蒙犽"
+    },
+    {
+      "filename": "video_poster_1.jpg",
+      "local_path": "screenshots/video_poster_1.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster_1.jpg",
+      "page": "入门阵容视频封面 / 三分登场流",
+      "video_id": "e1284rtzoq0",
+      "buttons_or_labels": ["视频教学"],
+      "section": "入门阵容 / 吕布"
+    },
+    {
+      "filename": "video_poster_2.jpg",
+      "local_path": "screenshots/video_poster_2.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster_2.jpg",
+      "page": "入门阵容视频封面 / 日落海整备流",
+      "video_id": "r1284pzl2o2",
+      "section": "入门阵容 / 安琪拉"
+    },
+    {
+      "filename": "video_poster_3.jpg",
+      "local_path": "screenshots/video_poster_3.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster_3.jpg",
+      "page": "入门阵容视频封面 / 大河图腾流",
+      "video_id": "b12847edijn",
+      "section": "入门阵容 / 敖隐"
+    },
+    {
+      "filename": "video_poster_4.jpg",
+      "local_path": "screenshots/video_poster_4.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster_4.jpg",
+      "page": "入门阵容视频封面 / 河洛古币流",
+      "video_id": "e1284uuzil2",
+      "section": "入门阵容 / 百里玄策"
+    },
+    {
+      "filename": "video_poster_5.jpg",
+      "local_path": "screenshots/video_poster_5.jpg",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster_5.jpg",
+      "page": "入门阵容视频封面 / 逐鹿战术牌流",
+      "video_id": "n128461rlih",
+      "section": "入门阵容 / 蒙犽"
+    },
+    {
+      "filename": "pro_video_poster1.png",
+      "local_path": "screenshots/pro_video_poster1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster1.png",
+      "page": "大神教学封面",
+      "video_id": "x1285t5msir",
+      "title": "瑶妹李信牺牲流！学会就能稳稳上分"
+    },
+    {
+      "filename": "pro_video_poster2.png",
+      "local_path": "screenshots/pro_video_poster2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster2.png",
+      "page": "大神教学封面",
+      "video_id": "w1285mnvwq8",
+      "title": "闹闹日落海整备流！新手丝滑上分首选"
+    },
+    {
+      "filename": "pro_video_poster3.png",
+      "local_path": "screenshots/pro_video_poster3.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster3.png",
+      "page": "大神教学封面",
+      "video_id": "l1285jh2lbj",
+      "title": "小妲己逐鹿战术牌流！高爽感新手必学"
+    },
+    {
+      "filename": "pro_video_poster4.png",
+      "local_path": "screenshots/pro_video_poster4.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster4.png",
+      "page": "大神教学封面",
+      "video_id": "g1286io0xgc",
+      "title": "姜导养玄策！一看即会轻松夺冠"
+    },
+    {
+      "filename": "pro_video_poster5.png",
+      "local_path": "screenshots/pro_video_poster5.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster5.png",
+      "page": "大神教学封面",
+      "video_id": "u1285fwc3t3",
+      "title": "白歌三分倒转！全员999强力阵容"
+    },
+    {
+      "filename": "pro_video_poster6.png",
+      "local_path": "screenshots/pro_video_poster6.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster6.png",
+      "page": "大神教学封面",
+      "video_id": "s12859tprze",
+      "title": "马可养猪流！简单好玩瞬秒脆皮"
+    },
+    {
+      "filename": "pro_video_poster7.png",
+      "local_path": "screenshots/pro_video_poster7.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster7.png",
+      "page": "大神教学封面",
+      "video_id": "r1285hzfmdv",
+      "title": "香香图腾开团射！成型即碾压全场"
+    },
+    {
+      "filename": "pro_video_poster8.png",
+      "local_path": "screenshots/pro_video_poster8.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster8.png",
+      "page": "大神教学封面",
+      "video_id": "p1285dxymau",
+      "title": "庄小鱼古币花木兰！无限复活横扫全场"
+    },
+    {
+      "filename": "pro_video_poster9.png",
+      "local_path": "screenshots/pro_video_poster9.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster9.png",
+      "page": "大神教学封面",
+      "video_id": "j128758vqd7",
+      "title": "玉环日落海倒转！高上限新手必学"
+    },
+    {
+      "filename": "pro_video_poster10.png",
+      "local_path": "screenshots/pro_video_poster10.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster10.png",
+      "page": "大神教学封面",
+      "video_id": "d1286zqeaup",
+      "title": "常小娥海陆空！新手小白轮椅流"
+    },
+    {
+      "filename": "pro_video_poster11.png",
+      "local_path": "screenshots/pro_video_poster11.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster11.png",
+      "page": "大神教学封面",
+      "video_id": "o1285xdiyfb",
+      "title": "乔汐司空震！强力轮椅黑科技"
+    },
+    {
+      "filename": "pro_video_poster12.png",
+      "local_path": "screenshots/pro_video_poster12.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/video_poster12.png",
+      "page": "大神教学封面",
+      "video_id": "o1285znw720",
+      "title": "明先生泳池派对！全屏召唤派对狂欢"
+    },
+    {
+      "filename": "homepage_p3_img.png",
+      "local_path": "screenshots/homepage_p3_img.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/p3_img.png",
+      "page": "官网游戏特色拼图（含模式名）",
+      "buttons_or_labels": ["经典排位", "钻石狂潮", "残局对弈"],
+      "section": "官网首页 / 游戏特色"
+    },
+    {
+      "filename": "homepage_p3_img1.png",
+      "local_path": "screenshots/homepage_p3_img1.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/p3_img1.png",
+      "page": "官网游戏特色 / 模式入口宣传图",
+      "buttons_or_labels": ["经典排位", "钻石狂潮", "残局对弈", "第9回合", "回合6", "回合3"],
+      "section": "官网首页 / 游戏特色"
+    },
+    {
+      "filename": "homepage_p3_img2.png",
+      "local_path": "screenshots/homepage_p3_img2.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/p3_img2.png",
+      "page": "官网游戏特色画面2",
+      "section": "官网首页 / 游戏特色"
+    },
+    {
+      "filename": "homepage_p3_img3.png",
+      "local_path": "screenshots/homepage_p3_img3.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/p3_img3.png",
+      "page": "官网游戏特色画面3",
+      "section": "官网首页 / 游戏特色"
+    },
+    {
+      "filename": "homepage_p3_img4.png",
+      "local_path": "screenshots/homepage_p3_img4.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/p3_img4.png",
+      "page": "官网游戏特色画面4",
+      "section": "官网首页 / 游戏特色"
+    },
+    {
+      "filename": "homepage_p3_img5.png",
+      "local_path": "screenshots/homepage_p3_img5.png",
+      "source_url": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/p3_img5.png",
+      "page": "官网游戏特色画面5",
+      "section": "官网首页 / 游戏特色"
+    }
+  ]
+}

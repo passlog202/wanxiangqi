@@ -1,0 +1,27 @@
+﻿id,name,aliases,category,shortDefinition,evidence_level,evidence_quote,related
+prepare,整备,,触发时点,英雄牌或其他效果标注“整备”时，按该牌原文执行的准备阶段效果。具体结算顺序以卡牌原文和后续实测为准。,official_explicit,指定1名英雄，触发其整备效果。,entry|combat-start
+combat-start,开团,交锋,触发时点,站内对战斗开始时触发效果的当前显示词；部分原始资料使用“交锋”。效果的具体先后关系不由词条本身保证。,official_explicit,获得2张具有开团效果的英雄牌。,prepare|temporary-level
+sacrifice,牺牲,,战斗与计算,拥有牺牲效果的英雄阵亡时触发的事件。是否会与复生、死亡前后效果重复结算，需要按具体牌面核对。,official_explicit,获得2张具有牺牲效果的英雄牌。,temporary-level
+entry,登场,,触发时点,英雄牌进入场上时触发的卡牌效果。它与整备、开团的时序关系必须以具体效果文本和实测为准。,official_explicit,登场：获得1次免费刷新。,prepare|combat-start
+triumph,凯旋,,触发时点,英雄上阵期间若战斗胜利，触发该英雄卡面所写的凯旋效果。效果只在胜利后结算，具体先后关系仍以对应卡面和后续实测为准。,official_explicit,凯旋：获得1能量。,combat-start
+exit,退场,,触发时点,场上的此英雄被出售时，触发该英雄卡面所写的退场效果。退场不等同于牺牲、阵亡或败阵，不能据此推断其他事件会触发。,official_explicit,退场：获得1张1阶英雄兑换券。,entry
+temporary-level,临时等级,,成长与等级,在当前战斗或条件窗口内生效的等级增益，不应当按永久等级计入长期成长和需要真实等级的条件。,official_explicit,战斗中，每个图腾每4秒为敖隐提供16%攻击速度和4临时等级。,combat-start|sacrifice|level-transfer
+co-battle,共战,,战斗与计算,指定英雄共同满足卡牌所写条件时生效的组合效果。技能、共享属性或装备变化必须回到对应天赋卡核对。,official_explicit,获得1张莱西奥和1张蒙犽。共战时二人共享法力值，技能变为融合技。,combat-start|temporary-level
+player-experience,棋手经验,升级经验,成长与等级,棋手升级所需经验按等级递增。战斗结束获得1点经验，拍卖结束获得3点经验；两者不在同一回合叠加。,user_calibrated,升级经验 7 / 13 / 17 / 23 / 27；战斗结束 +1，拍卖结束 +3。,auction|population|brocade-selection
+auction,拍卖,,经济与牌库,当前已确认拍卖回合为第4、8、12回合。拍卖结束获得3点经验，不与同回合战斗经验叠加。,user_calibrated,拍卖回合：4 / 8 / 12；每次拍卖 +3经验。,player-experience|effect-card-odds
+hero-shop-odds,英雄商店概率,商店概率|费用概率,概率与随机,表格描述商店单个栏位出现各费用层的概率，不等同于某一张指定英雄牌的命中概率。,user_calibrated,商店费用概率表。,shared-pool|effect-card-odds
+shared-pool,公共牌库,牌库,经济与牌库,同一费用层英雄共享公共牌库。本站按人工校准采用的每张英雄库存录入；官网百科截图的库存数字已确认有误，不作为本站数值来源。,user_calibrated,1阶14张、2阶11张、3阶9张、4阶7张、5阶6张。,hero-shop-odds|synthesis
+brocade-selection,锦囊,效果锦囊,经济与牌库,效果牌的已收录来源文本中包含效果锦囊。当前没有可复核资料证明棋手升级会直接获得锦囊，因此本站不展示等级对应、升级赠予或锦囊品阶规则。,official_explicit,来源：该卡通过商店购买、效果锦囊、拍卖等渠道获得。,effect-brocade-odds
+effect-brocade-odds,效果锦囊概率,锦囊开牌概率,概率与随机,效果锦囊开出不同品阶效果牌的官方质量概率。锦囊开出的效果牌最高只会比锦囊高1阶。,official_explicit,锦囊可开出对应质量概率的效果牌，最高只比锦囊高1阶。,brocade-selection|effect-card-odds
+equipment-acquisition,装备获取,装备投放,经济与牌库,基础装备固定在第1、4、8、12、16回合投放；部分英雄、效果牌与天赋也会提供装备。,official_explicit,基础装备会在第1、4、8、12、16回合投放；部分英雄、效果牌、天赋也提供装备。,
+population,上阵人数,人口,成长与等级,棋手在3级和5级时各增加1个上阵名额。,official_explicit,棋手3级、5级时，上阵人数+1。,player-experience
+talent-selection,天赋选择,天赋刷新,概率与随机,每次提升棋手等级，可从3个天赋中免费选择1个。天赋分铜、银、金三阶；达到白银段位后，每局可刷新1次天赋。,official_explicit,每次提升棋手等级，可从3个天赋中免费选1个；白银段位后每局可刷新1次天赋。,effect-card-odds
+level-transfer,等级转移,,成长与等级,遗志、换帅、传承等效果可以转移英雄等级；转移不包含临时等级。,official_explicit,遗志、换帅、传承等可转移英雄等级；等级转移不包含临时等级。,temporary-level
+synthesis,合成进度,,成长与等级,打出与场上同名英雄的卡牌，视为完成一次合成；累计3次合成可获得1张效果锦囊。,official_explicit,打出与场上同名英雄的卡牌，视为一次合成；累计3次合成获得一张效果锦囊。,shared-pool|brocade-selection
+player-loss-cap,战败伤害,掉血上限,结算与上限,战败伤害由棋手固定伤害与存活英雄伤害构成，每个存活英雄计2点；每回合另有总伤害上限。,official_explicit,战败伤害 = 棋手固定伤害 + 存活英雄伤害；每个存活英雄伤害为2。,single-hit-damage-cap
+damage-calculation,伤害计算,伤害公式,战斗与计算,单次攻击伤害按攻击力、伤害倍率、抗性承伤倍率、增伤、暴击收益和免伤依次计算。增伤为加法，免伤按各类别连乘。,user_calibrated,单次攻击伤害与增伤、免伤计算公式。,resistance-and-reduction|single-hit-damage-cap
+resistance-and-reduction,抗性减伤,免伤,战斗与计算,抗性减伤率为抗性/(抗性+40)，对应承伤倍率为40/(40+抗性)。免伤与抗性减伤不是同一概念。,user_calibrated,抗性免伤公式、承伤倍率与免伤连乘规则。,damage-calculation
+single-hit-damage-cap,单次伤害上限,伤害上限,结算与上限,当前已确认的单次伤害上限仅适用于磐石之心的明确卡面效果；不能据此推导为全局伤害上限。,official_explicit,当前确认范围仅为磐石之心的卡面单次伤害限制。,damage-calculation|player-loss-cap
+attack-speed,攻速,攻击速度,战斗与计算,总攻速以基础攻速乘以1加各项攻速加成之和计算。常规攻速上限为4；热血拳套可以将上限提高至5。,user_calibrated,攻速加成公式：总攻速 = 基础攻速 × (1 + 攻速a + 攻速b …)。,
+mana-recovery,回蓝,回避,战斗与计算,本站资料里的“回避”指回蓝，不是闪避。普攻固定回蓝5点；受伤按单次损失生命/20回蓝，低于1不计，单次上限15。,user_calibrated,攻击与受到伤害会获得法力；护盾完全抵挡不会获得法力。,
+effect-card-odds,效果牌概率,效果牌商店概率|拍卖概率|天赋候选概率,概率与随机,效果牌商店、拍卖与天赋候选的具体权重目前没有可复核的样本量、版本与抽样方法，因此不展示伪精确百分比。,unverified,当前没有可复核的样本量、版本和抽样方法。,effect-brocade-odds|talent-selection|auction

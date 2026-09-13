@@ -1,0 +1,171 @@
+{
+  "schema_version": "wxq-ui-operations-v1",
+  "game": "王者万象棋",
+  "collected_at": "2026-09-13",
+  "collection_method": "official_web_download",
+  "live_client": false,
+  "gap_note": "全部来自官方教学页与官网 CDN，未从实机登录采集。",
+  "sources": [
+    {
+      "title": "王者万象棋新手指引",
+      "url": "https://wxq.qq.com/cp/a202609xszy/index.html",
+      "evidence_level": "官方规则"
+    },
+    {
+      "title": "大厅导入阵容截图",
+      "url": "https://game.gtimg.cn/images/osgame/cp/a202609xszy/step1.png",
+      "evidence_level": "官方规则"
+    }
+  ],
+  "from_lobby_to_round_1": [
+    {
+      "step": 1,
+      "ui": "大厅",
+      "button": "开始游戏",
+      "visible_after": "进入棋手选择或匹配（教学图文：选择合适棋手，6人同台竞技）",
+      "screenshot": "screenshots/step1.png",
+      "evidence_level": "官方规则"
+    },
+    {
+      "step": 2,
+      "ui": "棋手选择",
+      "button": "选择棋手（限免按段位解锁）",
+      "visible_after": "进入对局准备阶段棋盘",
+      "screenshot": "screenshots/swiper1_1.png",
+      "unknown": "是否固定三选一、匹配等待界面原文"
+    },
+    {
+      "step": 3,
+      "ui": "准备阶段",
+      "button": "开战",
+      "visible_after": "进入战斗",
+      "screenshot": "screenshots/swiper1_2.png",
+      "labels_on_screenshot": ["第3回合", "开战", "铸造", "备选", "加速成长", "手牌 8/5", "2/5 上阵人数"]
+    }
+  ],
+  "operations": [
+    {
+      "id": "buy_card",
+      "name": "买牌",
+      "how": "在商店点击卡牌购买。英雄牌固定 3 能量；效果牌看右上角。",
+      "success_visible": "能量减少；卡牌进入手牌",
+      "screenshot": "screenshots/swiper5_2.png",
+      "disabled_hint": "unknown"
+    },
+    {
+      "id": "play_to_board",
+      "name": "上阵",
+      "how": "拖动卡牌至战场对应位置生成英雄。",
+      "success_visible": "该格出现英雄，初始 1 级",
+      "screenshot": "screenshots/swiper3_1.png",
+      "disabled_hint": "unknown（人口满时的提示原文未采集）"
+    },
+    {
+      "id": "synth",
+      "name": "合成",
+      "how": "打出已在场上的同名英雄牌",
+      "success_visible": "教学图：英雄合成后等级+3",
+      "screenshot": "screenshots/swiper3_1.png",
+      "note": "等级 +3 来自教学图标签，完整合成数值表见 wiki synthesis"
+    },
+    {
+      "id": "move",
+      "name": "换位",
+      "how": "准备阶段拖动场上英雄到其他格（推断，教学要求调整站位）",
+      "success_visible": "英雄出现在新格",
+      "screenshot": null,
+      "evidence_level": "推测",
+      "disabled_hint": "战斗中不可换位：unknown"
+    },
+    {
+      "id": "level_player",
+      "name": "棋手升级",
+      "how": "点击升级按钮，消耗按钮上显示的能量",
+      "success_visible": "棋手等级+1；弹出天赋三选一；部分等级上阵人数+1",
+      "screenshot": ["screenshots/swiper5_2.png", "screenshots/swiper2_4.png", "screenshots/swiper4_1.png"]
+    },
+    {
+      "id": "sell",
+      "name": "出售",
+      "how": "点击英雄打开详情，点「+1 出售」",
+      "success_visible": "能量+1；英雄离场；若为已上阵则触发退场",
+      "screenshot": "screenshots/swiper3_3.png",
+      "labels_on_screenshot": ["英雄详情", "+1 出售", "剩余：19/20"]
+    },
+    {
+      "id": "equip",
+      "name": "装备",
+      "how": "将装备放到英雄上（具体拖放/点击路径未出教学逐步图）",
+      "success_visible": "英雄详情出现装备图标",
+      "screenshot": "screenshots/guide_2_2.jpg",
+      "evidence_level": "作者经验/阵容图",
+      "disabled_hint": "unknown"
+    },
+    {
+      "id": "use_item",
+      "name": "使用道具/效果牌",
+      "how": "打出效果牌；拍卖等待期捡地面掉落",
+      "success_visible": "按卡面执行；等待期掉落含互动道具、1 点能量、1-2 阶英雄牌",
+      "screenshot": "screenshots/swiper6_3.png"
+    },
+    {
+      "id": "talent_select",
+      "name": "选择天赋",
+      "how": "升级后从 3 个天赋中点选 1 个；白银后可点「刷新」（全局1次）",
+      "success_visible": "获得该天赋",
+      "screenshot": "screenshots/swiper4_1.png",
+      "labels_on_screenshot": ["天赋", "TALENT SELECTION", "刷新", "全局1次", "升级"]
+    },
+    {
+      "id": "auction_bid",
+      "name": "拍卖出价",
+      "how": "点击选择拍品，再点「出价」",
+      "success_visible": "成为当前最高价或失败（失败不扣能量）",
+      "screenshot": "screenshots/swiper6_1.png",
+      "labels_on_screenshot": ["出价", "点击选择拍品", "点击按钮出价"]
+    },
+    {
+      "id": "claim_exclusive_talent",
+      "name": "领取6级专属天赋",
+      "how": "棋手升至 6 级后点「点击领取」",
+      "success_visible": "获得棋手专属天赋",
+      "screenshot": "screenshots/swiper2_3.png",
+      "labels_on_screenshot": ["点击领取", "棋手专属天赋", "TALENT SELECTION"]
+    },
+    {
+      "id": "import_lineup",
+      "name": "导入阵容码",
+      "how": "大厅右下角【阵容】→【收藏阵容】→【导入阵容】；满员时点【替换】",
+      "success_visible": "收藏列表出现该阵容；弹窗“阵容码已复制到剪贴板中”",
+      "screenshot": ["screenshots/step1.png", "screenshots/step2.png", "screenshots/step3.png"],
+      "buttons": ["阵容", "百科", "官方推荐", "玩家推荐", "收藏阵容", "编辑", "解锁", "导入阵容", "新建阵容", "替换"]
+    }
+  ],
+  "screens": [
+    {"id": "lobby", "name": "大厅", "screenshot": "screenshots/step1.png", "buttons": ["活动", "商城", "成长之路", "战令", "排行", "福利", "棋手", "卡牌", "阵容", "开始游戏"]},
+    {"id": "prepare", "name": "准备", "screenshot": "screenshots/swiper1_2.png", "buttons": ["开战", "铸造", "备选", "升级"]},
+    {"id": "combat", "name": "战斗", "screenshot": null, "unknown": "战斗中 HUD、加速、跳过按钮原文未单独出图"},
+    {"id": "auction", "name": "拍卖", "screenshot": "screenshots/swiper6_1.png", "buttons": ["出价", "预览", "等待"]},
+    {"id": "talent", "name": "天赋选择", "screenshot": "screenshots/swiper4_1.png", "buttons": ["刷新", "全局1次"]},
+    {"id": "victory", "name": "胜利结算", "screenshot": "screenshots/swiper1_4.png", "buttons": ["第1名", "Victory"]},
+    {"id": "eliminate", "name": "淘汰结算", "screenshot": null, "unknown": "淘汰页按钮原文未采集"}
+  ],
+  "videos_not_downloaded": [
+    {"id": "y1285cnprk7", "topic": "万象大赛规则"},
+    {"id": "e12866xbiwl", "topic": "棋手"},
+    {"id": "k1285b6imwl", "topic": "英雄"},
+    {"id": "f1284metmmu", "topic": "天赋"},
+    {"id": "k1285pr5ujb", "topic": "能量"},
+    {"id": "c1285joyba5", "topic": "竞拍"},
+    {"id": "e1284rtzoq0", "topic": "三分登场流教学", "poster": "screenshots/video_poster_1.jpg"},
+    {"id": "r1284pzl2o2", "topic": "日落海整备流教学", "poster": "screenshots/video_poster_2.jpg"},
+    {"id": "b12847edijn", "topic": "大河图腾流教学", "poster": "screenshots/video_poster_3.jpg"}
+  ],
+  "unknowns": [
+    "实机从点击开始游戏到第一回合的全部中间弹窗",
+    "人口满、能量不足、手牌满时的红色提示原文",
+    "换位、装备拖放的逐步操作图",
+    "战斗界面与淘汰结算页",
+    "铸造、备选、加速成长、光棱塔按钮的完整效果"
+  ]
+}

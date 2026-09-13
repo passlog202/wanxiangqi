@@ -1,0 +1,1581 @@
+{
+  "game": "王者万象棋",
+  "version": "1.1.1",
+  "updated_at": "2026-09-09",
+  "platform_launch_at": "2026-09-10 07:00",
+  "mode": "万象大赛",
+  "hero_catalog_version": "官方 2026-08-28",
+  "collected_at": "2026-09-12",
+  "currency_name": "能量",
+  "note_currency": "局内资源官方名称是「能量」，未见官方用「金币」作为对局货币。",
+  "sources": [
+    {
+      "id": "official-guide",
+      "title": "王者万象棋新手指引",
+      "url": "https://wxq.qq.com/cp/a202609xszy/index.html",
+      "evidence_level": "官方规则",
+      "used_for": [
+        "对局人数与生命值",
+        "胜负淘汰",
+        "能量获取与消耗",
+        "英雄合成与等级上限",
+        "天赋选择",
+        "拍卖竞价与分红",
+        "棋手升级与上阵人数标志",
+        "转瞬"
+      ]
+    },
+    {
+      "id": "official-site",
+      "title": "王者万象棋官网",
+      "url": "https://wxq.qq.com/",
+      "evidence_level": "官方规则",
+      "used_for": [
+        "版本号 1.1.1",
+        "更新时间 2026.9.9",
+        "PC 安装包文件名含 1.1.1"
+      ]
+    },
+    {
+      "id": "official-news-launch",
+      "title": "王者万象棋全平台上线",
+      "url": "https://wxq.qq.com/cp/a20260707sfgw/newsdetail.html?newsid=18853764",
+      "evidence_level": "官方规则",
+      "used_for": [
+        "2026-09-10 07:00 全平台正式上线",
+        "安卓/iOS/鸿蒙/PC 数据互通"
+      ]
+    },
+    {
+      "id": "official-home",
+      "title": "王者万象棋官方网站",
+      "url": "https://wxq.qq.com/cp/a20260707sfgw/index.html",
+      "evidence_level": "官方规则",
+      "used_for": [
+        "转瞬：回合结束自动销毁且出售不获得能量",
+        "天赋通过棋手升级概率选择",
+        "效果牌/装备通过商店购买、拍卖等渠道"
+      ]
+    },
+    {
+      "id": "wiki-mechanics",
+      "title": "wanxiangqiwiki 机制词典",
+      "url": "https://wanxiangqiwiki.com/mechanics",
+      "local": [
+        "当前工作区/wangzhe-wanxiangqi-data/raw/wiki-knowledge-payload-0.json",
+        "/tmp/opencode/wxq-js/wiki-knowledge-DDSnk2o4.js"
+      ],
+      "evidence_level": "wiki 机制词典",
+      "used_for": [
+        "hero-shop-odds",
+        "population",
+        "auction",
+        "player-experience",
+        "synthesis",
+        "talent-selection",
+        "equipment-acquisition",
+        "effect-brocade-odds",
+        "player-loss-cap",
+        "shared-pool"
+      ]
+    },
+    {
+      "id": "wiki-hero-catalog",
+      "title": "wiki 英雄目录",
+      "url": "https://wanxiangqiwiki.com/explorer-catalogs/hero.json",
+      "local": "当前工作区/wangzhe-wanxiangqi-data/raw/wanxiangqiwiki.com_explorer-catalogs_hero.json",
+      "evidence_level": "wiki 机制词典",
+      "used_for": [
+        "卡图版本字段 官方 2026-08-28",
+        "86 名英雄技能强化节点均为 10/40/100",
+        "全员有觉醒文本"
+      ]
+    }
+  ],
+  "match_flow": [
+    {
+      "stage": "初始选择",
+      "order": 1,
+      "summary": "进入万象大赛前选择棋手。每位棋手有专属技能、秘技任务与（6级）专属天赋。铂金段位前按当前段位解锁对应限免棋手；达到铂金后，限免棋手组在第二周更换为常规限免棋手并每周刷新。",
+      "evidence_level": "官方规则",
+      "source": "https://wxq.qq.com/cp/a202609xszy/index.html",
+      "unknown": "开局是否固定「棋手三选一」、剩余棋手何时免费发放，官方新手指引未写。"
+    },
+    {
+      "stage": "准备",
+      "order": 2,
+      "summary": "购买卡牌、把英雄牌拖到战场生成英雄、调整站位。标注「整备」的英雄牌或其他效果在准备阶段按卡面原文结算。",
+      "aliases": [
+        "整备"
+      ],
+      "evidence_level": "官方规则 / wiki 机制词典",
+      "source": [
+        "https://wxq.qq.com/cp/a202609xszy/index.html",
+        "wiki:prepare"
+      ]
+    },
+    {
+      "stage": "战斗",
+      "order": 3,
+      "summary": "每回合随机匹配一位棋手对战。战斗开始时点 wiki 现用词为「开团」，部分原始资料作「交锋」。战斗胜利扣除对方生命值，失败扣除自身生命值。",
+      "aliases": [
+        "开团",
+        "交锋"
+      ],
+      "evidence_level": "官方规则 / wiki 机制词典",
+      "source": [
+        "https://wxq.qq.com/cp/a202609xszy/index.html",
+        "wiki:combat-start"
+      ]
+    },
+    {
+      "stage": "拍卖",
+      "order": 4,
+      "summary": "在固定回合全体进入竞拍，可获得英雄牌、效果牌等。出价无上限，价高者得；失败不消耗能量；出价相同则先出价者得。有效出价进入分红池，结束后按生命值分配，生命值越低分红比例越大。等待期间地面会掉落互动道具、1点能量、1阶或2阶英雄牌。",
+      "evidence_level": "官方规则",
+      "source": "https://wxq.qq.com/cp/a202609xszy/index.html",
+      "round_nodes_wiki": [
+        4,
+        8,
+        12
+      ],
+      "round_nodes_wiki_evidence": "wiki 机制词典 / user_calibrated"
+    },
+    {
+      "stage": "结算",
+      "order": 5,
+      "summary": "战斗结束后结算棋手生命值伤害。战败伤害 = 棋手固定伤害 + 存活英雄伤害，每个存活英雄计 2 点，并受每回合总伤害上限约束。上阵英雄若本回合胜利，触发卡面「凯旋」。",
+      "evidence_level": "官方规则 / wiki 机制词典",
+      "source": [
+        "wiki:player-loss-cap（标注官网规则截图）",
+        "wiki:triumph",
+        "https://wxq.qq.com/cp/a202609xszy/index.html"
+      ]
+    }
+  ],
+  "win_loss": {
+    "players": 6,
+    "starting_hp": 60,
+    "matching": "每回合随机匹配一位棋手对战",
+    "win_effect": "战斗胜利，扣除对方生命值",
+    "lose_effect": "战斗失败，扣除自身生命值",
+    "elimination": "生命值为 0 的棋手被淘汰",
+    "victory": "存活到最后的棋手获得胜利",
+    "evidence_level": "官方规则",
+    "source": "https://wxq.qq.com/cp/a202609xszy/index.html",
+    "defeat_damage": {
+      "formula": "战败伤害 = 棋手固定伤害 + 存活英雄伤害；每个存活英雄伤害为 2",
+      "table": {
+        "title": "战败固定伤害与每回合上限",
+        "columns": [
+          "回合",
+          "固定伤害",
+          "总伤害上限"
+        ],
+        "rows": [
+          [
+            "1-3",
+            "1",
+            "5"
+          ],
+          [
+            "4-7",
+            "2",
+            "10"
+          ],
+          [
+            "8-11",
+            "4",
+            "15"
+          ],
+          [
+            "12-15",
+            "每回合 +2",
+            "20"
+          ],
+          [
+            "16+",
+            "每回合 +2",
+            "无上限"
+          ]
+        ]
+      },
+      "evidence_level": "wiki 机制词典（标注官网规则截图 · official_explicit）",
+      "source": "wiki:player-loss-cap"
+    }
+  },
+  "energy": {
+    "official_name": "能量",
+    "gain": [
+      {
+        "rule": "每个回合固定获得能量",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "未使用的能量可累积到下一回合",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "出售英雄牌获得 1 能量",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "出售已上阵英雄获得 1 能量",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "部分天赋和效果牌也可提供能量",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "拍卖等待掉落的能量每次固定 1 点",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "部分英雄凯旋效果可获得能量（例：牛魔「凯旋：获得1能量」）",
+        "evidence_level": "wiki 机制词典"
+      }
+    ],
+    "spend": [
+      {
+        "rule": "购买英雄牌固定消耗 3 能量",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "购买效果牌消耗的能量看卡牌右上角",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "提升棋手等级会消耗能量，升级按钮处为当前所需能量",
+        "evidence_level": "官方规则"
+      },
+      {
+        "rule": "拍卖出价消耗能量；失败不消耗",
+        "evidence_level": "官方规则"
+      }
+    ],
+    "retain": "未使用能量可累积到下一回合（官方规则）。能量上限未在官方/wiki 给出。",
+    "cap": null,
+    "transient_cards": {
+      "name": "转瞬",
+      "rule": "回合结束时自动销毁，且出售不会获得能量。",
+      "evidence_level": "官方规则",
+      "source": "https://wxq.qq.com/cp/a20260707sfgw/index.html"
+    },
+    "per_round_amount": {
+      "status": "unknown",
+      "official": "只写「每个回合固定获得能量」，未给分回合数值。",
+      "author_experience_not_used_as_fact": "社区常见表 1-3回合6 / 4-7回合8 / 8-11回合12 / 12回合后15，未纳入正式规则。"
+    }
+  },
+  "player_level_population": {
+    "level_up_official": {
+      "rule": "棋手可花费能量提升等级；每次升级后可免费解锁 1 个天赋；部分等级带人数标志，升至该等级获得 +1 上阵人数；棋手等级提升后，获得高阶英雄牌的概率随之提升。升至 6 级后可领取专属天赋。",
+      "evidence_level": "官方规则"
+    },
+    "experience_wiki": {
+      "shortDefinition": "棋手升级所需经验按等级递增。战斗结束获得1点经验，拍卖结束获得3点经验；两者不在同一回合叠加。",
+      "table": {
+        "title": "升级所需经验",
+        "columns": [
+          "等级变化",
+          "所需经验"
+        ],
+        "rows": [
+          [
+            "1 -> 2",
+            "7"
+          ],
+          [
+            "2 -> 3",
+            "13"
+          ],
+          [
+            "3 -> 4",
+            "17"
+          ],
+          [
+            "4 -> 5",
+            "23"
+          ],
+          [
+            "5 -> 6",
+            "27"
+          ]
+        ]
+      },
+      "examples": {
+        "title": "累计经验示例",
+        "items": [
+          {
+            "scenario": "从1级升至4级",
+            "formula": "7 + 13 + 17",
+            "result": "累计需要 37 点经验"
+          },
+          {
+            "scenario": "从1级升至5级",
+            "formula": "7 + 13 + 17 + 23",
+            "result": "累计需要 60 点经验"
+          }
+        ]
+      },
+      "evidence_level": "wiki 机制词典（user_calibrated）",
+      "conflict_with_official": "官方写「花费能量升级」，wiki 写战斗结束 +1 经验、拍卖结束 +3 经验且二者不同回合叠加。两套表述并存，未在官方新手指引看到经验条。"
+    },
+    "population": {
+      "confirmed_nodes": [
+        {
+          "player_level": 3,
+          "change": "上阵人数 +1"
+        },
+        {
+          "player_level": 5,
+          "change": "上阵人数 +1"
+        }
+      ],
+      "evidence_level": "wiki 机制词典（标注官网规则截图 · official_explicit）",
+      "initial_population": {
+        "status": "unknown",
+        "note": "官方只说部分等级带人数标志。wiki 只确认 3 级、5 级各 +1。初始人口与理论上限未在权威源给出。"
+      }
+    },
+    "max_player_level": {
+      "value": 6,
+      "basis": "天赋选择与经验表均以 6 级为终点；官方写「棋手升至6级后，可领取专属天赋」。",
+      "evidence_level": "官方规则 / wiki 机制词典"
+    }
+  },
+  "hero_upgrade": {
+    "initial_level": 1,
+    "max_level": 999,
+    "field_spawn": "拖动卡牌至战场可在对应位置生成英雄。",
+    "synthesis_official": "打出已在场上的英雄牌会与其合成，同时提升等级。",
+    "skill_nodes": {
+      "levels": [
+        10,
+        40,
+        100
+      ],
+      "coverage": "wiki 英雄目录 86/86 名英雄的 officialSkill.enhancements 均为 10 / 40 / 100。",
+      "evidence_level": "wiki 机制词典 / 官方卡牌资料 2026-08-28"
+    },
+    "awakening": {
+      "catalog": "86/86 英雄目录条目含 awakening 文本与觉醒卡图。",
+      "unlock_condition": {
+        "status": "unknown",
+        "note": "官方新手指引未写觉醒张数或条件。不可用其他自走棋「三合一」规则补空。"
+      },
+      "evidence_level": "wiki 机制词典（存在觉醒卡面）；解锁条件未知"
+    },
+    "synthesis_progress_wiki": {
+      "title": "合成奖励",
+      "columns": [
+        "条件",
+        "结果"
+      ],
+      "rows": [
+        [
+          "打出与场上同名英雄",
+          "计为1次合成"
+        ],
+        [
+          "累计3次合成",
+          "获得1张效果锦囊"
+        ]
+      ]
+    },
+    "synthesis_progress_evidence": "wiki 机制词典（标注官网规则截图 · official_explicit）：打出与场上同名英雄计 1 次合成；累计 3 次合成获得 1 张效果锦囊。",
+    "temporary_level": "在当前战斗或条件窗口内生效的等级增益，不应当按永久等级计入长期成长和需要真实等级的条件。",
+    "level_transfer": "遗志、换帅、传承等效果可以转移英雄等级；转移不包含临时等级。"
+  },
+  "shop": {
+    "hero_price": {
+      "value": 3,
+      "unit": "能量",
+      "evidence_level": "官方规则"
+    },
+    "effect_price": {
+      "rule": "看卡牌右上角",
+      "evidence_level": "官方规则"
+    },
+    "refresh": {
+      "free_refresh_example": "孙尚香登场：获得1次免费刷新。",
+      "refresh_cost": {
+        "status": "unknown",
+        "note": "官方/wiki 未给出常规刷新消耗。"
+      },
+      "lock": {
+        "status": "unknown",
+        "note": "官方新手指引与 wiki 机制词典均未定义商店锁定规则。"
+      }
+    },
+    "hero_odds": {
+      "title": "按棋手等级的费用层概率",
+      "columns": [
+        "棋手等级",
+        "1费",
+        "2费",
+        "3费",
+        "4费",
+        "5费"
+      ],
+      "rows": [
+        [
+          "1",
+          "100%",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "2",
+          "50%",
+          "50%",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "3",
+          "20%",
+          "50%",
+          "30%",
+          "-",
+          "-"
+        ],
+        [
+          "4",
+          "15%",
+          "30%",
+          "35%",
+          "20%",
+          "-"
+        ],
+        [
+          "5",
+          "1%",
+          "20%",
+          "40%",
+          "30%",
+          "9%"
+        ],
+        [
+          "6",
+          "1%",
+          "9%",
+          "40%",
+          "35%",
+          "15%"
+        ]
+      ]
+    },
+    "hero_odds_note": "表格描述商店单个栏位出现各费用层的概率，不等同于某一张指定英雄牌的命中概率。",
+    "hero_odds_boundary": "费用层被选中之后，某一张特定英雄的命中概率仍受公共牌库和随机池影响，当前待实测。",
+    "hero_odds_evidence": "wiki 机制词典（user_calibrated）",
+    "shared_pool": {
+      "title": "每张英雄的公共库存",
+      "columns": [
+        "英雄品阶",
+        "每张库存"
+      ],
+      "rows": [
+        [
+          "1阶",
+          "14张"
+        ],
+        [
+          "2阶",
+          "11张"
+        ],
+        [
+          "3阶",
+          "9张"
+        ],
+        [
+          "4阶",
+          "7张"
+        ],
+        [
+          "5阶",
+          "6张"
+        ]
+      ]
+    },
+    "shared_pool_boundary": "官网百科截图显示的公共牌库数字与人工校准冲突，已确认截图有误；本站以人工校准为准。",
+    "shared_pool_evidence": "wiki 机制词典（user_calibrated）；wiki 写明官网百科截图库存数字有误",
+    "effect_card_odds": {
+      "status": "unknown",
+      "wiki": "效果牌商店、拍卖与天赋候选的具体权重目前没有可复核的样本量、版本与抽样方法，因此不展示伪精确百分比。"
+    },
+    "effect_brocade_odds": {
+      "title": "按锦囊品阶的效果牌质量概率",
+      "columns": [
+        "锦囊品阶",
+        "1阶效果牌",
+        "2阶效果牌",
+        "3阶效果牌",
+        "4阶效果牌",
+        "5阶效果牌"
+      ],
+      "rows": [
+        [
+          "1阶锦囊",
+          "75%",
+          "25%",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "2阶锦囊",
+          "40%",
+          "40%",
+          "20%",
+          "-",
+          "-"
+        ],
+        [
+          "3阶锦囊",
+          "27%",
+          "27%",
+          "36%",
+          "10%",
+          "-"
+        ],
+        [
+          "4阶锦囊",
+          "10%",
+          "20%",
+          "25%",
+          "35%",
+          "10%"
+        ],
+        [
+          "5阶锦囊",
+          "5%",
+          "10%",
+          "15%",
+          "30%",
+          "40%"
+        ]
+      ]
+    },
+    "effect_brocade_odds_evidence": "wiki 机制词典（标注官网规则截图 · official_explicit）",
+    "slots": {
+      "status": "unknown",
+      "note": "商店栏位数官方未写。"
+    },
+    "purchase_limit": {
+      "status": "unknown",
+      "note": "除公共牌库存量外，未见单次回合购买上限的官方/wiki 规则。"
+    }
+  },
+  "hand_and_board": {
+    "hand_limit": {
+      "status": "unknown",
+      "note": "手牌上限未在官方新手指引与 wiki 机制词典出现。"
+    },
+    "deploy_limit": {
+      "rule": "上阵人数随棋手等级在 3 级、5 级各 +1；初始人数未知。",
+      "evidence_level": "wiki 机制词典（官网规则截图）"
+    },
+    "sell": {
+      "hero_card": {
+        "gain": 1,
+        "unit": "能量",
+        "evidence_level": "官方规则"
+      },
+      "deployed_hero": {
+        "gain": 1,
+        "unit": "能量",
+        "evidence_level": "官方规则"
+      },
+      "transient": "转瞬牌出售不获得能量，回合结束销毁。",
+      "exit_trigger": "场上英雄被出售时触发卡面「退场」，退场不等于牺牲/阵亡/败阵。"
+    }
+  },
+  "auction": {
+    "official": {
+      "when": "固定回合，全体进入竞拍",
+      "items": "英雄牌、效果牌等",
+      "bid": [
+        "出价无上限，价格最高者获得拍品",
+        "竞拍失败不消耗能量",
+        "出价相同，先出价者获得拍品"
+      ],
+      "dividend": "每位玩家的有效出价进入分红池；结束时分配给所有玩家，生命值越低分红比例越大。",
+      "waiting_drops": {
+        "interval": "每隔几秒",
+        "quantity": "等待人数越多，掉落数量越多",
+        "contents": "互动道具（概率最高）、能量、英雄牌（后两者较低）",
+        "energy_drop": "每次固定 1 点",
+        "hero_drop": "只会掉落 1 阶或 2 阶"
+      },
+      "evidence_level": "官方规则"
+    },
+    "wiki_rounds": {
+      "title": "当前确认的拍卖节点",
+      "columns": [
+        "拍卖次数",
+        "回合"
+      ],
+      "rows": [
+        [
+          "第1次",
+          "4"
+        ],
+        [
+          "第2次",
+          "8"
+        ],
+        [
+          "第3次",
+          "12"
+        ]
+      ]
+    },
+    "wiki_xp": "拍卖结束获得 3 点经验，不与同回合战斗经验叠加。",
+    "wiki_evidence": "wiki 机制词典（user_calibrated 2026-09-08）"
+  },
+  "talent": {
+    "on_level_up": "每次提升棋手等级，从 3 个天赋中免费选择 1 个。",
+    "tiers": "1阶（铜）、2阶（银）、3阶（金），品阶越高效果越强。",
+    "same_level_same_tier": "每场对局 6 名玩家在相同等级时获得的天赋品阶相同。",
+    "refresh": "达到白银段位后，每场对局获得 1 次天赋刷新次数。",
+    "level_6_exclusive": "棋手升至 6 级后，可领取专属天赋。",
+    "candidate_weight": "wiki 写明每次选择中各天赋候选权重尚无可复核样本。",
+    "evidence_level": "官方规则 / wiki 机制词典（talent-selection 标注官网规则截图）"
+  },
+  "equipment": {
+    "base_drop_rounds": [
+      1,
+      4,
+      8,
+      12,
+      16
+    ],
+    "note": "基础装备固定在这些回合投放；部分英雄、效果牌与天赋也会提供装备。",
+    "evidence_level": "wiki 机制词典（标注官网规则截图 · official_explicit）"
+  },
+  "wiki_mechanics_excerpt": {
+    "hero-shop-odds": {
+      "id": "hero-shop-odds",
+      "name": "英雄商店概率",
+      "aliases": [
+        "商店概率",
+        "费用概率"
+      ],
+      "category": "概率与随机",
+      "shortDefinition": "表格描述商店单个栏位出现各费用层的概率，不等同于某一张指定英雄牌的命中概率。",
+      "facts": {
+        "title": "按棋手等级的费用层概率",
+        "columns": [
+          "棋手等级",
+          "1费",
+          "2费",
+          "3费",
+          "4费",
+          "5费"
+        ],
+        "rows": [
+          [
+            "1",
+            "100%",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "2",
+            "50%",
+            "50%",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "3",
+            "20%",
+            "50%",
+            "30%",
+            "-",
+            "-"
+          ],
+          [
+            "4",
+            "15%",
+            "30%",
+            "35%",
+            "20%",
+            "-"
+          ],
+          [
+            "5",
+            "1%",
+            "20%",
+            "40%",
+            "30%",
+            "9%"
+          ],
+          [
+            "6",
+            "1%",
+            "9%",
+            "40%",
+            "35%",
+            "15%"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "机制与数值总库 · 人工校准",
+        "quote": "商店费用概率表。",
+        "level": "user_calibrated",
+        "status": "verified"
+      },
+      "boundary": "费用层被选中之后，某一张特定英雄的命中概率仍受公共牌库和随机池影响，当前待实测。",
+      "related": [
+        "shared-pool",
+        "effect-card-odds"
+      ]
+    },
+    "population": {
+      "id": "population",
+      "name": "上阵人数",
+      "aliases": [
+        "人口"
+      ],
+      "category": "成长与等级",
+      "shortDefinition": "棋手在3级和5级时各增加1个上阵名额。",
+      "facts": {
+        "title": "确认的上阵名额节点",
+        "columns": [
+          "棋手等级",
+          "变化"
+        ],
+        "rows": [
+          [
+            "3级",
+            "上阵人数 +1"
+          ],
+          [
+            "5级",
+            "上阵人数 +1"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "官网规则截图 · 上阵人数",
+        "quote": "棋手3级、5级时，上阵人数+1。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "player-experience"
+      ]
+    },
+    "auction": {
+      "id": "auction",
+      "name": "拍卖",
+      "aliases": [],
+      "category": "经济与牌库",
+      "shortDefinition": "当前已确认拍卖回合为第4、8、12回合。拍卖结束获得3点经验，不与同回合战斗经验叠加。",
+      "facts": {
+        "title": "当前确认的拍卖节点",
+        "columns": [
+          "拍卖次数",
+          "回合"
+        ],
+        "rows": [
+          [
+            "第1次",
+            "4"
+          ],
+          [
+            "第2次",
+            "8"
+          ],
+          [
+            "第3次",
+            "12"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "机制与数值总库 · 用户校准 2026-09-08",
+        "quote": "拍卖回合：4 / 8 / 12；每次拍卖 +3经验。",
+        "level": "user_calibrated",
+        "status": "verified"
+      },
+      "acquisitionTypes": [
+        "effect"
+      ],
+      "related": [
+        "player-experience",
+        "effect-card-odds"
+      ]
+    },
+    "player-experience": {
+      "id": "player-experience",
+      "name": "棋手经验",
+      "aliases": [
+        "升级经验"
+      ],
+      "category": "成长与等级",
+      "shortDefinition": "棋手升级所需经验按等级递增。战斗结束获得1点经验，拍卖结束获得3点经验；两者不在同一回合叠加。",
+      "facts": {
+        "title": "升级所需经验",
+        "columns": [
+          "等级变化",
+          "所需经验"
+        ],
+        "rows": [
+          [
+            "1 -> 2",
+            "7"
+          ],
+          [
+            "2 -> 3",
+            "13"
+          ],
+          [
+            "3 -> 4",
+            "17"
+          ],
+          [
+            "4 -> 5",
+            "23"
+          ],
+          [
+            "5 -> 6",
+            "27"
+          ]
+        ]
+      },
+      "calculationExamples": {
+        "title": "累计经验示例",
+        "items": [
+          {
+            "scenario": "从1级升至4级",
+            "formula": "7 + 13 + 17",
+            "result": "累计需要 37 点经验"
+          },
+          {
+            "scenario": "从1级升至5级",
+            "formula": "7 + 13 + 17 + 23",
+            "result": "累计需要 60 点经验"
+          }
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "机制与数值总库 · 人工校准",
+        "quote": "升级经验 7 / 13 / 17 / 23 / 27；战斗结束 +1，拍卖结束 +3。",
+        "level": "user_calibrated",
+        "status": "verified"
+      },
+      "related": [
+        "auction",
+        "population",
+        "brocade-selection"
+      ]
+    },
+    "synthesis": {
+      "id": "synthesis",
+      "name": "合成进度",
+      "aliases": [],
+      "matchTerms": [
+        "合成"
+      ],
+      "category": "成长与等级",
+      "shortDefinition": "打出与场上同名英雄的卡牌，视为完成一次合成；累计3次合成可获得1张效果锦囊。",
+      "facts": {
+        "title": "合成奖励",
+        "columns": [
+          "条件",
+          "结果"
+        ],
+        "rows": [
+          [
+            "打出与场上同名英雄",
+            "计为1次合成"
+          ],
+          [
+            "累计3次合成",
+            "获得1张效果锦囊"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "官网规则截图 · 合成",
+        "quote": "打出与场上同名英雄的卡牌，视为一次合成；累计3次合成获得一张效果锦囊。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "shared-pool",
+        "brocade-selection"
+      ]
+    },
+    "talent-selection": {
+      "id": "talent-selection",
+      "name": "天赋选择",
+      "aliases": [
+        "天赋刷新"
+      ],
+      "category": "概率与随机",
+      "shortDefinition": "每次提升棋手等级，可从3个天赋中免费选择1个。天赋分铜、银、金三阶；达到白银段位后，每局可刷新1次天赋。",
+      "facts": {
+        "title": "天赋选择规则",
+        "columns": [
+          "项目",
+          "规则"
+        ],
+        "rows": [
+          [
+            "升级选择",
+            "3选1，免费"
+          ],
+          [
+            "天赋品阶",
+            "1/2/3阶（铜/银/金）"
+          ],
+          [
+            "同等级玩家",
+            "6名玩家天赋品阶相同"
+          ],
+          [
+            "白银段位及以上",
+            "每局可刷新1次"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "官网规则截图 · 天赋选择",
+        "quote": "每次提升棋手等级，可从3个天赋中免费选1个；白银段位后每局可刷新1次天赋。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "boundary": "每次选择中各天赋的候选权重尚无可复核样本，待实测。",
+      "related": [
+        "effect-card-odds"
+      ]
+    }
+  },
+  "wiki_mechanics_related": {
+    "equipment-acquisition": {
+      "id": "equipment-acquisition",
+      "name": "装备获取",
+      "aliases": [
+        "装备投放"
+      ],
+      "category": "经济与牌库",
+      "shortDefinition": "基础装备固定在第1、4、8、12、16回合投放；部分英雄、效果牌与天赋也会提供装备。",
+      "facts": {
+        "title": "基础装备固定投放回合",
+        "columns": [
+          "投放次数",
+          "回合"
+        ],
+        "rows": [
+          [
+            "第1次",
+            "1"
+          ],
+          [
+            "第2次",
+            "4"
+          ],
+          [
+            "第3次",
+            "8"
+          ],
+          [
+            "第4次",
+            "12"
+          ],
+          [
+            "第5次",
+            "16"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "官网规则截图 · 装备投放",
+        "quote": "基础装备会在第1、4、8、12、16回合投放；部分英雄、效果牌、天赋也提供装备。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "cardRelations": [
+        {
+          "objectId": "hero-1821",
+          "reason": "在场时提供普通装备",
+          "quote": "干将莫邪在场时，获得普通装备双剑·雄。"
+        },
+        {
+          "objectId": "hero-5051",
+          "reason": "向友军临时分享普通装备",
+          "quote": "自身的首件普通装备分享给随机3名友方英雄（持续15秒）。"
+        },
+        {
+          "objectId": "effect-7081",
+          "reason": "摧毁装备并换取基础装备",
+          "quote": "指定1名英雄，摧毁其所有装备，随机获得对应数量+1的基础装备。"
+        },
+        {
+          "objectId": "effect-7529",
+          "reason": "随机获得日落海专属装备",
+          "quote": "从5件【日落海】专属装备中随机获得1件（不会重复获得）。"
+        },
+        {
+          "objectId": "effect-7525",
+          "reason": "获得贤者的庇护",
+          "quote": "获得1张特殊装备贤者的庇护。"
+        },
+        {
+          "objectId": "effect-7531",
+          "reason": "获得机关匣",
+          "quote": "获得1件特殊装备机关匣"
+        },
+        {
+          "objectId": "effect-7090",
+          "reason": "从特殊装备或天赋装备中选择",
+          "quote": "卡牌3选1（特殊装备或天赋装备）。"
+        },
+        {
+          "objectId": "effect-7082",
+          "reason": "从基础装备中选择",
+          "quote": "卡牌4选1（基础装备牌）。"
+        },
+        {
+          "objectId": "effect-7109",
+          "reason": "随机获得三张基础装备",
+          "quote": "随机获得3张基础装备牌。"
+        },
+        {
+          "objectId": "talent-613003",
+          "reason": "棋手到达5级获得装备箱",
+          "quote": "棋手到达5级时，获得6能量、1张装备箱。"
+        },
+        {
+          "objectId": "talent-634015",
+          "reason": "提供选择英雄并获得适配装备的天赋牌",
+          "quote": "获得1张天赋牌自适应武装：指定1名英雄，随机获得2张与其适配的普通装备牌。"
+        },
+        {
+          "objectId": "talent-634018",
+          "reason": "战斗开始时临时获得普通装备",
+          "quote": "随机3名己方英雄临时获得1件普通装备及100点生命上限。"
+        },
+        {
+          "objectId": "talent-681003",
+          "reason": "直接获得普通装备",
+          "quote": "获得1张普通装备牌。"
+        },
+        {
+          "objectId": "talent-671020",
+          "reason": "获得普通装备，达成条件后追加",
+          "quote": "随机获得1张普通装备牌。接下来5个回合若你的棋手等级没有变化，再获得2张。"
+        },
+        {
+          "objectId": "talent-614002",
+          "reason": "获得装备箱",
+          "quote": "获得15点棋手生命值、1张装备箱。"
+        },
+        {
+          "objectId": "talent-671009",
+          "reason": "提供可打出获得基础装备的天赋牌",
+          "quote": "获得1张天赋牌一刀穷一刀富：打出后，获得1张基础装备牌"
+        },
+        {
+          "objectId": "talent-613008",
+          "reason": "棋手到达5级获得装备箱",
+          "quote": "棋手到达5级时，获得8能量、1张装备箱和1张高阶效果牌。"
+        },
+        {
+          "objectId": "talent-636106",
+          "reason": "整备累计触发后获得日落海专属装备",
+          "quote": "你的英雄每触发5次整备效果，随机获得1件日落海专属装备，上限3件。"
+        },
+        {
+          "objectId": "talent-636117",
+          "reason": "随机获得日落海专属装备",
+          "quote": "随机获得1件【日落海专属装备】。"
+        },
+        {
+          "objectId": "talent-634028",
+          "reason": "战斗开始时临时获得两件普通装备",
+          "quote": "随机3名己方英雄临时获得2件普通装备及300点生命上限。"
+        },
+        {
+          "objectId": "talent-636318",
+          "reason": "获得三分旗帜",
+          "quote": "获得1张装备牌三分旗帜"
+        },
+        {
+          "objectId": "talent-636204",
+          "reason": "使用古币累计触发装备奖励",
+          "quote": "1件贤者的庇护。之后随机获得：1张超速成长、1张普通装备牌或8能量。"
+        },
+        {
+          "objectId": "talent-636112",
+          "reason": "随机获得火鹰装备",
+          "quote": "随机获得1件火鹰装备"
+        },
+        {
+          "objectId": "talent-646009",
+          "reason": "获得灵泉项链",
+          "quote": "获得灵泉项链"
+        },
+        {
+          "objectId": "talent-671019",
+          "reason": "率先到达6级获得天赋装备",
+          "quote": "6级获得1件天赋装备。"
+        },
+        {
+          "objectId": "talent-633020",
+          "reason": "获得基础装备",
+          "quote": "获得1张基础装备牌。"
+        },
+        {
+          "objectId": "talent-615002",
+          "reason": "获得装备箱",
+          "quote": "获得15棋手生命值、1张装备箱、1张5阶兑换券。"
+        }
+      ],
+      "related": []
+    },
+    "effect-brocade-odds": {
+      "id": "effect-brocade-odds",
+      "name": "效果锦囊概率",
+      "aliases": [
+        "锦囊开牌概率"
+      ],
+      "category": "概率与随机",
+      "shortDefinition": "效果锦囊开出不同品阶效果牌的官方质量概率。锦囊开出的效果牌最高只会比锦囊高1阶。",
+      "facts": {
+        "title": "按锦囊品阶的效果牌质量概率",
+        "columns": [
+          "锦囊品阶",
+          "1阶效果牌",
+          "2阶效果牌",
+          "3阶效果牌",
+          "4阶效果牌",
+          "5阶效果牌"
+        ],
+        "rows": [
+          [
+            "1阶锦囊",
+            "75%",
+            "25%",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "2阶锦囊",
+            "40%",
+            "40%",
+            "20%",
+            "-",
+            "-"
+          ],
+          [
+            "3阶锦囊",
+            "27%",
+            "27%",
+            "36%",
+            "10%",
+            "-"
+          ],
+          [
+            "4阶锦囊",
+            "10%",
+            "20%",
+            "25%",
+            "35%",
+            "10%"
+          ],
+          [
+            "5阶锦囊",
+            "5%",
+            "10%",
+            "15%",
+            "30%",
+            "40%"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "官网规则截图 · 效果锦囊品阶及概率",
+        "quote": "锦囊可开出对应质量概率的效果牌，最高只比锦囊高1阶。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "brocade-selection",
+        "effect-card-odds"
+      ]
+    },
+    "effect-card-odds": {
+      "id": "effect-card-odds",
+      "name": "效果牌概率",
+      "aliases": [
+        "效果牌商店概率",
+        "拍卖概率",
+        "天赋候选概率"
+      ],
+      "category": "概率与随机",
+      "shortDefinition": "效果牌商店、拍卖与天赋候选的具体权重目前没有可复核的样本量、版本与抽样方法，因此不展示伪精确百分比。",
+      "evidence": {
+        "sourceLabel": "概率资料待补",
+        "quote": "当前没有可复核的样本量、版本和抽样方法。",
+        "level": "unverified",
+        "status": "unverified"
+      },
+      "boundary": "效果牌、锦囊、拍卖与天赋候选的具体概率均待实测；不能由随机描述或单次截图推导百分比。",
+      "related": [
+        "effect-brocade-odds",
+        "talent-selection",
+        "auction"
+      ]
+    },
+    "player-loss-cap": {
+      "id": "player-loss-cap",
+      "name": "战败伤害",
+      "aliases": [
+        "掉血上限"
+      ],
+      "category": "结算与上限",
+      "shortDefinition": "战败伤害由棋手固定伤害与存活英雄伤害构成，每个存活英雄计2点；每回合另有总伤害上限。",
+      "facts": {
+        "title": "战败固定伤害与每回合上限",
+        "columns": [
+          "回合",
+          "固定伤害",
+          "总伤害上限"
+        ],
+        "rows": [
+          [
+            "1-3",
+            "1",
+            "5"
+          ],
+          [
+            "4-7",
+            "2",
+            "10"
+          ],
+          [
+            "8-11",
+            "4",
+            "15"
+          ],
+          [
+            "12-15",
+            "每回合 +2",
+            "20"
+          ],
+          [
+            "16+",
+            "每回合 +2",
+            "无上限"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "官网规则截图 · 战败伤害",
+        "quote": "战败伤害 = 棋手固定伤害 + 存活英雄伤害；每个存活英雄伤害为2。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "cardRelations": [
+        {
+          "objectId": "talent-613007",
+          "reason": "减少棋手每次受到的伤害",
+          "quote": "棋手每次受到的伤害减少2点。"
+        },
+        {
+          "objectId": "talent-613010",
+          "reason": "减少棋手每次受到的伤害",
+          "quote": "棋手每次受到的伤害减少3点。"
+        }
+      ],
+      "related": [
+        "single-hit-damage-cap"
+      ]
+    },
+    "shared-pool": {
+      "id": "shared-pool",
+      "name": "公共牌库",
+      "aliases": [
+        "牌库"
+      ],
+      "category": "经济与牌库",
+      "shortDefinition": "同一费用层英雄共享公共牌库。本站按人工校准采用的每张英雄库存录入；官网百科截图的库存数字已确认有误，不作为本站数值来源。",
+      "facts": {
+        "title": "每张英雄的公共库存",
+        "columns": [
+          "英雄品阶",
+          "每张库存"
+        ],
+        "rows": [
+          [
+            "1阶",
+            "14张"
+          ],
+          [
+            "2阶",
+            "11张"
+          ],
+          [
+            "3阶",
+            "9张"
+          ],
+          [
+            "4阶",
+            "7张"
+          ],
+          [
+            "5阶",
+            "6张"
+          ]
+        ]
+      },
+      "evidence": {
+        "sourceLabel": "人工校准 · 公共牌库",
+        "quote": "1阶14张、2阶11张、3阶9张、4阶7张、5阶6张。",
+        "level": "user_calibrated",
+        "status": "verified"
+      },
+      "boundary": "官网百科截图显示的公共牌库数字与人工校准冲突，已确认截图有误；本站以人工校准为准。",
+      "related": [
+        "hero-shop-odds",
+        "synthesis"
+      ]
+    },
+    "brocade-selection": {
+      "id": "brocade-selection",
+      "name": "锦囊",
+      "aliases": [
+        "效果锦囊"
+      ],
+      "acquisitionTypes": [
+        "effect"
+      ],
+      "category": "经济与牌库",
+      "shortDefinition": "效果牌的已收录来源文本中包含效果锦囊。当前没有可复核资料证明棋手升级会直接获得锦囊，因此本站不展示等级对应、升级赠予或锦囊品阶规则。",
+      "evidence": {
+        "sourceLabel": "已收录效果牌来源文本",
+        "quote": "来源：该卡通过商店购买、效果锦囊、拍卖等渠道获得。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "boundary": "效果锦囊自身的具体获得方式、品阶规则与候选池，待补原始规则或卡面资料。",
+      "related": [
+        "effect-brocade-odds"
+      ]
+    },
+    "prepare": {
+      "id": "prepare",
+      "name": "整备",
+      "aliases": [],
+      "category": "触发时点",
+      "shortDefinition": "英雄牌或其他效果标注“整备”时，按该牌原文执行的准备阶段效果。具体结算顺序以卡牌原文和后续实测为准。",
+      "evidence": {
+        "name": "临阵磨枪",
+        "objectId": "effect-7073",
+        "quote": "指定1名英雄，触发其整备效果。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "entry",
+        "combat-start"
+      ],
+      "examples": [
+        "effect-7073",
+        "effect-7513"
+      ]
+    },
+    "combat-start": {
+      "id": "combat-start",
+      "name": "开团",
+      "aliases": [
+        "交锋"
+      ],
+      "category": "触发时点",
+      "shortDefinition": "站内对战斗开始时触发效果的当前显示词；部分原始资料使用“交锋”。效果的具体先后关系不由词条本身保证。",
+      "evidence": {
+        "name": "开团号令",
+        "objectId": "effect-7516",
+        "quote": "获得2张具有开团效果的英雄牌。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "prepare",
+        "temporary-level"
+      ],
+      "examples": [
+        "effect-7516"
+      ]
+    },
+    "entry": {
+      "id": "entry",
+      "name": "登场",
+      "aliases": [],
+      "category": "触发时点",
+      "shortDefinition": "英雄牌进入场上时触发的卡牌效果。它与整备、开团的时序关系必须以具体效果文本和实测为准。",
+      "evidence": {
+        "name": "孙尚香",
+        "objectId": "hero-1111",
+        "quote": "登场：获得1次免费刷新。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "prepare",
+        "combat-start"
+      ],
+      "examples": []
+    },
+    "triumph": {
+      "id": "triumph",
+      "name": "凯旋",
+      "aliases": [],
+      "category": "触发时点",
+      "shortDefinition": "英雄上阵期间若战斗胜利，触发该英雄卡面所写的凯旋效果。效果只在胜利后结算，具体先后关系仍以对应卡面和后续实测为准。",
+      "evidence": {
+        "name": "牛魔",
+        "objectId": "hero-1681",
+        "quote": "凯旋：获得1能量。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "combat-start"
+      ],
+      "examples": [
+        "hero-1681"
+      ]
+    },
+    "exit": {
+      "id": "exit",
+      "name": "退场",
+      "aliases": [],
+      "category": "触发时点",
+      "shortDefinition": "场上的此英雄被出售时，触发该英雄卡面所写的退场效果。退场不等同于牺牲、阵亡或败阵，不能据此推断其他事件会触发。",
+      "evidence": {
+        "name": "梦奇",
+        "objectId": "hero-1981",
+        "quote": "退场：获得1张1阶英雄兑换券。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "entry"
+      ],
+      "examples": [
+        "hero-1981",
+        "hero-yangyuhuan"
+      ]
+    },
+    "temporary-level": {
+      "id": "temporary-level",
+      "name": "临时等级",
+      "aliases": [],
+      "category": "成长与等级",
+      "shortDefinition": "在当前战斗或条件窗口内生效的等级增益，不应当按永久等级计入长期成长和需要真实等级的条件。",
+      "evidence": {
+        "name": "敖隐",
+        "objectId": "hero-aoyin",
+        "quote": "战斗中，每个图腾每4秒为敖隐提供16%攻击速度和4临时等级。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "related": [
+        "combat-start",
+        "sacrifice",
+        "level-transfer"
+      ],
+      "examples": []
+    },
+    "level-transfer": {
+      "id": "level-transfer",
+      "name": "等级转移",
+      "aliases": [],
+      "category": "成长与等级",
+      "shortDefinition": "遗志、换帅、传承等效果可以转移英雄等级；转移不包含临时等级。",
+      "evidence": {
+        "sourceLabel": "官网规则截图 · 等级转移",
+        "quote": "遗志、换帅、传承等可转移英雄等级；等级转移不包含临时等级。",
+        "level": "official_explicit",
+        "status": "verified"
+      },
+      "cardRelations": [
+        {
+          "objectId": "effect-7041",
+          "reason": "移除英雄，将等级转移给随机英雄",
+          "quote": "指定场上1名英雄将其移除，并转移其等级（临时等级除外）给1名随机英雄。"
+        },
+        {
+          "objectId": "effect-7505",
+          "reason": "交换两名三分英雄的等级",
+          "quote": "指定1名【三分】英雄与其最近的【三分】英雄交换等级。"
+        },
+        {
+          "objectId": "effect-7083",
+          "reason": "将英雄等级分配给其他三名英雄",
+          "quote": "指定场上1名10级以上的英雄，将其等级随机分配给3名其他英雄（不会分配给同一英雄）。"
+        },
+        {
+          "objectId": "equipment-641023",
+          "reason": "阵亡时将自身部分等级分配给同装友军",
+          "quote": "阵亡时，将自身等级的30%平均分配给穿戴不屈意志的友军。"
+        }
+      ],
+      "related": [
+        "temporary-level"
+      ]
+    }
+  },
+  "unknowns": [
+    "每回合系统发放的能量具体数值（分回合表）",
+    "能量上限",
+    "商店常规刷新消耗",
+    "商店锁定（是否存在、费用、是否跨回合保留）",
+    "商店栏位数",
+    "手牌上限",
+    "初始上阵人数与绝对人口上限",
+    "棋手升级究竟是扣能量、扣经验，或两者同时存在",
+    "英雄觉醒的精确条件（张数/合成次数/等级）",
+    "效果牌商店、拍卖拍品、天赋候选的具体权重",
+    "拍卖精确回合：官方只写「固定回合」；wiki 为 4/8/12，与部分作者经验 4/8/11 或 3/7/11 不一致",
+    "拍卖分红的精确比例公式",
+    "准备阶段倒计时秒数、战斗是否可跳过",
+    "是否存在利息或连胜/连败额外能量（官方未写）",
+    "公共牌库被买走后是否立即影响商店，以及觉醒/合成是否还牌"
+  ],
+  "conflicts": [
+    {
+      "topic": "棋手升级资源",
+      "official": "花费能量提升棋手等级，升级按钮显示当前所需能量。",
+      "wiki": "棋手升级消耗经验：7/13/17/23/27；战斗结束 +1 经验，拍卖结束 +3 经验。",
+      "resolution": "未裁决。交付时两套都保留。"
+    },
+    {
+      "topic": "拍卖回合",
+      "official": "固定回合，未给数字。",
+      "wiki": "第 4、8、12 回合（user_calibrated）。",
+      "author_experience": "有作者写 4/8/11 或 3/7/11，证据层级低于 wiki，不采信为规则。",
+      "resolution": "规则正文采用 wiki 4/8/12，并标注校准而非官网原文。"
+    },
+    {
+      "topic": "公共牌库库存",
+      "wiki": "1阶14 / 2阶11 / 3阶9 / 4阶7 / 5阶6（人工校准）。",
+      "wiki_note": "wiki 明确：官网百科截图库存数字有误，不以截图为准。"
+    }
+  ]
+}

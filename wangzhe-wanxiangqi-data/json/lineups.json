@@ -1,0 +1,1237 @@
+{
+  "schema_version": "wxq-lineups-automation-v1",
+  "game": "王者万象棋",
+  "version_scope": {
+    "official_cards": "官方 2026-08-28",
+    "official_client": "1.1.1 / 2026-09-09",
+    "launch": "2026-09-10 全平台",
+    "collected_at": "2026-09-12"
+  },
+  "evidence_policy": "只写官方或 wiki 能核对的内容。wiki 预设 mid/late 被同一套开团射污染，不采用。不拿其他自走棋利息/刷新阈值填空。",
+  "selected": [
+    "lineup-sunset-prepare",
+    "lineup-changxiaoe-four",
+    "lineup-dahe-totem"
+  ],
+  "why_these_for_automation": [
+    "三套都是官网/新手指引明确推荐的低操作阵容：凑齐后靠整备、棋手技能或图腾自动成长。",
+    "不选白歌三分倒转、玉环日落海倒转：官方/wiki 标高手法或 high_ceiling。",
+    "第三套选大河图腾流而不是香香低阶开团射：官方有 1-3/4-7/8-11/12+ 回合讲解；wiki 香香开团射的 mid/late 不可用。"
+  ],
+  "grid_convention": {
+    "cells": "A-G 列（左到右），1-4 行。对照 wiki 香香开团射：A4/B4 放公孙离/虞姬（后排输出），B2 放鬼谷子（更靠前），因此数字越大越靠后排（远离对手），数字越小越靠前排（靠近对手）。",
+    "front": "数字小 = 前排承伤",
+    "back": "数字大 = 后排输出",
+    "source": "wiki 预设 cell + 官方站位图转写；官方图未印 cell 字母，转写处 evidence_layer=推测"
+  },
+  "conflicts": [
+    {
+      "topic": "常小娥秘技小菟送福等级门槛",
+      "official_guide": "己方英雄等级总和 50/150/375",
+      "chessplayerFacts": "50/175/400",
+      "resolution": "以 2026-09 官方新手指引/官网首页为准：50/150/375"
+    },
+    {
+      "topic": "wiki 25 套阵容 mid/late",
+      "issue": "闹闹整备流、马瑶经典、香香开团射、泳池派对等 mid/late 全是 瑶/公孙离/虞姬/鬼谷子/张良/云中君/少司缘",
+      "resolution": "视为数据污染，本文件只采用各套 early 与标题/core_idea"
+    },
+    {
+      "topic": "日落海海诺站位",
+      "wiki_early": "G4 后排，与安琪拉同排",
+      "official_diagram": "前排左侧与朵莉亚、狂铁一簇，雅典娜单独在前排右侧",
+      "resolution": "站位以官方图为准，wiki cell 作备选"
+    },
+    {
+      "topic": "嫦娥四人队第 4 人",
+      "official_home_cards": "苏烈、马超、瑶、以及一张红肤尖耳英雄卡（外形接近裴擒虎）",
+      "wiki_mayao": "海月、苏烈、马超、瑶",
+      "wiki_alternate": "常小娥苏虎震月：裴擒虎、海月、苏烈、司空震",
+      "resolution": "主方案用 wiki 马瑶经典（海月/苏烈/马超/瑶），与任务点名一致；裴擒虎/司空震记为替补变体"
+    },
+    {
+      "topic": "雅典娜装备",
+      "official": "霸者重铠、近卫荣耀、不死鸟之眼",
+      "wiki_naonao_early": "近卫荣耀、极寒风暴、霸者重铠",
+      "resolution": "日落海主方案用官方三件"
+    }
+  ],
+  "unknowns": [
+    "每回合固定获得的能量数量",
+    "商店刷新基础消耗、递增规则、单回合刷新上限",
+    "是否存在锁店，以及锁店消耗",
+    "手牌上限张数",
+    "棋手 1 级起始上阵人数；6 级是否再 +1 人口（官方只写 3 级和 5 级 +1）",
+    "棋手升级所需能量表（只知道按钮显示当前消耗）",
+    "拍卖建议出价/最高出价（只知道出价无上限、失败不扣能量）",
+    "效果牌右上角能量消耗的完整表（英雄牌固定 3）",
+    "阿科米亚核心把等级分给日落海英雄的具体公式细节（官方：战斗开始时以临时等级平均分配，单英雄分配上限 50%）"
+  ],
+  "lineups": [
+    {
+      "id": "lineup-sunset-prepare",
+      "name": "日落海整备流",
+      "aka": [
+        "闹闹日落海整备流",
+        "官方日落海整备流"
+      ],
+      "automation_rank": 1,
+      "why_automation": "官方写明操作简单、不需要拼手速，凑齐即可全自动升级。闹闹开局选日落海后每回合 1 能量拿一张该阵营牌，找牌路径固定。",
+      "classification": "stable / 官方新手阵容",
+      "chessplayers": [
+        {
+          "name": "闹闹",
+          "priority": 1,
+          "skill": "派对泡泡：开局从随机 2 个阵营中选 1 个，之后花费 1 能量获得 1 张该阵营英雄牌。",
+          "secret": "上阵 6 名所选阵营英雄 → 秘技牌朋友多多（随机 4 张该阵营英雄牌）。",
+          "exclusive_lv6": "狂欢时刻：获得打成一片（所选阵营相关天赋 3 选 1）。",
+          "auto_note": "开局候选含日落海则选择日落海，之后每回合优先花 1 能量取牌。",
+          "sources": [
+            "official_guide",
+            "official_home",
+            "chessplayer_js"
+          ]
+        },
+        {
+          "name": "香香",
+          "priority": 2,
+          "skill": "究极弩炮：战斗开始时攻击；初始攻击力 20，每拥有 1 名不低于 10 级的 1-3 阶英雄，攻击力 +20。",
+          "auto_note": "本阵 1-3 阶英雄多，香香自动打伤害，适合低操作。",
+          "sources": [
+            "official_guide_img_sunset"
+          ]
+        },
+        {
+          "name": "常小娥",
+          "priority": 3,
+          "skill": "小菟助力：随机 1 名英雄等级 +2，每助力过 1 次效果再 +1。",
+          "auto_note": "秘技牌等场上至少 4 名英雄再用。",
+          "sources": [
+            "official_guide_img_sunset"
+          ]
+        }
+      ],
+      "core_idea": "狂铁/亚连/米莱狄/安琪拉的整备 → 朵莉亚放大 → 海诺再放大阿科米亚核心。核心等级在开团时以临时等级均分给日落海英雄（单英雄上限 50%）。",
+      "core_heroes": [
+        {
+          "name": "狂铁",
+          "id": "hero-5031",
+          "quality": 1,
+          "faction": "日落海",
+          "card": "整备：阿科米亚核心等级 +2。觉醒触发 2 次。",
+          "slot": "前期核心整备"
+        },
+        {
+          "name": "亚连",
+          "id": "hero-5141",
+          "quality": 2,
+          "faction": "日落海",
+          "card": "整备：穿戴装备最多的 1 名日落海英雄等级 +2，核心 +1。觉醒触发 2 次。"
+        },
+        {
+          "name": "米莱狄",
+          "id": "hero-5041",
+          "quality": 2,
+          "faction": "日落海",
+          "card": "召唤单位 3 临时等级；整备：该临时等级及核心额外 +3。觉醒触发 2 次。"
+        },
+        {
+          "name": "安琪拉",
+          "id": "hero-1421",
+          "quality": 3,
+          "faction": "日落海",
+          "card": "整备：自身及核心等级 +2。觉醒触发 2 次。",
+          "slot": "核心 C 位"
+        },
+        {
+          "name": "朵莉亚",
+          "id": "hero-1591",
+          "quality": 3,
+          "faction": "日落海",
+          "card": "每当英雄触发整备，随机 3 名英雄及核心等级 +1。觉醒改为全体 +1。",
+          "slot": "核心功能"
+        },
+        {
+          "name": "雅典娜",
+          "id": "hero-1831",
+          "quality": 4,
+          "faction": "日落海",
+          "card": "开团：随机触发 2 名日落海整备（觉醒 4 名）。",
+          "slot": "核心坦克 / 整备发动机"
+        },
+        {
+          "name": "海诺",
+          "id": "hero-hainuo",
+          "quality": 5,
+          "faction": "日落海",
+          "card": "每当核心等级提升，核心额外 +1（觉醒 +2）。",
+          "slot": "后期放大器"
+        }
+      ],
+      "required_talents": [
+        {
+          "name": "智能装甲",
+          "id": "talent-636117",
+          "quality": 2,
+          "text": "随机获得 1 件日落海专属装备。我方英雄每穿戴 1 件日落海专属装备，其整备效果额外触发 1 次。",
+          "priority": 1
+        },
+        {
+          "name": "能量汲取",
+          "id": "talent-636104",
+          "quality": 3,
+          "text": "出售场上英雄时，阿科米亚核心获得其等级。",
+          "priority": 1,
+          "note": "官方图文推荐；配合决赛圈卖掉非 C 日落海。"
+        },
+        {
+          "name": "日落海新援",
+          "id": "talent-635036",
+          "quality": 1,
+          "text": "获得 2 能量，以及随机 1 张 2-3 阶日落海英雄牌。",
+          "priority": 2
+        },
+        {
+          "name": "日落海来客",
+          "id": "talent-635037",
+          "quality": 2,
+          "text": "获得 3 能量以及 1 张雅典娜。",
+          "priority": 2
+        },
+        {
+          "name": "积极整备",
+          "id": "talent-636106",
+          "quality": 2,
+          "text": "每触发 5 次整备，随机获得 1 件日落海专属装备，上限 3 件。",
+          "priority": 3
+        }
+      ],
+      "required_effects": [
+        {
+          "name": "远洋宝藏",
+          "id": "effect-7529",
+          "quality": 4,
+          "text": "从 5 件日落海专属装备中随机获得 1 件（不重复）。",
+          "rule": "商店出现则购买。能量消耗未知。"
+        }
+      ],
+      "buy_priority": [
+        "狂铁（1 阶，1-3 回合优先）",
+        "亚连、米莱狄（2 阶，4-7 回合）",
+        "安琪拉、朵莉亚（3 阶，4-7 回合关键，尽量觉醒）",
+        "雅典娜（4 阶，8-11 回合）",
+        "海诺（5 阶，8-11 回合）",
+        "露娜（5 阶，12 回合后若人数上限提升）"
+      ],
+      "substitutes": [
+        {
+          "name": "弈星",
+          "id": "hero-1971",
+          "quality": 1,
+          "when": "1-3 回合过渡",
+          "card": "棋手升级时棋手经验 +2（觉醒 +4）。官方备选。",
+          "replace": "人口不足或核心到齐后可卖掉，出售得 1 能量。"
+        },
+        {
+          "name": "牛魔",
+          "id": "hero-1681",
+          "quality": 1,
+          "when": "1-3 回合过渡",
+          "card": "凯旋：获得 1 能量（觉醒 2）。官方备选。",
+          "replace": "同弈星，人口不够就卖。"
+        },
+        {
+          "name": "露娜",
+          "id": "hero-luna",
+          "quality": 5,
+          "when": "12 回合后人数上限提升",
+          "card": "闪现 登场：核心 +2 并随机触发 2 名英雄整备（觉醒 +4 / 4 名）。",
+          "replace": "官方：打出霸娜触发整备，加速全队和核心。"
+        }
+      ],
+      "stages": {
+        "early": {
+          "turns": "1-3",
+          "chessplayer_level": "第 2 回合将棋手升到 2 级",
+          "goal": "优先买狂铁，用整备稳定给核心等级",
+          "units": [
+            {
+              "cell": "B2",
+              "hero_name": "狂铁",
+              "hero_id": "hero-5031",
+              "quality": 1,
+              "faction": "日落海",
+              "role": "前排整备"
+            },
+            {
+              "cell": "bench",
+              "hero_name": "弈星",
+              "hero_id": "hero-1971",
+              "quality": 1,
+              "faction": "无阵营",
+              "role": "备选挂件"
+            },
+            {
+              "cell": "bench",
+              "hero_name": "牛魔",
+              "hero_id": "hero-1681",
+              "quality": 1,
+              "faction": "无阵营",
+              "role": "备选挂件"
+            }
+          ],
+          "note": "官方图文：1-3 回合优先购买狂铁；第 2 回合棋手升到 2 级。备选弈星、牛魔。"
+        },
+        "mid": {
+          "turns": "4-7",
+          "chessplayer_level": "升到 3 级",
+          "goal": "买齐亚连、米莱狄；寻找朵莉亚和安琪拉并尽量觉醒",
+          "units": [
+            {
+              "cell": "B2",
+              "hero_name": "狂铁",
+              "hero_id": "hero-5031",
+              "quality": 1,
+              "faction": "日落海",
+              "role": "前排整备",
+              "awakened": true
+            },
+            {
+              "cell": "D4",
+              "hero_name": "亚连",
+              "hero_id": "hero-5141",
+              "quality": 2,
+              "faction": "日落海",
+              "role": "后排整备",
+              "awakened": true
+            },
+            {
+              "cell": "E4",
+              "hero_name": "米莱狄",
+              "hero_id": "hero-5041",
+              "quality": 2,
+              "faction": "日落海",
+              "role": "后排整备/召唤",
+              "awakened": true
+            },
+            {
+              "cell": "F4",
+              "hero_name": "安琪拉",
+              "hero_id": "hero-1421",
+              "quality": 3,
+              "faction": "日落海",
+              "role": "后排核心 C",
+              "awakened": true,
+              "equipment": [
+                "法源之杯",
+                "虚无法杖",
+                "炽热支配者"
+              ]
+            },
+            {
+              "cell": "A2",
+              "hero_name": "朵莉亚",
+              "hero_id": "hero-1591",
+              "quality": 3,
+              "faction": "日落海",
+              "role": "前排功能",
+              "awakened": true
+            }
+          ],
+          "note": "官方 4-7 回合 5 人成型。觉醒靠打出同名牌合成。"
+        },
+        "late": {
+          "turns": "8-11",
+          "chessplayer_level": "升到 5 级（5 级上阵人数 +1）",
+          "goal": "上雅典娜、海诺；继续觉醒场上英雄",
+          "units_official_cells": [
+            {
+              "cell": "A2",
+              "hero_name": "朵莉亚",
+              "hero_id": "hero-1591",
+              "quality": 3,
+              "faction": "日落海",
+              "role": "前排左",
+              "awakened": true
+            },
+            {
+              "cell": "B2",
+              "hero_name": "狂铁",
+              "hero_id": "hero-5031",
+              "quality": 1,
+              "faction": "日落海",
+              "role": "前排左",
+              "awakened": true
+            },
+            {
+              "cell": "C2",
+              "hero_name": "海诺",
+              "hero_id": "hero-hainuo",
+              "quality": 5,
+              "faction": "日落海",
+              "role": "前排左/放大器",
+              "awakened": false,
+              "equipment": [
+                "自然法杖",
+                "虚无法杖",
+                "贤者之书"
+              ],
+              "note": "装备来自 wiki 闹闹 early，官方图未给海诺三件"
+            },
+            {
+              "cell": "G2",
+              "hero_name": "雅典娜",
+              "hero_id": "hero-1831",
+              "quality": 4,
+              "faction": "日落海",
+              "role": "前排右核心坦克",
+              "awakened": true,
+              "equipment": [
+                "霸者重铠",
+                "近卫荣耀",
+                "不死鸟之眼"
+              ]
+            },
+            {
+              "cell": "D4",
+              "hero_name": "亚连",
+              "hero_id": "hero-5141",
+              "quality": 2,
+              "faction": "日落海",
+              "role": "后排",
+              "awakened": true
+            },
+            {
+              "cell": "E4",
+              "hero_name": "米莱狄",
+              "hero_id": "hero-5041",
+              "quality": 2,
+              "faction": "日落海",
+              "role": "后排",
+              "awakened": true
+            },
+            {
+              "cell": "F4",
+              "hero_name": "安琪拉",
+              "hero_id": "hero-1421",
+              "quality": 3,
+              "faction": "日落海",
+              "role": "后排核心 C",
+              "awakened": true,
+              "equipment": [
+                "法源之杯",
+                "虚无法杖",
+                "炽热支配者"
+              ]
+            }
+          ],
+          "wiki_naonao_early_cells": [
+            {
+              "cell": "E2",
+              "hero": "雅典娜",
+              "awakened": true,
+              "equipment": [
+                "近卫荣耀",
+                "极寒风暴",
+                "霸者重铠"
+              ]
+            },
+            {
+              "cell": "E3",
+              "hero": "狂铁",
+              "awakened": true
+            },
+            {
+              "cell": "E4",
+              "hero": "米莱狄",
+              "awakened": true,
+              "equipment": [
+                "金色圣剑"
+              ]
+            },
+            {
+              "cell": "F2",
+              "hero": "亚连",
+              "awakened": true
+            },
+            {
+              "cell": "F3",
+              "hero": "朵莉亚",
+              "awakened": true,
+              "equipment": [
+                "贤者之书",
+                "金色圣剑",
+                "铸梦·逐风"
+              ]
+            },
+            {
+              "cell": "F4",
+              "hero": "安琪拉",
+              "awakened": true,
+              "equipment": [
+                "炽热支配者",
+                "虚无法杖",
+                "自然法杖"
+              ]
+            },
+            {
+              "cell": "G4",
+              "hero": "海诺",
+              "awakened": false,
+              "equipment": [
+                "自然法杖",
+                "虚无法杖",
+                "贤者之书"
+              ]
+            }
+          ],
+          "position_explain": "官方图：后排三人亚连/米莱狄/安琪拉；前排左朵莉亚/狂铁/海诺；前排右雅典娜单独顶住。对面有闪现英雄时，用其他英雄包围安琪拉防切后。cell 为按 wiki 数字大=后排转写，evidence=推测。"
+        },
+        "final": {
+          "turns": "12+",
+          "goal": "若人数上限提升则上露娜打出整备。决赛圈卖掉其他日落海，只留雅典娜 + 一个 C 位（安琪拉或海诺），让核心等级集中分配。",
+          "optional": [
+            "露娜"
+          ]
+        }
+      },
+      "equipment": {
+        "priority": [
+          {
+            "hero": "安琪拉",
+            "items": [
+              "法源之杯",
+              "虚无法杖",
+              "炽热支配者"
+            ],
+            "source": "官方站位图",
+            "role": "核心 C"
+          },
+          {
+            "hero": "雅典娜",
+            "items": [
+              "霸者重铠",
+              "近卫荣耀",
+              "不死鸟之眼"
+            ],
+            "source": "官方站位图",
+            "role": "核心坦克"
+          }
+        ],
+        "secondary_wiki_only": [
+          {
+            "hero": "海诺",
+            "items": [
+              "自然法杖",
+              "虚无法杖",
+              "贤者之书"
+            ],
+            "source": "wiki 闹闹 early",
+            "layer": "作者经验"
+          },
+          {
+            "hero": "朵莉亚",
+            "items": [
+              "贤者之书",
+              "金色圣剑",
+              "铸梦·逐风"
+            ],
+            "source": "wiki 闹闹 early",
+            "layer": "作者经验"
+          }
+        ],
+        "drop_rounds": [
+          1,
+          4,
+          8,
+          12,
+          16
+        ],
+        "assign_rule": "基础装备固定回合投放。先填安琪拉法装，再填雅典娜防装。亚连整备吃“穿戴装备最多的日落海”，装备件数可偏向要加等级的 C。"
+      },
+      "pivot_if_core_missing": [
+        {
+          "missing": "4-7 回合结束仍无朵莉亚且无安琪拉",
+          "action": "继续用狂铁/亚连/米莱狄吃低阶整备，优先升 3 级用商店 3 阶 30% 概率找这两张；闹闹则每回合 1 能量抽日落海。",
+          "do_not": "不要改打白歌倒转或其他阵营。转阵条件在官方图文中未给出数值截止回合，8-11 仍以找雅典娜/海诺为主。",
+          "hard_unknown": "无法从官方得到“几回合没核心必须转阵”的数字。"
+        },
+        {
+          "missing": "8-11 无海诺",
+          "action": "安琪拉仍可当 C；海诺是放大器不是唯一输出。继续觉醒整备链。",
+          "final": "决赛圈无海诺则留雅典娜+安琪拉。"
+        },
+        {
+          "missing": "无雅典娜",
+          "action": "整备触发次数下降。可用日落海来客天赋（直接给雅典娜）。人口允许时用露娜登场补触发。"
+        }
+      ],
+      "bad_matchups": {
+        "official": "对方有闪现英雄时，站位用其他英雄包围安琪拉，防止闪现近身。",
+        "inferred_from_cards_not_matchup_table": "无官方克制表。刘邦开团拆图腾与本阵无关。本阵怕切后与控制，故官方给炽热支配者（首次受控获盾并免疫控制 15 秒，压制除外）。"
+      },
+      "sources": [
+        "official_guide",
+        "official_home",
+        "official_guide_img_sunset",
+        "official_guide_img_sunset_detail",
+        "wiki_presets",
+        "wiki_hero",
+        "wiki_talent",
+        "wiki_equip"
+      ]
+    },
+    {
+      "id": "lineup-changxiaoe-four",
+      "name": "嫦娥四人队 / 马瑶经典",
+      "aka": [
+        "常小娥马瑶经典阵容",
+        "四小只马瑶"
+      ],
+      "automation_rank": 2,
+      "why_automation": "官网：凑齐 4 个英雄后每回合靠棋手技能成长，操作难度低。常小娥技能无指向（随机助力），自动化只需“场上有人就放技能”。找齐 4 人有运气成分，容错来自 1 费苏烈容易起。",
+      "classification": "stable / 官网新人推荐",
+      "chessplayers": [
+        {
+          "name": "常小娥",
+          "priority": 1,
+          "skill": "小菟助力：随机助力 1 名英雄等级 +2；本局每助力过 1 次，提升效果 +1。",
+          "secret": "官网：己方英雄等级总和 50/150/375 获小菟送福。小菟送福：对场上随机 4 名英雄各触发 1 次小菟助力。",
+          "exclusive_lv6": "月之特调：小菟提供等级时，每 5 级额外随机属性（15% 攻速 / 2% 双吸 / 2 点双防）；每通过小菟助力提供 65 级再获 1 张小菟送福。",
+          "auto_note": "官方日落海图文：秘技牌建议场上至少 4 名英雄再使用。本阵正好 4 人，齐人后立即用。"
+        }
+      ],
+      "core_idea": "只养 4 个精英。苏烈前排牺牲成长，瑶开团分享装备并附身，马超吃队友控制回能与暴击，海月 5 阶牺牲控制敌方最高等级。等级主要来自常小娥每回合技能，不是商店刷新。",
+      "core_heroes": [
+        {
+          "name": "苏烈",
+          "id": "hero-sulie",
+          "quality": 1,
+          "faction": "河洛",
+          "card": "牺牲：苏烈等级永久 +2（觉醒 +4）。技能 40 级首次被击败复生。",
+          "slot": "前排坦克"
+        },
+        {
+          "name": "瑶",
+          "id": "hero-5051",
+          "quality": 3,
+          "faction": "大河流域",
+          "card": "开团：首件普通装备分享给随机 3 名友方（15 秒；觉醒去掉 15 秒限制）。附身最近友军。",
+          "slot": "功能/保护"
+        },
+        {
+          "name": "马超",
+          "id": "hero-5181",
+          "quality": 3,
+          "faction": "三分之地",
+          "card": "己方施加控制时，马超获 15 法力与 5% 暴击（觉醒 30 / 10%）。",
+          "slot": "核心输出 ACE"
+        },
+        {
+          "name": "海月",
+          "id": "hero-haiyue",
+          "quality": 5,
+          "faction": "无阵营",
+          "card": "牺牲：困敌方等级最高英雄 4 秒，并造成等同海月生命值的真实伤害（觉醒 150%）。",
+          "slot": "后期斩杀/控制"
+        }
+      ],
+      "required_talents": [
+        {
+          "name": "未在官网四人队图文列出专属天赋推荐",
+          "note": "日落海/大河图文里对常小娥只强调技能与“场上 4 人再用秘技”。四人队本身无官方天赋图标。选择原则：给等级、给装备、给复制 1-3 阶（复印机可复制苏烈）。",
+          "priority": null
+        }
+      ],
+      "buy_priority": [
+        "苏烈（1 阶，商店 1 级 100% 出 1 费层）",
+        "瑶、马超（3 阶，棋手 3 级商店 3 费层 30%）",
+        "海月（5 阶，棋手 5 级商店 5 费层 9%；6 级 15%）",
+        "同名牌用于合成觉醒（打出已在场英雄 = 合成且升级）"
+      ],
+      "substitutes": [
+        {
+          "name": "裴擒虎",
+          "id": "hero-peiqinhu",
+          "quality": 3,
+          "faction": "无阵营",
+          "when": "海月迟迟不来，或官网卡图第 4 人路线",
+          "card": "闪现 整备：随机获得 1 名其他英雄等级一半的临时等级（觉醒改为全部，不可叠加）。",
+          "replace": "可替换海月作为第 4 人。wiki 另有苏虎震月变体。"
+        },
+        {
+          "name": "司空震",
+          "id": "hero-sikongzhen",
+          "quality": 5,
+          "faction": "河洛",
+          "when": "走海陆空变体",
+          "card": "其他英雄获得临时等级时，司空震获得一半（不超过自身真实等级 1 倍）。",
+          "replace": "wiki 常小娥苏虎震月：裴擒虎、海月、苏烈、司空震。"
+        }
+      ],
+      "stages": {
+        "early": {
+          "turns": "1-4（推断区间，官方四人队无回合表）",
+          "goal": "先上台苏烈占前排；有瑶则附身苏烈或马超",
+          "units": [
+            {
+              "cell": "E2",
+              "hero_name": "苏烈",
+              "hero_id": "hero-sulie",
+              "quality": 1,
+              "faction": "河洛",
+              "role": "前排坦克",
+              "awakened": false,
+              "equipment": [
+                "近卫荣耀",
+                "反伤重甲",
+                "极寒风暴"
+              ]
+            },
+            {
+              "cell": "E3",
+              "hero_name": "马超",
+              "hero_id": "hero-5181",
+              "quality": 3,
+              "faction": "三分之地",
+              "role": "中排输出",
+              "awakened": true,
+              "equipment": [
+                "自然法杖",
+                "不死鸟之眼",
+                "魔律之刃"
+              ]
+            },
+            {
+              "cell": "F3",
+              "hero_name": "瑶",
+              "hero_id": "hero-5051",
+              "quality": 3,
+              "faction": "大河流域",
+              "role": "附身位",
+              "awakened": true,
+              "equipment": [
+                "破茧之衣",
+                "近卫荣耀"
+              ]
+            },
+            {
+              "cell": "D2",
+              "hero_name": "海月",
+              "hero_id": "hero-haiyue",
+              "quality": 5,
+              "faction": "无阵营",
+              "role": "前排偏左/牺牲斩杀",
+              "awakened": false,
+              "equipment": [
+                "聚灵水晶",
+                "魔律之刃",
+                "不死鸟之眼"
+              ]
+            }
+          ],
+          "note": "站位与装备全部来自 wiki 马瑶经典 early。官网四人队无站位 cell。"
+        },
+        "mid": {
+          "turns": "齐 4 人后到棋手 6 级前",
+          "goal": "停止扩人口，每回合放小菟助力；场上满 4 人后打小菟送福。人口 3 级 +1、5 级 +1，本阵刻意维持 4 人精英。",
+          "units": "与 early 相同 4 人，尽量觉醒苏烈/瑶/马超",
+          "note": "wiki mid 数据污染，不用开团射 7 人。"
+        },
+        "late": {
+          "turns": "海月到场或棋手 6 级月之特调后",
+          "goal": "4 人吃满小菟属性；海月牺牲点最高等级",
+          "units": "仍为 4 人。不要强行扩到 7 人开团射。"
+        }
+      },
+      "equipment": {
+        "priority": [
+          {
+            "hero": "马超",
+            "items": [
+              "自然法杖",
+              "不死鸟之眼",
+              "魔律之刃"
+            ],
+            "source": "wiki early + 官网卡图马超为 ACE"
+          },
+          {
+            "hero": "苏烈",
+            "items": [
+              "近卫荣耀",
+              "反伤重甲",
+              "极寒风暴"
+            ],
+            "source": "wiki early"
+          },
+          {
+            "hero": "海月",
+            "items": [
+              "聚灵水晶",
+              "魔律之刃",
+              "不死鸟之眼"
+            ],
+            "source": "wiki early"
+          },
+          {
+            "hero": "瑶",
+            "items": [
+              "破茧之衣",
+              "近卫荣耀"
+            ],
+            "source": "wiki early；开团会把首件普通装备分享给 3 名友军"
+          }
+        ],
+        "assign_rule": "瑶的首件普通装备会被分享，优先给瑶一件希望全队临时获得的装（破茧之衣可眩晕敌方高等级）。装备投放回合 1/4/8/12/16。"
+      },
+      "pivot_if_core_missing": [
+        {
+          "missing": "马超",
+          "action": "3 阶公共库每张 9 张。继续升到 3 级吃 30% 三费层。无官方“放弃回合”。自动化：只要商店出现就买，不为找马超无上限刷新（刷新消耗未知）。"
+        },
+        {
+          "missing": "海月（5 阶）",
+          "action": "3 人也能吃常小娥技能。可用裴擒虎或司空震作为第 4 人。海月未到不要把人口铺满低质量牌，否则小菟随机助力被稀释。"
+        },
+        {
+          "missing": "瑶",
+          "action": "少装备分享与附身盾。苏烈+马超仍可打。商店 3 费层继续留。"
+        }
+      ],
+      "bad_matchups": {
+        "official": "官网写找齐英雄有运气成分，没有克制表。",
+        "from_cards": "4 人精英怕群体与切后；海月牺牲点最高等级，对多核阵容收益下降。"
+      },
+      "sources": [
+        "official_home",
+        "wiki_presets",
+        "wiki_hero",
+        "chessplayer_js",
+        "official_guide"
+      ]
+    },
+    {
+      "id": "lineup-dahe-totem",
+      "name": "大河图腾流",
+      "aka": [
+        "瑶妹大河图腾流",
+        "官方敖隐图腾"
+      ],
+      "automation_rank": 3,
+      "why_automation": "官网：操作简单，凑齐后全员自动成长。图腾在场即生效，开团时虞姬/张良自动加等级，敖隐按图腾数自动叠攻速与临时等级。瑶妹小鹿是自动前排。",
+      "classification": "stable / 官方新手阵容",
+      "chessplayers": [
+        {
+          "name": "瑶妹",
+          "priority": 1,
+          "skill": "可爱小鹿：开局召唤小鹿；每回合等级 +2，若上回合胜利额外 +4。",
+          "secret": "每经过 3 个回合获 1 张神奇小鹿。",
+          "exclusive_lv6": "巨型玩偶：小鹿等级 +30，并获得小鹿的庇护（穿戴者伤害 30% 转到小鹿）。",
+          "auto_note": "官网：小鹿可当前排坦克，缓解东皇承伤、拖长时间，适合保护敖隐。"
+        },
+        {
+          "name": "香香",
+          "priority": 2,
+          "skill": "1-3 阶英雄多且等级高则弩炮更痛。本阵前期 1-3 阶多。",
+          "auto_note": "官方大河图文推荐棋手之一。"
+        },
+        {
+          "name": "常小娥",
+          "priority": 3,
+          "skill": "每回合稳定加等级，专属给群体属性。",
+          "auto_note": "官方大河图文推荐。"
+        }
+      ],
+      "core_idea": "鬼谷子/少司缘/大司命召唤 3 个图腾 → 虞姬按图腾数开团加等级、张良在每次开团时给随机 3 人永久等级 → 敖隐每个图腾每 4 秒获 16% 攻速和 4 临时等级（觉醒翻倍）→ 东皇太一让图腾不优先被攻击，并按图腾等级吃临时等级。",
+      "core_heroes": [
+        {
+          "name": "干将莫邪",
+          "id": "hero-1821",
+          "quality": 1,
+          "faction": "大河流域",
+          "card": "在场时获得普通装备双剑·雄（觉醒再给双剑·雌）。",
+          "slot": "1-3 回合过渡"
+        },
+        {
+          "name": "牛魔",
+          "id": "hero-1681",
+          "quality": 1,
+          "faction": "无阵营",
+          "card": "凯旋：1 能量（觉醒 2）。",
+          "slot": "1-3 回合过渡"
+        },
+        {
+          "name": "虞姬",
+          "id": "hero-yuji",
+          "quality": 2,
+          "faction": "大河流域",
+          "card": "开团：每有 1 个图腾，自身及随机 2 名不同大河英雄等级 +1（觉醒随机 4 名）。",
+          "slot": "中期 C / 核心功能"
+        },
+        {
+          "name": "鬼谷子",
+          "id": "hero-1891",
+          "quality": 2,
+          "faction": "大河流域",
+          "card": "在场时召唤先知图腾（觉醒强化）。",
+          "slot": "图腾 1"
+        },
+        {
+          "name": "张良",
+          "id": "hero-zhangliang",
+          "quality": 3,
+          "faction": "大河流域",
+          "card": "每当单位触发开团，随机 3 名己方永久 +1（觉醒改为全体 +1）。",
+          "slot": "核心功能；决赛圈可卖掉"
+        },
+        {
+          "name": "少司缘",
+          "id": "hero-shaosiyuan",
+          "quality": 3,
+          "faction": "大河流域",
+          "card": "在场时召唤因缘图腾（觉醒强化）。",
+          "slot": "图腾 2"
+        },
+        {
+          "name": "大司命",
+          "id": "hero-5171",
+          "quality": 4,
+          "faction": "大河流域",
+          "card": "在场时召唤往生图腾；每次牺牲：往生图腾永久 +2 并获 50 法力。",
+          "slot": "图腾 3 / 前排"
+        },
+        {
+          "name": "东皇太一",
+          "id": "hero-donghuang",
+          "quality": 5,
+          "faction": "大河流域",
+          "card": "图腾不会被优先攻击。开团：获得每个图腾等级数 15% 临时等级（觉醒 30%）。",
+          "slot": "核心坦克"
+        },
+        {
+          "name": "敖隐",
+          "id": "hero-aoyin",
+          "quality": 5,
+          "faction": "大河流域",
+          "card": "每个图腾每 4 秒提供 16% 攻速和 4 临时等级（觉醒 32% / 8）。",
+          "slot": "核心 C"
+        }
+      ],
+      "required_talents": [
+        {
+          "name": "复印机",
+          "id": "talent-623002",
+          "quality": 1,
+          "text": "获得 2 张复印机：指定 1 名 1-3 阶英雄，获得该英雄牌。",
+          "priority": 1,
+          "use": "复制虞姬/鬼谷子/张良/少司缘加速觉醒"
+        },
+        {
+          "name": "大河新援",
+          "id": "talent-635031",
+          "quality": 1,
+          "text": "获得 2 能量，以及随机 1 张 2-3 阶大河英雄牌。",
+          "priority": 1
+        },
+        {
+          "name": "大河精兵",
+          "id": "talent-635034",
+          "quality": 2,
+          "text": "卡牌 3 选 1（4 或 5 阶大河）。",
+          "priority": 2,
+          "use": "找大司命/敖隐/东皇"
+        },
+        {
+          "name": "大河来客",
+          "id": "talent-635032",
+          "quality": 2,
+          "text": "获得 3 能量以及 1 张刘邦。",
+          "priority": 99,
+          "note": "刘邦开团摧毁全部图腾，与本阵冲突，不要优先拿。"
+        }
+      ],
+      "buy_priority": [
+        "1-3：牛魔、干将莫邪；第 2 回合棋手升 2 级",
+        "4-7：用免费刷新找虞姬、鬼谷子、张良、少司缘；四人各有一张后升 4 级找大司命；输出装优先虞姬",
+        "8-11：棋手升 5 级，买敖隐、东皇太一、大司命；装备从虞姬转给敖隐",
+        "12+：觉醒核心；人口允许上太乙真人或瑶"
+      ],
+      "substitutes": [
+        {
+          "name": "弈星",
+          "id": "hero-1971",
+          "quality": 1,
+          "when": "1-3 回合",
+          "card": "升级时经验 +2。官方备选。"
+        },
+        {
+          "name": "云中君",
+          "id": "hero-yunzhongjun",
+          "quality": 3,
+          "when": "4-11 回合备选",
+          "card": "闪现 开团：每穿戴 1 件装备该英雄永久 +1（觉醒 +2）。官方备选。"
+        },
+        {
+          "name": "瑶",
+          "id": "hero-5051",
+          "quality": 3,
+          "when": "8 回合后 / 决赛圈功能牌",
+          "card": "开团分享首件装备。官方：上瑶并穿控制装提升容错。"
+        },
+        {
+          "name": "太乙真人",
+          "id": "hero-1861",
+          "quality": 4,
+          "when": "12 回合后人口充足",
+          "card": "开团：距离最近 1 名英雄获得复生（觉醒完美复生）。官方：保护敖隐。"
+        }
+      ],
+      "stages": {
+        "early": {
+          "turns": "1-3",
+          "chessplayer_level": "第 2 回合升到 2 级",
+          "units": [
+            {
+              "cell": "B2",
+              "hero_name": "干将莫邪",
+              "hero_id": "hero-1821",
+              "quality": 1,
+              "faction": "大河流域",
+              "role": "过渡装备"
+            },
+            {
+              "cell": "C2",
+              "hero_name": "牛魔",
+              "hero_id": "hero-1681",
+              "quality": 1,
+              "faction": "无阵营",
+              "role": "过渡能量"
+            }
+          ],
+          "note": "官方：人口不足可卖掉牛魔/干将。"
+        },
+        "mid": {
+          "turns": "4-7",
+          "chessplayer_level": "先 3 后 4（四人关键牌各 1 张后升 4 找大司命）",
+          "units": [
+            {
+              "cell": "C4",
+              "hero_name": "虞姬",
+              "hero_id": "hero-yuji",
+              "quality": 2,
+              "faction": "大河流域",
+              "role": "后排输出",
+              "equipment": [
+                "寒霜侵袭",
+                "破晓"
+              ]
+            },
+            {
+              "cell": "D2",
+              "hero_name": "鬼谷子",
+              "hero_id": "hero-1891",
+              "quality": 2,
+              "faction": "大河流域",
+              "role": "前排图腾/先知"
+            },
+            {
+              "cell": "B2",
+              "hero_name": "张良",
+              "hero_id": "hero-zhangliang",
+              "quality": 3,
+              "faction": "大河流域",
+              "role": "前排偏左功能"
+            },
+            {
+              "cell": "A2",
+              "hero_name": "少司缘",
+              "hero_id": "hero-shaosiyuan",
+              "quality": 3,
+              "faction": "大河流域",
+              "role": "前排左/因缘图腾"
+            },
+            {
+              "cell": "E2",
+              "hero_name": "大司命",
+              "hero_id": "hero-5171",
+              "quality": 4,
+              "faction": "大河流域",
+              "role": "前排右/往生图腾"
+            }
+          ],
+          "companions": [
+            {
+              "name": "因缘图腾",
+              "owner": "少司缘",
+              "official_near": "少司缘旁"
+            },
+            {
+              "name": "先知图腾",
+              "owner": "鬼谷子",
+              "official_near": "中前排"
+            },
+            {
+              "name": "往生图腾",
+              "owner": "大司命",
+              "official_near": "大司命旁"
+            }
+          ]
+        },
+        "late": {
+          "turns": "8-11",
+          "chessplayer_level": "5 级",
+          "units_official": [
+            {
+              "cell": "D4",
+              "hero_name": "敖隐",
+              "hero_id": "hero-aoyin",
+              "quality": 5,
+              "faction": "大河流域",
+              "role": "后排核心 C",
+              "equipment": [
+                "寒霜侵袭",
+                "破晓",
+                "自然法杖"
+              ]
+            },
+            {
+              "cell": "E4",
+              "hero_name": "云中君或韩信外形位",
+              "hero_id": null,
+              "quality": null,
+              "faction": "大河流域",
+              "role": "后排备选，官方图后排另有 2 名英雄",
+              "note": "官方图后排 3 人，除敖隐外两名未在回合名单标名，可能是云中君等备选。evidence=推测"
+            },
+            {
+              "cell": "A2",
+              "hero_name": "少司缘",
+              "hero_id": "hero-shaosiyuan",
+              "quality": 3,
+              "faction": "大河流域",
+              "role": "前排左"
+            },
+            {
+              "cell": "B2",
+              "hero_name": "张良",
+              "hero_id": "hero-zhangliang",
+              "quality": 3,
+              "faction": "大河流域",
+              "role": "前中"
+            },
+            {
+              "cell": "C2",
+              "hero_name": "虞姬",
+              "hero_id": "hero-yuji",
+              "quality": 2,
+              "faction": "大河流域",
+              "role": "中排，装备已转走则纯功能"
+            },
+            {
+              "cell": "D2",
+              "hero_name": "东皇太一",
+              "hero_id": "hero-donghuang",
+              "quality": 5,
+              "faction": "大河流域",
+              "role": "核心坦克",
+              "equipment": [
+                "霸者重铠",
+                "近卫荣耀",
+                "不死鸟之眼"
+              ]
+            },
+            {
+              "cell": "E2",
+              "hero_name": "大司命",
+              "hero_id": "hero-5171",
+              "quality": 4,
+              "faction": "大河流域",
+              "role": "前排图腾"
+            },
+            {
+              "cell": "C1",
+              "hero_name": "鬼谷子",
+              "hero_id": "hero-1891",
+              "quality": 2,
+              "faction": "大河流域",
+              "role": "先知图腾旁"
+            }
+          ],
+          "position_explain": "官方：敖隐用其他英雄和图腾围住，防止敌方切后排。图腾占格，站位以围敖隐、保护图腾为准。"
+        },
+        "final": {
+          "turns": "12+",
+          "goal": "继续觉醒。人口允许上太乙真人保护敖隐，或上瑶穿控制装。决赛圈可卖张良换太乙真人。",
+          "optional": [
+            "太乙真人",
+            "瑶"
+          ]
+        }
+      },
+      "equipment": {
+        "priority": [
+          {
+            "hero": "中期虞姬",
+            "items": [
+              "寒霜侵袭",
+              "破晓"
+            ],
+            "source": "官方：输出装优先虞姬"
+          },
+          {
+            "hero": "后期敖隐",
+            "items": [
+              "寒霜侵袭",
+              "破晓",
+              "自然法杖"
+            ],
+            "source": "官方站位图；8 回合后从虞姬转给敖隐"
+          },
+          {
+            "hero": "东皇太一",
+            "items": [
+              "霸者重铠",
+              "近卫荣耀",
+              "不死鸟之眼"
+            ],
+            "source": "官方站位图"
+          }
+        ],
+        "drop_rounds": [
+          1,
+          4,
+          8,
+          12,
+          16
+        ]
+      },
+      "pivot_if_core_missing": [
+        {
+          "missing": "4-7 缺少图腾召唤者（鬼谷子或少司缘）",
+          "action": "官方要求用免费刷新找 虞姬/鬼谷子/张良/少司缘。刷新是否免费、次数未知，只执行“出现就买”。缺图腾则虞姬/敖隐收益下降，仍可先打虞姬单核。"
+        },
+        {
+          "missing": "敖隐",
+          "action": "8-11 商店 5 级 5 费层 9%。无敖隐时虞姬继续当 C，装备不转走。大河精兵 3 选 1 优先敖隐/东皇。"
+        },
+        {
+          "missing": "东皇太一",
+          "action": "图腾会被集火。官方备选用瑶妹小鹿或上瑶/太乙补前排。不要买刘邦（拆图腾）。"
+        }
+      ],
+      "bad_matchups": {
+        "official": "怕切敖隐后排，用英雄+图腾包围。",
+        "from_cards": "刘邦开团摧毁全部图腾，是机制克制。官方未写对局克制表。"
+      },
+      "sources": [
+        "official_guide",
+        "official_home",
+        "official_guide_img_dahe",
+        "official_guide_img_dahe_detail",
+        "wiki_hero",
+        "wiki_talent",
+        "wiki_equip"
+      ]
+    }
+  ]
+}
