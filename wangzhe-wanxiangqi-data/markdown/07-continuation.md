@@ -153,3 +153,38 @@ python3 wangzhe-wanxiangqi-data/scripts/fetch_remaining_images.py --dry-run  # �
 
 - 新增 `json/official_recommended_lineups.json`（6 组推荐阵容）
 - 更新 `markdown/02-lineups.md`（官网首页推荐阵容节）、`markdown/00-INDEX.md`
+
+---
+
+## 十、续查 IV：英雄详情（hero-sulie 同源数据）（2026-09-13）
+
+任务：去 `https://wanxiangqiwiki.com/explore/hero-sulie` 继续获取英雄属性等资料。
+
+要点：
+- 该详情页为纯前端渲染（fetch_page 只回「正在载入英雄资料」），但页面数据源就是本地已存的 `raw/wanxiangqiwiki.com_explorer-catalogs_hero.json`（86 英雄全量，`currentCount=86` 与目录一致）。
+- 该原始 JSON 里存在 `heroes.json` **未收录**的三块内容，本轮全部补采结构化：
+
+### 10.1 成长模型（85/86）→ `json/hero_details.json` + `json/hero_growth.csv`
+
+- 字段：`template`（成长模板）、`baseProperties`（基础属性 10 项）、`levelSnapshots`（1/10/40/100/150/200 六级快照）、`templateReference`（逐级成长公式 + 节点）、`skillBreakpoints`（10/40/100 技能节点）、`awakeningDesc`。
+- 证据层级：wiki「官方卡牌资料 + 同源成长模型」（wiki 自标注，逐级公式为同源模型，档位快照非逐级）。
+- 成长模板分布：法师 20 / 物理坦克 13 / 战士 11 / 辅助 10 / 法坦 8 / 刺客 8 / 416射手 6 / 普通射手 6 / 法战·法射·法刺 各 1。
+- 唯一缺失：王维（`hero-1381`）无 growth。
+- `hero_growth.csv`：85 行 ×（6 级 × 6 维生命/物攻/法攻/物防/法防/攻速）数值矩阵，供自动化直接读。
+
+### 10.2 知识理解/实战关联（12/86）→ `hero_details.json` knowledge
+
+wiki 作者理解（作者经验层级），每名含 formal/resource/trigger/receivers/failures/confidence/pending/related：苏烈、曜、孙膑、沈梦溪、盾山、虞姬、公孙离、云中君、张良、少司缘、李信、花木兰。自动化 3 套阵容涉及苏烈、虞姬、张良、少司缘 4 名。
+
+### 10.3 关联卡牌（86/86）→ `hero_details.json` related_cards
+
+觉醒卡面 85、来源天赋 42、效果预览 33、英雄预览 6、相关预览 2。
+
+### 10.4 后续可补（同源目录里还有 formal 知识理解字段）
+
+- 效果牌 6 / 装备 20 / 天赋 6 张卡也有 `formal`（知识理解）字段，本轮未展开，可后续补采成 `effect_details.json` / `equipment_details.json` / `talent_details.json`。
+
+### 10.5 本轮改动清单（续）
+
+- 新增 `json/hero_details.json`、`json/hero_growth.csv`
+- 更新 `markdown/03-cards.md`（成长模型与知识理解节）、`markdown/00-INDEX.md`
