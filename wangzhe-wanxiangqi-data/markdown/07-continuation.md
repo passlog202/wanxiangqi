@@ -129,3 +129,27 @@ python3 wangzhe-wanxiangqi-data/scripts/fetch_remaining_images.py --dry-run  # �
 - 新增 `json/pro_guides.json` + `json/pro_guides.csv`
 - 更新 `json/chessplayers.json`（+`recommendation_tagline`）、重写 `json/chessplayers.csv`（+新列）
 - 更新 `markdown/02-lineups.md`、`markdown/06-mechanics.md`、`markdown/00-INDEX.md`
+
+---
+
+## 九、续查 III：官网首页补采 + 外部来源清单（2026-09-13）
+
+### 9.1 官网首页「新人推荐」→ `json/official_recommended_lineups.json`
+
+官网首页 https://wxq.qq.com/ （首发专题 a20260709sfzt）「新人推荐」给出 6 组「推荐棋手→推荐阵容」官方配对与阵容描述，比新手指引 5 套多出「嫦娥四人队」：
+
+白歌→三分登场流、香香→日落海整备流、常小娥→嫦娥四人队、瑶妹→大河图腾流、庄小鱼→河洛古币流、小妲己→逐鹿战术牌流。每套均有「复制阵容码」按钮（码字符串在页面 JS 中，本轮未抓取）。已写入 `markdown/02-lineups.md`。
+
+### 9.2 本轮勘界：还可获取的外部来源（按价值排序，未全部落地）
+
+1. **版本更新公告（patch notes）**：TapTap 官方号 / 旅法师营地(iyingdi) 有 5 月 26 日「终测整备赛季」完整更新公告（含：初始阵容由局外随机改为局内拍卖、钻石系统、成长之路、合成工坊、段位继承、有分同享开放至王者 3000 分、翻牌上限 200 次等）。注意为上线前测试版公告，需与 1.1.1 正式版逐条核验后才能入规则正文。
+2. **上线期新闻/公告**：news.qq.com 9 月 10 日公测文（全平台互通、85 位英雄——与 wiki 86 英雄口径不一致，待核）、新浪/中关村在线 9 月 9 日配置要求（安卓 1.88GB / iOS 3.18GB / 鸿蒙 3.67GB、PC 20GB SSD）。
+3. **官网下载与社群**：PC/WeGame/macOS 安装包直链（1.1.1 exe）、B站/抖音/快手/微博/小红书/微信公众号/小程序/腾讯频道/王者营地官方账号。
+4. **教学视频（9 条）**：官方新手指引 9 条腾讯视频（vid 已录在 `ui_operations.json`），可拼 v.qq.com 播放页/接口地址，用 yt-dlp/you-get 在沙箱外下载。
+5. **社区攻略**：旅法师营地(iyingdi) 有逐阵容详细运营/站位/装备攻略（如常小娥刺客七三），证据层级=作者经验，且多为 2025-12/2026-01 测试版内容，需版本核验；部分站点（bufan/gamedog/ali213）的「最强阵容」含不知火舞、娜可露露、橘右京等非本游戏英雄，属错误资料，弃用。
+6. **剩余 1184 张原图**：脚本已就绪（`scripts/fetch_remaining_images.py`），受沙箱出口限制，需可访问 `assets.wanxiangqiwiki.com` 的环境执行。
+
+### 9.3 本轮改动清单（续）
+
+- 新增 `json/official_recommended_lineups.json`（6 组推荐阵容）
+- 更新 `markdown/02-lineups.md`（官网首页推荐阵容节）、`markdown/00-INDEX.md`

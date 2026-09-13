@@ -24,6 +24,7 @@
 | `/wangzhe-wanxiangqi-data/json/mechanics.json` + csv | wiki 机制词典 26 条（已修编码） |
 | `/wangzhe-wanxiangqi-data/json/keywords.json` + csv | 官方关键词词典 13 条（新手指引） |
 | `/wangzhe-wanxiangqi-data/json/official_newbie_lineups.json` | 官方入门阵容 5 套 |
+| `/wangzhe-wanxiangqi-data/json/official_recommended_lineups.json` | 官网首页推荐阵容 6 组（棋手配对） |
 | `/wangzhe-wanxiangqi-data/json/pro_guides.json` + csv | 大神教学 12 篇（作者经验） |
 | `/wangzhe-wanxiangqi-data/json/unknowns_conflicts.json` | 未知与冲突汇总 |
 | `/wangzhe-wanxiangqi-data/json/heroes.json` + csv | 英雄 86 |
