@@ -1,0 +1,60 @@
+{
+  "schema": "wxq-official-newbie-lineups/v1",
+  "game": "王者万象棋",
+  "version": "1.1.1 / 2026-09-09",
+  "mode": "万象大赛",
+  "source": "官方新手指引《万象启航》入门阵容教学",
+  "source_url": "https://wxq.qq.com/cp/a202609xszy/index.html",
+  "local_raw": "raw/official-guide-a202609xszy.html",
+  "evidence_layer": "官方规则",
+  "collected_at": "2026-09-13",
+  "note": "官方新手指引列出 5 套入门阵容与代表英雄。日落海整备流、大河图腾流已在 lineups.json 做成自动化阵容；常小娥四人队（马瑶经典）为官网新人推荐（自动化第 2），不在本 5 套入门列表内。",
+  "count": 5,
+  "items": [
+    {
+      "id": "official-lineup-sandian-dengchang",
+      "name": "三分登场流",
+      "representative_hero": "吕布",
+      "keyword": "登场",
+      "automation_lineup_id": null,
+      "note": "官方入门阵容；以「登场」触发为核心。未纳入 3 套自动化。",
+      "evidence_level": "官方规则"
+    },
+    {
+      "id": "official-lineup-riluohai-zhengbei",
+      "name": "日落海整备流",
+      "representative_hero": "安琪拉",
+      "keyword": "整备",
+      "automation_lineup_id": "lineup-sunset-prepare",
+      "note": "官方入门阵容；已做成自动化第 1（lineups.json）。",
+      "evidence_level": "官方规则"
+    },
+    {
+      "id": "official-lineup-dahe-totem",
+      "name": "大河图腾流",
+      "representative_hero": "敖隐",
+      "keyword": "图腾/开团",
+      "automation_lineup_id": "lineup-dahe-totem",
+      "note": "官方入门阵容；已做成自动化第 3（lineups.json）。",
+      "evidence_level": "官方规则"
+    },
+    {
+      "id": "official-lineup-heluo-gubi",
+      "name": "河洛古币流",
+      "representative_hero": "百里玄策",
+      "keyword": "古币",
+      "automation_lineup_id": null,
+      "note": "官方入门阵容；未纳入 3 套自动化。",
+      "evidence_level": "官方规则"
+    },
+    {
+      "id": "official-lineup-zhulu-tactics",
+      "name": "逐鹿战术牌流",
+      "representative_hero": "蒙犽",
+      "keyword": "战术牌",
+      "automation_lineup_id": null,
+      "note": "官方入门阵容；未纳入 3 套自动化。",
+      "evidence_level": "官方规则"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "wxq-official-recommended-lineups/v1",
+  "game": "王者万象棋",
+  "version": "1.1.1 / 2026-09-09",
+  "mode": "万象大赛",
+  "source": "官网首页「新人推荐」轮播（王者万象棋首发专题）",
+  "source_url": "https://wxq.qq.com/",
+  "cdn_base": "https://game.gtimg.cn/images/osgame/cp/a20260709sfzt/",
+  "evidence_layer": "官方规则（官网文案）",
+  "collected_at": "2026-09-13",
+  "note": "官网首页「新人推荐」给出 6 组「推荐棋手 → 推荐阵容」的官方配对与阵容描述；比新手指引的 5 套入门阵容多出「嫦娥四人队」。每套均有「复制阵容码」按钮（阵容码字符串在页面 JS 中，未抓取）。",
+  "count": 6,
+  "items": [
+    {
+      "id": "rec-lineup-sandian-dengchang",
+      "name": "三分登场流",
+      "description": "这套阵容很多英雄为低阶，养成难度低，适合新手使用。",
+      "recommended_chessplayer": "白歌",
+      "chessplayer_id": "player-baige",
+      "representative_hero": "吕布",
+      "automation_lineup_id": null,
+      "in_newbie_guide": true
+    },
+    {
+      "id": "rec-lineup-riluohai-zhengbei",
+      "name": "日落海整备流",
+      "description": "以培养阿科米亚核心为主的阵容，操作简单，凑齐阵容英雄后全员自动成长。",
+      "recommended_chessplayer": "香香",
+      "chessplayer_id": "player-xiangxiang",
+      "representative_hero": "安琪拉",
+      "automation_lineup_id": "lineup-sunset-prepare",
+      "in_newbie_guide": true,
+      "note": "官网描述核心为「阿科米亚核心」（海诺）；新手指引代表英雄为安琪拉。"
+    },
+    {
+      "id": "rec-lineup-change-four",
+      "name": "嫦娥四人队",
+      "description": "这套阵容凑齐4个英雄后每回合靠棋手技能成长，操作难度低，但找齐英雄有一定运气成分。",
+      "recommended_chessplayer": "常小娥",
+      "chessplayer_id": "player-changxiaoe",
+      "representative_hero": "苏烈 / 瑶 / 马超 / 海月",
+      "automation_lineup_id": "lineup-changxiaoe-four",
+      "in_newbie_guide": false,
+      "note": "不在新手指引 5 套入门阵容内，为官网首页额外推荐；即自动化第 2。"
+    },
+    {
+      "id": "rec-lineup-dahe-totem",
+      "name": "大河图腾流",
+      "description": "以敖隐为核心输出的阵容，操作简单，凑齐阵容英雄后全员自动成长。",
+      "recommended_chessplayer": "瑶妹",
+      "chessplayer_id": "player-yaomei",
+      "representative_hero": "敖隐",
+      "automation_lineup_id": "lineup-dahe-totem",
+      "in_newbie_guide": true
+    },
+    {
+      "id": "rec-lineup-heluo-gubi",
+      "name": "河洛古币流",
+      "description": "以百里玄策为单核的阵容，随着百里玄策的等级提升，后期非常强力。",
+      "recommended_chessplayer": "庄小鱼",
+      "chessplayer_id": "player-zhuangxiaoyu",
+      "representative_hero": "百里玄策",
+      "automation_lineup_id": null,
+      "in_newbie_guide": true
+    },
+    {
+      "id": "rec-lineup-zhulu-tactics",
+      "name": "逐鹿战术牌流",
+      "description": "这是用战术牌提升战力的阵容，操作比较复杂，需频繁使用卡牌，推荐有一定游戏经验后再尝试。",
+      "recommended_chessplayer": "小妲己",
+      "chessplayer_id": "player-xiaodaji",
+      "representative_hero": "蒙犽",
+      "automation_lineup_id": null,
+      "in_newbie_guide": true
+    }
+  ]
+}

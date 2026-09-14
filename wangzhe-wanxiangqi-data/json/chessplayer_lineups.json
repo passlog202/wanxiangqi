@@ -1,0 +1,293 @@
+{
+  "schema": "wxq-chessplayer-lineups/v1",
+  "game": "王者万象棋",
+  "mode": "万象大赛",
+  "version": "1.1.1 / 2026-09-09",
+  "collected_at": "2026-09-13",
+  "source": {
+    "chessplayer": "json/chessplayers.json（wiki chessplayerFacts，官网棋手技能原文）",
+    "lineups": "raw/wanxiangqiwiki.com_lineup-featured-presets.json（wiki 25 套预设）+ 官网首页新人推荐 + 官方新手指引 + json/pro_guides.json（大神教学）"
+  },
+  "evidence_layer": {
+    "skill": "官方规则（官网棋手技能原文）",
+    "official_recommendation": "官方规则（官网首页新人推荐：白歌→三分登场流）",
+    "wiki_presets": "作者经验（observed_high_rank，player_reference）",
+    "pro_guide_titles": "作者经验（官方页收录的大神教学标题）"
+  },
+  "notes": [
+    "本文件把「棋手→其关联阵容与策略」结构化，便于自动化按棋手取阵容；首条为白歌。",
+    "白歌 lineups / automation_lineups 在 chessplayers.json 中为空（未做自动化标签），其 3 套关联阵容记录于此。",
+    "白歌的技能卡（即兴创作/灵感爆发/奇才）是棋手专属牌，不在效果牌目录（effects.json 无此三卡）。",
+    "wiki 两套白歌预设（白歌三分倒转/白歌高阶逐鹿）的 mid/late 与多套预设共用同一站位（雅典娜/鲁班大师/少司缘/亚连/朵莉亚/米莱狄/苍），属已知数据污染，只采用 early + 标题 + core_idea。",
+    "「三分登场流/三分倒转」的「三分」指阵营「三分之地」，非「三个阵容」。"
+  ],
+  "chessplayers": [
+    {
+      "id": "player-baige",
+      "name": "白歌",
+      "recommendation_tagline": "以合成催生复制，以秘技斩击核心牌",
+      "skill_chain": [
+        {
+          "type": "技能",
+          "name": "神来之笔",
+          "text": "每进行4次英雄合成，白歌获得1张即兴创作。"
+        },
+        {
+          "type": "技能效果",
+          "name": "即兴创作",
+          "text": "随机获得场上1名英雄的复制。"
+        },
+        {
+          "type": "秘技",
+          "name": "天生我才·秘技",
+          "text": "使用6张即兴创作，获得1张秘技牌灵感爆发。"
+        },
+        {
+          "type": "秘技牌",
+          "name": "灵感爆发",
+          "text": "释放3道剑气，斩击手牌中随机3张非觉醒英雄牌，将每张牌斩为2张转瞬版复制。"
+        },
+        {
+          "type": "专属(6级)",
+          "name": "惊才绝艳",
+          "text": "获得一张奇才：指定1名英雄，获得4张该英雄牌。"
+        },
+        {
+          "type": "专属效果",
+          "name": "奇才",
+          "text": "指定1名英雄，获得4张该英雄牌。"
+        }
+      ],
+      "strategy_summary": "资源入口唯一：合成。每 4 次英雄合成产 1 张「即兴创作」随机复制场上英雄 → 复制再合成、滚雪球推等级；秘技「灵感爆发」把手牌非觉醒牌斩成转瞬复制翻倍；6 级专属「奇才」定点给 1 名英雄 4 张牌，配合合成链冲高等级（大神教学标题「全员999」即此意）。",
+      "automation_remark": "未纳入 3 套自动化：白歌三分倒转官方/wiki 标为高手法；白歌依赖持续合成操作，操作密度高于闹闹/常小娥/瑶妹。",
+      "lineups": [
+        {
+          "id": "baige-lineup-sandian-dengchang",
+          "name": "三分登场流",
+          "source": "官网首页「新人推荐」（白歌为推荐棋手）+ 官方新手指引入门阵容",
+          "evidence_level": "官方规则（阵容归属为官网推荐；代表英雄吕布）",
+          "status": "官方新手阵容，未自动化",
+          "description": "这套阵容很多英雄为低阶，养成难度低，适合新手使用。",
+          "representative_hero": "吕布",
+          "core_mechanism": "三分之地「登场」效果触发链：登场牌互相触发、滚动等级；吕布开团给三分高等级英雄吸血。",
+          "core_heroes": [
+            {
+              "name": "吕布",
+              "id": "hero-lvbu",
+              "faction": "三分之地",
+              "quality": 5,
+              "card": "开团：等级最高的3名【三分】英雄获得20%物理和法术吸血，若目标为吕布，效果翻倍（觉醒扩至6名）。"
+            },
+            {
+              "name": "周瑜",
+              "id": "hero-zhouyu",
+              "faction": "三分之地",
+              "quality": 5,
+              "card": "登场：全体英雄等级+1（觉醒+2）。"
+            },
+            {
+              "name": "小乔",
+              "id": "hero-1061",
+              "faction": "三分之地",
+              "quality": 4,
+              "card": "每当你的英雄触发登场效果时，随机3名英雄等级+1。"
+            },
+            {
+              "name": "甄姬",
+              "id": "hero-1271",
+              "faction": "三分之地",
+              "quality": 4,
+              "card": "登场：获得1张其他的登场英雄牌。"
+            },
+            {
+              "name": "曹操",
+              "id": "hero-1281",
+              "faction": "三分之地",
+              "quality": 2,
+              "card": "整备：随机触发1名【三分】英雄的登场效果。"
+            },
+            {
+              "name": "孙尚香",
+              "id": "hero-1111",
+              "faction": "三分之地",
+              "quality": 1,
+              "card": "低阶过渡（三分之地 1 阶）。"
+            }
+          ],
+          "faction_pool_note": "三分之地共 13 名英雄：孙尚香/曹操/赵云/大乔/蔡文姬/马超/刘禅/貂蝉/甄姬/小乔/诸葛亮/吕布/周瑜。",
+          "how_baige_fits": "白歌合成复制加速找牌/成型；奇才可直接给吕布或周瑜 4 张定点提核心。",
+          "talents": [
+            "三分新援",
+            "三分来客",
+            "三分精兵",
+            "三三得三",
+            "三分领袖",
+            "三分强援",
+            "三分增援",
+            "三人游"
+          ]
+        },
+        {
+          "id": "baige-lineup-sandian-daozhuan",
+          "name": "白歌三分倒转",
+          "source": "wiki 25 套预设（baseline:ec6d55c5）+ 大神教学（西君《白歌三分倒转！全员999强力阵容》）",
+          "evidence_level": "作者经验（observed_high_rank，player_reference）",
+          "status": "未选自动化（高手法/全员999）",
+          "core_idea": "怎么活到四级D到甄姬小乔是个问题",
+          "early_units": [
+            {
+              "cell": "C4",
+              "hero": "孙悟空",
+              "id": "hero-1671",
+              "awakened": false,
+              "equipment": [
+                "聚灵水晶",
+                "无尽巨剑",
+                "铸梦·逐风"
+              ]
+            },
+            {
+              "cell": "D1",
+              "hero": "周瑜",
+              "id": "hero-zhouyu",
+              "awakened": false,
+              "equipment": []
+            },
+            {
+              "cell": "E1",
+              "hero": "曹操",
+              "id": "hero-1281",
+              "awakened": true,
+              "equipment": [
+                "近卫荣耀",
+                "霸者重铠"
+              ]
+            },
+            {
+              "cell": "E2",
+              "hero": "小乔",
+              "id": "hero-1061",
+              "awakened": true,
+              "equipment": []
+            },
+            {
+              "cell": "E4",
+              "hero": "阿轲",
+              "id": "hero-1161",
+              "awakened": false,
+              "equipment": [
+                "影牙",
+                "铸梦·逐风",
+                "无尽巨剑"
+              ]
+            },
+            {
+              "cell": "F3",
+              "hero": "甄姬",
+              "id": "hero-1271",
+              "awakened": true,
+              "equipment": []
+            },
+            {
+              "cell": "F4",
+              "hero": "露娜",
+              "id": "hero-luna",
+              "awakened": false,
+              "equipment": []
+            }
+          ],
+          "strategy": "三分登场链（周瑜/小乔/甄姬/曹操互相触发登场滚等级）+ 白歌「神来之笔」复制加速合成 → 等级倒转式滚到全员 999；活到 4 级后 D（刷新）到甄姬/小乔是成型关键。",
+          "mid_late_note": "mid/late 与多套预设共用（雅典娜/鲁班大师/少司缘/亚连/朵莉亚/米莱狄/苍），属数据污染，不采用。",
+          "heroes_note": "孙悟空（无阵营，整备给闪现英雄+2级）、露娜（日落海，闪现登场触发整备）作为闪现/整备外挂；阿轲（无阵营，登场+1级）补等级。"
+        },
+        {
+          "id": "baige-lineup-gaojie-zhulu",
+          "name": "白歌高阶逐鹿",
+          "source": "wiki 25 套预设（baseline:27250dc4）",
+          "evidence_level": "作者经验（observed_high_rank，player_reference）",
+          "status": "未自动化（高阶/战术牌运营）",
+          "core_idea": "怎么活到四级D到嬴政是个问题",
+          "early_units": [
+            {
+              "cell": "A2",
+              "hero": "白起",
+              "id": "hero-1201",
+              "awakened": true,
+              "equipment": []
+            },
+            {
+              "cell": "A3",
+              "hero": "西施",
+              "id": "hero-5231",
+              "awakened": true,
+              "equipment": [
+                "制裁之剑"
+              ]
+            },
+            {
+              "cell": "A4",
+              "hero": "嬴政",
+              "id": "hero-yingzheng",
+              "awakened": true,
+              "equipment": [
+                "炽热支配者",
+                "虚无法杖",
+                "痛苦面具"
+              ]
+            },
+            {
+              "cell": "B2",
+              "hero": "庄周",
+              "id": "hero-1131",
+              "awakened": true,
+              "equipment": [
+                "霸者重铠",
+                "不死鸟之眼"
+              ]
+            },
+            {
+              "cell": "B3",
+              "hero": "芈月",
+              "id": "hero-1211",
+              "awakened": true,
+              "equipment": [
+                "近卫荣耀"
+              ]
+            },
+            {
+              "cell": "B4",
+              "hero": "蒙犽",
+              "id": "hero-mengya",
+              "awakened": false,
+              "equipment": [
+                "无尽巨剑",
+                "魔律之刃",
+                "法源之杯"
+              ]
+            },
+            {
+              "cell": "C3",
+              "hero": "鲁班七号",
+              "id": "hero-1121",
+              "awakened": false,
+              "equipment": []
+            }
+          ],
+          "strategy": "逐鹿战术牌流：白起（效果牌→援护战术）、西施（整备→推演战术）、庄周（登场→招募战术）、蒙犽（登场→特训战术）、鲁班七号（每合成3次→1张战术牌）持续产战术牌，堆高嬴政「开团法攻+7×战术牌次数」；白歌合成复制与鲁班七号合成产牌协同。",
+          "mid_late_note": "mid/late 与多套预设共用（同污染），不采用。"
+        }
+      ],
+      "conflicts": [
+        {
+          "topic": "白歌三分倒转 mid/late",
+          "issue": "mid/late 与其他预设共用站位，属数据污染",
+          "resolution": "只用 early + 标题 + core_idea，证据层级=推测"
+        }
+      ],
+      "unknowns": [
+        "白歌三分倒转/高阶逐鹿的官方分阶段运营（官方新手指引未给白歌图文教学，仅大神教学标题）",
+        "「倒转」的精确结算（登场链+合成的等级滚动上限与顺序，无官方数值）"
+      ]
+    }
+  ]
+}

@@ -51,6 +51,10 @@
       "换位、装备拖放的逐步操作图",
       "战斗界面与淘汰结算页",
       "铸造、备选、加速成长、光棱塔按钮的完整效果"
+    ],
+    "talents": [
+      "天赋候选在每次「拍卖/初始阵容」中的具体权重（wiki 目录仅有 talentStage 阶段归属，无概率）",
+      "talentStage「第八轮拍卖」与机制词典拍卖回合 4/8/12 的口径差异原因（是否按 8 次拍卖录入、是否含初始阵容拍卖、或版本差异）"
     ]
   },
   "conflicts": {
@@ -121,6 +125,15 @@
         "chessplayerFacts": "50/175/400",
         "official_guide": "50/150/375",
         "resolution": "自动化采用官方新手指引/官网首页 50/150/375；本目录 skillSections 保留 chessplayerFacts 原文"
+      }
+    ],
+    "talents": [
+      {
+        "topic": "天赋出现阶段（talentStage）与拍卖回合",
+        "wiki_mechanics": "拍卖回合 4 / 8 / 12（共 3 次，user_calibrated 2026-09-08）",
+        "wiki_talent_catalog": "天赋目录 talentStage 分布：初始阵容18 / 第一轮拍卖17 / 第二轮拍卖14 / 第三轮拍卖11 / 第四轮拍卖9 / 第五轮拍卖9 / 第六轮拍卖8 / 第七轮拍卖13 / 第八轮拍卖167（空3）",
+        "resolution": "未裁决。两套并存：规则正文仍用机制词典 4/8/12；talentStage 仅作天赋卡面阶段归属记录（wiki 天赋目录数据）。",
+        "evidence_level": "wiki（user_calibrated）"
       }
     ]
   }
